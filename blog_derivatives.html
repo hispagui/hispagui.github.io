@@ -74,26 +74,41 @@
           First of all, homology and cohomology are two sides of the same coin and there exist many kinds of (co)homology, a little bit like there are mutiple currencies. 
           
 
-          Concretely homology is the study of holes in topological spaces, it gives us a way to define what a hole is and also it permits us to distinguish between different kidns of holes
+          Concretely homology is the study of holes in sufficiently nice topological spaces, 
+          it gives us a way to define what a hole is and it allows us to distinguish between different kidns of holes. <br>
           
           example the torus and the sphere.
-          One way of understanding how loops can be different how it might be hard to give a general definition of a hole.
+          One way of understanding how we can have different kinds of holes and how it might get tricky to give a general definition of a hole, is to look at the following examples;
+          Imagine you have a sphere, a hollow ball if you will.
+          What we can do to <it>test</it> for the abscence of holes on that sphere is to consider a loop on the surface of the sphere (like putting a rubber band arround a ping-pong ball) and move it arround.
+          If you assume that your rubber band is magic and that it can shrink into dissapeering, then this will happen, without lifting the ruber band from the ping-poing ball, by sliding it to a single point, you can make your rubber band disapear ! (look at the picture)
+          This exactly means that the sphere does not have a \(1\)-dimensional hole.
+          PICTURE <br>
 
-          The idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it> to define a homology group.
+          Now in place of a sphere, consider a torus (or an inflated swim ring), and attach a rubber band to it.
+          The situation here is a bit different, there is actually two ways you can fit a rubber band onto a torus; one is to just put your rubber band onto the torus and the other one is to imagine that string was already "inside" your torus beforehand. (see picture bellow)
+          And this is a completely different situation than the one we had with the sphere.
+          For the torus, it is impossible to move either rubber bands (without breaking them) in a way, so that they do not get lifted from the surface of the torus and they do not disapear into thin air (like with the sphere).
+          This means that the torus has two \(1\)-dimensional holes.
+          PICTURE <br>
+
+          There is a way to describe this processus formally, the idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
           
-          Suppose we have \(X\) a <it>resonnable</it> topological space.
+          Suppose we have \(X\) a <it>resonnable</it> topological space (our sphere, torus, or whatever smooth space we like).
+          For what comes next, we need to define what a \(k\)-chains is, we can do this informally.
+          A \(k\)-chain can be thought of as a pile of \(k\)-dimensional flabby arrows, that you can attach together (now what a \(4\)-dimensional arrow is, I leave your imagination do the work).
+          PICTURE 
+
+          Let \(C_i(X)\) be the \(n\)-dimensional vector space whose elements are the \(i\)-chains. 
+          Let \(\partial_i: C_i(X) \rightarrow C_{i-1}(X)\) sending an \(i\)-cell to its boundary.
+          Formally, we have the following sequence,
+          $$ \{1\text{-chains}\} \xleftarrow{\partial_1} \{2\text{-chains}\} \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$
+          Let \(Z_i := \text{ker}(\partial_i)\) be the set of cycles (so \(i\)-chains whose endpoints meet) and \(B_i := \text{im}(d_{i+1})\) the set of boundaries.
           
-          Let \(C_i(X)\) be a vector space of dimension \(n\) whiche elements are \(i\)-chains. 
-          By chains I mean the following
-          Let \(d_i: C_i(X) \rightarrow C_{i-1}(X)\) sending an \(i\)-cell to its boundary.
-          Formally, we have the following sequence 
-          $$ \{1\text{-chains}\} \xleftarrow{d_1} \{2\text{-chains}\} \xleftarrow{d_2} \{3\text{-chains}\} \xleftarrow{d_3} ... $$
-          Let \(Z_i := ker(d_i)\) be the set of cycles and \(B_i := im(d_{i+1})\) the set of boundaries.
-          
-          Notice that an \(i+1\) boundary is also a \(i\)-cycle, so \(im(d_{i+1})\subset ker(d_i)\)
-          The we define the \(n\)-th homology group \(H_n(X)\) of \(X\) to be the group 
-          $$H_n(X) = \frac{Z_n}{B_n}.$$
-          
+          Notice that an \(i+1\) boundary is also a \(i\)-cycle, so \(\text{im}(d_{i+1})\subset \text{ker}(d_i)\)
+          Finally we can define what the \(n\)-th homology group of \(X\) written \(H_n(X)\) is.<br>
+          It is <b>H_n(X) = \frac{Z_n}{B_n}</b>. It is important noting that it is also a vector space and dim \(H_n(X)\) is exactlythe number of \(n\)-dimensional holes.
+      
           
 
 
