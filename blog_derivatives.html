@@ -7,6 +7,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog — Loris De Vos</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js">
+  </script>
   <meta name="description" content="Writing by Loris De Vos." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" sizes="64x64" href="fox_logo.png">
@@ -37,6 +39,45 @@
         <div class="a">
         - First of all, let me introduce a few concepts:
           intro to calculus (df = f'(x)dx ... introduce forms)
+        </div>
+        <div class="a">
+          Differential forms. In this article I do not want to introduce rigoursly what differential forms are.
+          I leave this 
+          Forms were introduced to generalise the concept of gradient of a function to arbitrary smooth manifolds.
+          Recall that the gradient is a vector valued operator eating a differentiable function \(f\) and a point \(p\). 
+          It is related to the directional derivative as follows: \(df_p(v) = \frac{\del f}{\del v}(p) = \nabla f(p) \cdot v \). 
+          where \(v\) is a tangent vector at \(p\).
+          So the gradient of the function \(f\) is a vector field that assign to each point \(p\), the directional derivative of \(f\) at \(p\), \(\frac{\del f}{/del v} (p)\).
+
+          However, if we want to generalise such a notion to less trivial spaces, we are going to have a problem,
+          namely, that the dot product is not defined in arbitrary vector spaces (such as the tangent space of a smooth manifold).
+          
+          So what can we do now ?
+
+          Let me introduce the twin of vector space: its the dual (vector) space! 
+          Where an element of the dual space is a linear function that sends a vector to a scalar.
+          Now we can interpret the gradient as a function that assigns to each point of a smooth space an element of the dual of the tangent space that gives you the directional derivative when you give it v as input
+          And theses functins are exactly what we call differential forms. (The gradient is simply a special kind of differential form)
+          And these functions from the smooth manifolds to dual element of their tangent spaces are called differential forms
+
+
+        </div>
+
+        <div class="a">
+          What does (co)homology mean ? <br>
+          First of all, homology and cohomology are two sided of the same coin and there exist many kinds of (co)homology, a little bit like there are mutiple currencies.
+
+          
+          
+          
+          One of the currencies is the de Rham cohomology.
+
+
+
+
+        </div>
+
+
 
         <br>
         - Homology: what is a hole and how do we distinguish different kinds of holes <br>
