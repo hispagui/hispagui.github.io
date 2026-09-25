@@ -41,13 +41,14 @@
           intro to calculus (df = f'(x)dx ... introduce forms)
         </div>
         <div class="a">
-          Differential forms. In this article I do not want to introduce rigoursly what differential forms are.
-          I leave this 
-          Forms were introduced to generalise the concept of gradient of a function to arbitrary smooth manifolds.
+          Unfortunately in order to understand the main ...
+          we need to introduce differential forms. These objects can be quite obscure at first, for that reason let me try and give you an intuitive look into differential forms.
+      
+          Differential forms were introduced to generalise the concept of gradient of a function to arbitrary geometric objects of various dimensions such as curves, surfaces, ..., smooth manifolds of dimension \(n\).
           Recall that the gradient is a vector valued operator eating a differentiable function \(f\) and a point \(p\). 
-          It is related to the directional derivative as follows: \(df_p(v) = \frac{\del f}{\del v}(p) = \nabla f(p) \cdot v \). 
+          It is related to the directional derivative as follows: \(df_p(v) = \frac{\partial f}{\partial v}(p) = \nabla f(p) \cdot v \). 
           where \(v\) is a tangent vector at \(p\).
-          So the gradient of the function \(f\) is a vector field that assign to each point \(p\), the directional derivative of \(f\) at \(p\), \(\frac{\del f}{/del v} (p)\).
+          So the gradient of the function \(f\) is a vector field that assign to each point \(p\), the directional derivative of \(f\) at \(p\), \(\frac{\partial f}{\partial v} (p)\).
 
           However, if we want to generalise such a notion to less trivial spaces, we are going to have a problem,
           namely, that the dot product is not defined in arbitrary vector spaces (such as the tangent space of a smooth manifold).
@@ -57,19 +58,48 @@
           Let me introduce the twin of vector space: its the dual (vector) space! 
           Where an element of the dual space is a linear function that sends a vector to a scalar.
           Now we can interpret the gradient as a function that assigns to each point of a smooth space an element of the dual of the tangent space that gives you the directional derivative when you give it v as input
-          And theses functins are exactly what we call differential forms. (The gradient is simply a special kind of differential form)
+          And theses functions are exactly what we call differential forms.
+          So formally, 
           And these functions from the smooth manifolds to dual element of their tangent spaces are called differential forms
 
+          Now, consider arbibtrary coordinates \(x,y,z,...\) that let us describe local regions of the manifold using Euclidean coordinates (this is quite standard in differential geometry).
+          These are just funcions, that give us a point in the manifold. Therefore, we can take their gradients! We get the differential forms \(dx, dy, dz, ...\).
+          Finally we can now understand \(df = (df/dx)dx + (df/dy)dy + (df/dz)dz+ ...\)
 
         </div>
 
         <div class="a">
-          What does (co)homology mean ? <br>
-          First of all, homology and cohomology are two sided of the same coin and there exist many kinds of (co)homology, a little bit like there are mutiple currencies.
+          What does (co)homology mean ? 
+          This is a hared subject.  <br>
+          First of all, homology and cohomology are two sides of the same coin and there exist many kinds of (co)homology, a little bit like there are mutiple currencies. 
+          
+
+          Concretely homology is the study of holes in topological spaces, it gives us a way to define what a hole is and also it permits us to distinguish between different kidns of holes
+          
+          example the torus and the sphere.
+          One way of understanding how loops can be different how it might be hard to give a general definition of a hole.
+
+          The idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it> to define a homology group.
+          
+          Suppose we have \(X\) a <it>resonnable</it> topological space.
+          
+          Let \(C_i(X)\) be a vector space of dimension \(n\) whiche elements are \(i\)-chains. 
+          By chains I mean the following
+          Let \(d_i: C_i(X) \rightarrow C_{i-1}(X)\) sending an \(i\)-cell to its boundary.
+          Formally, we have the following sequence 
+          $$ \{1\text{-chains}\} \xleftarrow{d_1} \{2\text{-chains}\} \xleftarrow{d_2} \{3\text{-chains}\} \xleftarrow{d_3} ... $$
+          Let \(Z_i := ker(d_i)\) be the set of cycles and \(B_i := im(d_{i+1})\) the set of boundaries.
+          
+          Notice that an \(i+1\) boundary is also a \(i\)-cycle, so \(im(d_{i+1})\subset ker(d_i)\)
+          The we define the \(n\)-th homology group \(H_n(X)\) of \(X\) to be the group 
+          $$H_n(X) = \frac{Z_n}{B_n}.$$
+          
+          
+
+
 
           
-          
-          
+          Now cohomolgy on the other hand 
           One of the currencies is the de Rham cohomology.
 
 
