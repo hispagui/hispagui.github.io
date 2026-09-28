@@ -29,18 +29,19 @@
     <section class="section">
       <h2>A peculiar interpretation of derivatives</h2>
 
-      <p>
+      <p class="blog-txt">
         <div class="a">
           The motivation for this article comes from William Thurston's superb essay <i>On proof and progress in mathematics</i>.
           In this discussion I will explore deep and intricate connections from already hard mathematical concetps.
           My goal is to provide the best possible intuition for those ideas to you.
           In this context, I will refrain myself from using technical language and do my best to keep the discussion light and visual. 
-          But for sake of understanding I must introduce two important abstract concepts, that of differential forms and (co)homology.
+          But, for sake of understanding I must introduce two important abstract concepts, that of differential forms and (co)homology.
         </div>
+      </p>
     
-        
+      <p class="blog-txt">
         <div class="a">
-          Differential forms can be quite obscure objects. They were introduced to generalise the concept of gradient of a function onto arbitrary geometric objects of various dimensions such as loops, spheres, donuts, klein bottles, ..., or more generally what we call smooth manifolds of dimension \(n\).
+          Ok, so first, <i>differential forms</i> can be quite obscure objects. They were introduced to generalise the concept of gradient of a function onto arbitrary geometric objects of various dimensions such as loops, spheres, donuts, klein bottles, ..., or more generally what we call smooth manifolds of dimension \(n\).
           Recall that the gradient is an operator \(\nabla\) that eats a function \(f\) (differentiable), a point \(p\) and outputs a vector. 
 
           PICTURE ?
@@ -70,11 +71,13 @@
           Finally we can now understand \(df = (df/dx)dx + (df/dy)dy + (df/dz)dz+ ...\)
 
         </div>
+      </p>
 
         <div class="a">
           Now that we know what differential forms are, let's attack the next subject:
         </div>
 
+      <p class="blog-txt">
         <div class="a">
           What does (co)homology even mean (such a weird word right)?   <br>
           First of all, there are two notions here, homology and cohomology.
@@ -91,26 +94,29 @@
           <img src="sphere_claude.png" class="center-image" alt="rubber band shrinking on sphere"> <br>
 
           Now in place of a sphere, consider a torus (or an inflated swim ring), and attach a rubber band to it.
-          The situation here is a bit different, there is actually two ways in which you can fit a rubber band onto a torus; one is to just put your rubber band onto the "exterior" of the torus and the other one is to imagine that the inflatable swim ring was constructed with a rubber band on its "inside" part. (see picture bellow)
+          The situation here is a bit different, there is actually two ways in which you can fit a rubber band onto a torus; one is to just put your rubber band onto the "exterior" of the torus and the other one is to imagine that the inflatable swim ring was constructed with a rubber band on its "inside" part (do you get it from picture bellow?).
           And this is a completely different situation than the one we had with the sphere.
-          For the torus, it is impossible to shrink either rubber bands into a single point without lifting them (and without breaking them).
+          For the torus, it is impossible to shrink either rubber bands into a single point without lifting and breaking them (you can try if you want!).
           This means that the torus has two \(1\)-dimensional holes.
-          And this actually tells us a lot about the <b>structure</b> of the torus, it hints at us that the torus has two circles <i>in it</i> (\(\mathbb{T}\cong S^1 \times S^1 \))
+          And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints to us the fact that the torus has two circles <i>in it</i> (in mathematical formalism, we write \(\mathbb{T}\cong S^1 \times S^1 \)).
           <img src="torus_claude.png" class="center-image" alt="rubber bands on torus"> <br>
         </div>
+      </p>
 
+
+      <p class="blog-txt">
         <div class="a">
           There is a way to describe this processus formally, the idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
           
-          Suppose we have \(X\) a <it>resonnable</it> topological space (a ping-pong ball, an inflatable swim ring, spacetime! or whatever smooth space you like).
-          For what comes next, we need to define what a \(k\)-chains is, we can do this informally.
+          Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, spacetime! or whatever smooth space you like).
+          For what comes next, we need to define what a \(k\)-chains is.
           A \(k\)-chain can be thought of as a pile of \(k\)-dimensional flabby arrows, that you can attach together (now what a \(4\)-dimensional arrow is, I leave your imagination do the work).
           PICTURE 
 
-          Let \(C_i(X)\) be the \(n\)-dimensional vector space whose elements are the \(i\)-chains. 
-          Let \(\partial_i: C_i(X) \rightarrow C_{i-1}(X)\) sending an \(i\)-cell to its boundary.
+          Let \(C_k(X)\) be the \(k\)-dimensional set whose elements are the \(k\)-chains. 
+          Let \(\partial_i: C_i(X) \rightarrow C_{i-1}(X)\) be a rule sending an \(i\)-cell to its boundary.
           Formally, we have the following sequence,
-          $$ \{1\text{-chains}\} \xleftarrow{\partial_1} \{2\text{-chains}\} \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$
+          $$ \{0\text{-chains}\} \xleftarrow{\partial_0} \{1\text{-chains}\} \xleftarrow{\partial_1} \{2\text{-chains}\} \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$
           Let \(Z_i := \text{ker}(\partial_i)\) be the set of cycles (so \(i\)-chains whose endpoints meet) and \(B_i := \text{im}(d_{i+1})\) the set of boundaries.
           
           Notice that an \(i+1\) boundary is also a \(i\)-cycle, so \(\text{im}(d_{i+1})\subset \text{ker}(d_i)\).
