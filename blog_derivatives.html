@@ -70,29 +70,30 @@
 
         <div class="a">
           What does (co)homology mean ? 
-          This is a hared subject.  <br>
+          This is a hard subject.  <br>
           First of all, homology and cohomology are two sides of the same coin and there exist many kinds of (co)homology, a little bit like there are mutiple currencies. 
-          
-
           Concretely homology is the study of holes in sufficiently nice topological spaces, 
           it gives us a way to define what a hole is and it allows us to distinguish between different kidns of holes. <br>
           
-          example the torus and the sphere.
+          example : the torus and the sphere.
           One way of understanding how we can have different kinds of holes and how it might get tricky to give a general definition of a hole, is to look at the following examples;
           Imagine you have a sphere, a hollow ball if you will.
-          What we can do to <it>test</it> for the abscence of holes on that sphere is to consider a loop on the surface of the sphere (like putting a rubber band arround a ping-pong ball) and move it arround.
-          If you assume that your rubber band is magic and that it can shrink into becoming a point, then this will happen. 
+          What we can do to <it>test</it> for the existence/abscence of holes on that sphere is to consider a loop on the surface of the sphere (like putting a rubber band arround a huge ping-pong ball) and move it arround.
+          If you assume that your rubber band is magic and that it can shrink until it becomes a point, then this will happen. 
           Without lifting the ruber band from the ping-poing ball, by sliding it to one part of the sphere, you can make it shrink to a single point ! (look at the picture)
           This exactly means that the sphere does not have a \(1\)-dimensional hole.
-          <img src="sphere_claude.png" alt="rubber band shrinking on sphere"> <br>
+          <img src="sphere_claude.png" style="width: 30vw; min-width: 330px;" alt="rubber band shrinking on sphere"> <br>
 
           Now in place of a sphere, consider a torus (or an inflated swim ring), and attach a rubber band to it.
           The situation here is a bit different, there is actually two ways in which you can fit a rubber band onto a torus; one is to just put your rubber band onto the "exterior" of the torus and the other one is to imagine that the inflatable swim ring was constructed with a rubber band on its "inside" part. (see picture bellow)
           And this is a completely different situation than the one we had with the sphere.
-          For the torus, it is impossible to move either rubber bands (without breaking them) in a way, so that they do not get lifted from the surface of the torus and they do not disapear into thin air (like with the sphere).
+          For the torus, it is impossible to shrink either rubber bands into a single point without lifting them (and without breaking them).
           This means that the torus has two \(1\)-dimensional holes.
-          <img src="torus_claude.png" alt="rubber bands on torus"> <br>
+          And this actually tells us a lot about the <b>structure</b> of the torus, it hints at us that the torus has two circles <i>in it</i> (\(\mathbb{T}\cong S^1 \times S^1 \))
+          <img src="torus_claude.png" style="width: 30vw; min-width: 330px;" alt="rubber bands on torus"> <br>
+        </div>
 
+        <div class="a">
           There is a way to describe this processus formally, the idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
           
           Suppose we have \(X\) a <it>resonnable</it> topological space (our sphere, torus, or whatever smooth space we like).
@@ -106,20 +107,35 @@
           $$ \{1\text{-chains}\} \xleftarrow{\partial_1} \{2\text{-chains}\} \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$
           Let \(Z_i := \text{ker}(\partial_i)\) be the set of cycles (so \(i\)-chains whose endpoints meet) and \(B_i := \text{im}(d_{i+1})\) the set of boundaries.
           
-          Notice that an \(i+1\) boundary is also a \(i\)-cycle, so \(\text{im}(d_{i+1})\subset \text{ker}(d_i)\)
+          Notice that an \(i+1\) boundary is also a \(i\)-cycle, so \(\text{im}(d_{i+1})\subset \text{ker}(d_i)\).
           Finally we can define what the \(n\)-th homology group of \(X\) written \(H_n(X)\) is.<br>
-          It is <b>H_n(X) = \frac{Z_n}{B_n}</b>. It is important noting that it is also a vector space and dim \(H_n(X)\) is exactlythe number of \(n\)-dimensional holes.
+          It is <b>H_n(X) = \frac{Z_n}{B_n}</b>. It is important noting that it is also a vector space and dim \(H_n(X)\) is exactlythe number of \(n\)-dimensional holes of the space \(X\).
       
           
 
+          <!-- EXPLAIN HOW BOUNDARIES (0 BOUNDARIES) ARE/DETECT HOLES -->
 
+        </div>
+        <div class="a">
+          Now cohomolgy on the other hand asks questions about functions (this is usually how we think about objects <i>dually</i>).
+          Instead of asking what cycles does the space contain, we ask what functions/rules can be put on those cycles ??? -such that- that detect their topology???
+          So for example instead of defining a \(k\)-chain as above, we will have a \(k\)-cochain which is a function \(f:C_k(X) \rightarrow R\) (where \(R\) is some number set, usually a ring).
+        
+          Something that happens when taking the duals is that we have to reverse the arrows. (this way of thinking comes from CATEGORY THEORY, and in the language of category theory, it translates to: the dual operator is actually a contravariant functor,  as categories \(\{k\text{-chains} \cong \{k\text{-cochains}\}^{op} \}\) )
+          What I mean is that our <i>co</i>boundary operator \(\delta\) takes an \(i\)-cochain and sends it a an \(i+1\)-cochain.
+          What people often do in algebraic topology and category theory is draw diagrams. This is very useful when we want to visualise what we are talking about.
+          
+          DIAGRAM HERE
+
+          We have thus defined cochains and a coboundary operator, so as above, we can now define the cohomology of a topological space:
 
           
-          Now cohomolgy on the other hand 
-          One of the currencies is the de Rham cohomology.
-
-
-
+          And again we define the cohomology group as ...
+        </div>
+          
+        
+        <div class="a">
+          Now, one of the currencies is the de Rham cohomology.
 
         </div>
 
