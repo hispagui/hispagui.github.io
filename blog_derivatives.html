@@ -32,42 +32,43 @@
       <p class="blog-txt">
         <div class="a">
           The motivation for this article comes from William Thurston's superb essay <i>On proof and progress in mathematics</i>.
-          In this discussion I will explore deep and intricate connections from already hard mathematical concetps.
+          In this discussion I will explore deep and intricate connections from already hard mathematical concetps. <br>
           My goal is to provide the best possible intuition for those ideas to you.
-          In this context, I will refrain myself from using technical language and do my best to keep the discussion light and visual. 
+          In this context, I will refrain myself from using technical language and do my best to keep the discussion light and visual. <br>
           But, for sake of understanding I must introduce two important abstract concepts, that of differential forms and (co)homology.
         </div>
       </p>
     
       <p class="blog-txt">
         <div class="a">
-          Ok, so first, <i>differential forms</i> can be quite obscure objects. They were introduced to generalise the concept of gradient of a function onto arbitrary geometric objects of various dimensions,
-          such as loops, spheres, donuts, klein bottles, ..., well smooth objects.
+          Ok, so first, <i>differential forms</i> can be quite obscure objects. <br>
+          They were introduced to generalise the concept of gradient of a function onto arbitrary geometric objects of various dimensions,
+          such as loops, spheres, donuts, klein bottles, ..., well smooth objects in general. <br>
           Recall that the gradient is an operator \(\nabla\) that eats a function \(f\) (differentiable), a point \(p\) and outputs a vector \(w\). <br>
 
           PICTURE ?<br>
 
-          Now, the first connection with the <i>usual</i> derivative arise here; the gradient and the directional derivative are actually related.<br>
-          By the following equation, \(df_p(v) = \frac{\partial f}{\partial v}(p) = \nabla f(p) \cdot v \),
-          where \(v\) is a tangent vector at \(p\) and \(\cdot\) is the dot product.
+          Now, the first connection with the <i>usual</i> derivative arises here.<br>
+          The following equation relates the gradient to the directional derivative, \(df_p(v) = \frac{\partial f}{\partial v}(p) = \nabla f(p) \cdot v \),
+          where \(v\) is a tangent vector at \(p\) and \(\cdot\) is the dot product. <br>
+
           To summarise, the gradient of the function \(f\) can be understood as a vector field that assign to each point \(p\), the directional derivative of \(f\) at \(p\), \(\frac{\partial f}{\partial v} (p)\). <br>
-
           However, if we want to generalise such a notion to less trivial spaces, we are going to encounter a problem.
-          Namely, that the dot product is not defined in arbitrary vector spaces (this is quite complicated to imagine, but you have to believe me EXPLAIN A BIT MORE IF POSSIBLE)
+          Namely, that the dot product is not defined in arbitrary vector spaces (this is quite complicated to imagine, but you have to trust me on this). <br>
           
-          So what can we do now ?
+          So what can we do now ? <br>
 
-          Let me introduce the twin of vector space: its dual (vector) space! 
-          Where an element of the dual space is a linear function that sends a vector to a scalar.
+          Let me introduce the twin of vector space: its dual (vector) space! <br>
+          Where an element of the dual space is a linear function that sends a vector to a scalar. <br>
           Now we can interpret the gradient as a function that assigns to each point of a smooth space, an element of the dual of the tangent space at that point. 
           That gives you the directional derivative (in direction \(v\)) when you give it \(v\) as input.
           It is worth pausing here and rereading the previous sentences. <br>
           
-          Theses functions from the smooth space to dual elements of the tangent space are called <i>differential forms</i>.
+          Theses functions from the smooth space to dual elements of the tangent space are called <i>differential forms</i>. <br>
          
-          CONTINUE EXPLAINATION HERE !!!!
+          CONTINUE EXPLAINATION HERE !!!! <br>
           
-          So formally, 
+          So formally, <br>
           
           Now, consider arbibtrary coordinates \(x,y,z,...\) that let us describe local regions of the manifold using Euclidean coordinates (this is quite standard in differential geometry).
           These are just funcions, that give us a point in the manifold. Therefore, we can take their gradients! We get the differential forms \(dx, dy, dz, ...\).
@@ -76,20 +77,20 @@
         </div>
       </p>
 
-        <div class="a">
+        <div>
           Now that we know what differential forms are, let's attack the next subject:
         </div>
 
       <p class="blog-txt">
         <div class="a">
-          What does <i>(co)homology</i> even mean (such a weird name right)?   <br>
-          First of all, there are two notions here, homology and cohomology.
-          But they are actually two sides of the same coin and there exist many <i>flavours</i> of (co)homology, a little bit like there are mutiple currencies that use coins.<br>
-          Concretely homology is the study of holes. 
-          It gives us a way to define what a hole is and it allows us to distinguish between different kidns of holes. <br>
+          What does (co)homology even mean (such a weird name right)?   <br>
+          First of all, there are two notions here, <i>homology</i> and <i>cohomology</i>.
+          They are actually two sides of the same coin and there exist many <i>flavours</i> of (co)homology, a little bit like there are mutiple currencies that use coins.<br>
+          Concretely, homology is the study of holes. <br>
+          It gives us a way to define what a hole is and it allows us to distinguish between different kidns of holes and how to find these holes. <br>
         
-          Now you may argue that you already know what a hole is! Like if you cut inside a slice of paper, well, you have a hole.
-          And you'd be half right. The issue here is that we want to understand <b>every</b> kind of hole, so higher dimensional holes, even \(0\)-dimensional holes.
+          Now, you may argue that you already know what a hole is! For example, if you do a cut inside a slice of paper, well, you have a hole. 
+          And you'd be half right. The issue here is that we want to understand <b>every</b> kind of hole, so higher dimensional holes, even \(0\)-dimensional holes. <br>
           
           I will not explain what it means to have a \(0,1,2, ...\)-dimensional hole, 
           but I will give you two examples in which I will explain how we can detect a hole.<br>
@@ -108,31 +109,46 @@
           And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints to us the fact that the torus has two circles <i>in it</i> (in mathematical formalism, we write \(\mathbb{T}\cong S^1 \times S^1 \)).
           <img src="torus_claude.png" class="center-image" alt="rubber bands on torus"> <br>
         </div>
-        But so far what we have check for are \(1\)-dimensional holes, what about the hollowness of the sphere and the torus? How do we detect that ?
+        So far what we have checked for \(1\)-dimensional holes, but what about the hollowness of the sphere and the torus? Are they holes? How do we detect that?
       </p>
 
 
       <p class="blog-txt">
         <div class="a">
-          Well, there is a way to describe and generalise this processus formally, the idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
-          
-          Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, even spacetime! or whatever smooth space you like).
-          For what comes next, we need to define what a \(k\)-chains is.
-          It can be thought of as a set of \(k\)-dimensional edges, with a direction, that you can attach together.
-          A \(0\)-chain can be thought of as a point, a \(1\)-chain may be something like a sequence of arrows (a directed graph if you will), a \(2\)-chain a set of planes attached to one another and so one...<br>
-          
-          PICTURE 
+          Well, there is a way to describe and generalise this processus formally.
+          The idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
+          Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, even spacetime! or whatever smooth space you like).<br>
 
-          Let \(C_k(X)\) be the set whose elements are the \(k\)-chains. 
-          And let \(\partial_i: C_i(X) \rightarrow C_{i-1}(X)\) be a rule sending an \(i\)-chain to its boundary, we also require an extra condition; applying the rule two consecutive times cancels everything (\(\partial_{k-1} \circ \partial_k = 0 )).
-          One last condition is that taking two consecutive boundaries 
+          The alternative for loops we will use are called \(k\)-chains.
+          It can be thought of as a set of \(k\)-dimensional edges, with a direction, that you can attach together (at its endpoints).
+          A \(0\)-chain can be thought of as a point, a \(1\)-chain may be something like a sequence of arrows (a directed graph if you will), a \(2\)-chain a set of planes attached to one another and so one...<br>
+          If the sequence of element in the \(k\)-chain meet at its endpoints, then this forms a loop! 
+          And surprise surprise, we can put loops on our objects and check for holes! <br>
+          
+          PICTURE <br>
+
+          Now the correct notion of loops we want to use here are <i>cycles</i>. 
+          And cycles are detected using the boundary : The boundary records where you end, positively and where you start, negatively.<br>
+          <br>
+          EXPLAIN
+          <br>
+
+
+          Now I will repeat everything but with the correct notations. <br>
+          Let \(C_k(X)\) be the set whose elements are \(k\)-chains. 
+          And let \(\partial_i: C_i(X) \rightarrow C_{i-1}(X)\) be a rule sending an \(i\)-chain to its boundary (look at the picture for intuition about what boundaries may be). 
+          We also require an extra condition for \(\partial\), applying the rule two consecutive times cancels everything ( \(\partial_{k-1} \circ \partial_k = 0\) ). <br>
           Formally, we have the following sequence,
           $$ \{0\text{-chains}\} \xleftarrow{\partial_0} \{1\text{-chains}\} \xleftarrow{\partial_1} \{2\text{-chains}\} \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$
+          
+          
+          
           Let \(Z_i := \text{ker}(\partial_i)\) be the set of cycles (so \(i\)-chains whose endpoints meet) and \(B_i := \text{im}(d_{i+1})\) the set of boundaries.
           
           Notice that an \(i+1\) boundary is also a \(i\)-cycle, so \(\text{im}(d_{i+1})\subset \text{ker}(d_i)\).
           Finally we can define what the \(n\)-th homology group of \(X\) written \(H_n(X)\) is.<br>
-          It is <b>H_n(X) = \frac{Z_n}{B_n}</b>. It is important noting that it is also a vector space and dim \(H_n(X)\) is exactlythe number of \(n\)-dimensional holes of the space \(X\).
+          $$ H_n(X) = \frac{n\text{-chains}}{B_n}. $$ 
+          It is important noting that it is also a vector space and dim \(H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
       
           
 
