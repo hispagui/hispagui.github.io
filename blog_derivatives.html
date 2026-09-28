@@ -41,23 +41,26 @@
     
       <p class="blog-txt">
         <div class="a">
-          Ok, so first, <i>differential forms</i> can be quite obscure objects. They were introduced to generalise the concept of gradient of a function onto arbitrary geometric objects of various dimensions such as loops, spheres, donuts, klein bottles, ..., or more generally what we call smooth manifolds of dimension \(n\).
-          Recall that the gradient is an operator \(\nabla\) that eats a function \(f\) (differentiable), a point \(p\) and outputs a vector. 
+          Ok, so first, <i>differential forms</i> can be quite obscure objects. They were introduced to generalise the concept of gradient of a function onto arbitrary geometric objects of various dimensions,
+          such as loops, spheres, donuts, klein bottles, ..., or for us what we call smooth manifolds of dimension \(n\).
+          Recall that the gradient is an operator \(\nabla\) that eats a function \(f\) (differentiable), a point \(p\) and outputs a vector. <br>
 
-          PICTURE ?
+          PICTURE ?<br>
 
-          Now, as one might expect, the gradient and the directional derivative are actually related, by the following equation: \(df_p(v) = \frac{\partial f}{\partial v}(p) = \nabla f(p) \cdot v \),
-          where \(v\) is a tangent vector at \(p\) and \(c\cdot\) is the dot product.
+          Now, the first connection with the <i>usual</i> derivative arise here; the gradient and the directional derivative are actually related.<br>
+          By the following equation, \(df_p(v) = \frac{\partial f}{\partial v}(p) = \nabla f(p) \cdot v \),
+          where \(v\) is a tangent vector at \(p\) and \(\cdot\) is the dot product.
           To summarise, the gradient of the function \(f\) can be understood as a vector field that assign to each point \(p\), the directional derivative of \(f\) at \(p\), \(\frac{\partial f}{\partial v} (p)\). <br>
 
-          However, if we want to generalise such a notion to less trivial spaces, we are going to encounter a problem,
-          namely, that the dot product is not defined in arbitrary vector spaces (this is quite complicated to imagine, but you have to believe me EXPLAIN A BIT MORE IF POSSIBLE)
+          However, if we want to generalise such a notion to less trivial spaces, we are going to encounter a problem.
+          Namely, that the dot product is not defined in arbitrary vector spaces (this is quite complicated to imagine, but you have to believe me EXPLAIN A BIT MORE IF POSSIBLE)
           
           So what can we do now ?
 
           Let me introduce the twin of vector space: its dual (vector) space! 
           Where an element of the dual space is a linear function that sends a vector to a scalar.
-          Now we can interpret the gradient as a function that assigns to each point of a smooth space, an element of the dual of the tangent space at that point. That gives you the directional derivative when you give it v as input
+          Now we can interpret the gradient as a function that assigns to each point of a smooth space, an element of the dual of the tangent space at that point. 
+          That gives you the directional derivative (in direction \(v\)) when you give it \(v\) as input.
           It is worth pausing here and rereading the previous sentences. <br>
           
           Theses functions from the smooth space to dual elements of the tangent space are called <i>differential forms</i>.
@@ -79,17 +82,21 @@
 
       <p class="blog-txt">
         <div class="a">
-          What does (co)homology even mean (such a weird word right)?   <br>
+          What does <i>(co)homology</i> even mean (such a weird name right)?   <br>
           First of all, there are two notions here, homology and cohomology.
-          But they are actually two sides of the same coin and there exist many kinds of (co)homology, a little bit like there are mutiple currencies that use coins. 
-          Concretely homology is the study of holes in sufficiently nice topological spaces, 
-          it gives us a way to define what a hole is and it allows us to distinguish between different kidns of holes. <br>
+          But they are actually two sides of the same coin and there exist many <i>flavours</i> of (co)homology, a little bit like there are mutiple currencies that use coins.<br>
+          Concretely homology is the study of holes. 
+          It gives us a way to define what a hole is and it allows us to distinguish between different kidns of holes. <br>
+        
+          Now you may argue that you already know what a hole is! Like if you cut inside a slice of paper, well, you have a hole.
+          And you'd be half right. The issue here is that we want to understand <b>every</b> kind of hole, so higher dimensional holes, even \(0\)-dimensional holes.
           
-          OK, so one way of understanding how we can have different kinds of holes and how it might get tricky to even give a general definition of a hole, is to look at the following examples; <br>
+          I will not explain what it means to have a \(0,1,2, ...\)-dimensional hole, 
+          but I will give you two examples in which I will explain how we can detect a hole.<br>
           Imagine you have a sphere, a hollow ball if you will.
-          What we can do to <it>test</it> for the existence/abscence of holes on that sphere is to consider a loop on the surface of the sphere (like putting a rubber band arround a huge ping-pong ball) and move it arround.
-          If you assume that your rubber band is magic and that it can shrink until it becomes a point, then this will actually happen. 
-          Without lifting the ruber band from the ping-poing ball, by sliding it to one part of the sphere, you can make it shrink to a single point ! (look at the picture)
+          What we can do to <it>test</it> for the existence of holes on that sphere is to consider a loop on its surface (like putting a rubber band arround a huge ping-pong ball) and move it arround.
+          If you assume that your rubber band is magic and that it can shrink so small until it becomes a point, then this situation will actually happen here. 
+          Without lifting the ruber band from the ping-poing ball, by sliding all of it to one part of the sphere, you can make it shrink to a single point ! (look at the picture)
           This exactly means that the sphere does not have a \(1\)-dimensional hole.
           <img src="sphere_claude.png" class="center-image" alt="rubber band shrinking on sphere"> <br>
 
@@ -101,12 +108,13 @@
           And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints to us the fact that the torus has two circles <i>in it</i> (in mathematical formalism, we write \(\mathbb{T}\cong S^1 \times S^1 \)).
           <img src="torus_claude.png" class="center-image" alt="rubber bands on torus"> <br>
         </div>
+        But so far what we have check for are \(1\)-dimensional holes, what about the hollowness of the sphere and the torus? How do we detect that ?
       </p>
 
 
       <p class="blog-txt">
         <div class="a">
-          There is a way to describe this processus formally, the idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
+          Well, there is a way to describe this processus formally, the idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
           
           Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, spacetime! or whatever smooth space you like).
           For what comes next, we need to define what a \(k\)-chains is.
