@@ -42,8 +42,8 @@
       <p class="blog-txt">
         <div class="a">
           Ok, so first, <i>differential forms</i> can be quite obscure objects. They were introduced to generalise the concept of gradient of a function onto arbitrary geometric objects of various dimensions,
-          such as loops, spheres, donuts, klein bottles, ..., or for us what we call smooth manifolds of dimension \(n\).
-          Recall that the gradient is an operator \(\nabla\) that eats a function \(f\) (differentiable), a point \(p\) and outputs a vector. <br>
+          such as loops, spheres, donuts, klein bottles, ..., well smooth objects.
+          Recall that the gradient is an operator \(\nabla\) that eats a function \(f\) (differentiable), a point \(p\) and outputs a vector \(w\). <br>
 
           PICTURE ?<br>
 
@@ -114,15 +114,18 @@
 
       <p class="blog-txt">
         <div class="a">
-          Well, there is a way to describe this processus formally, the idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
+          Well, there is a way to describe and generalise this processus formally, the idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
           
-          Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, spacetime! or whatever smooth space you like).
+          Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, even spacetime! or whatever smooth space you like).
           For what comes next, we need to define what a \(k\)-chains is.
-          A \(k\)-chain can be thought of as a pile of \(k\)-dimensional flabby arrows, that you can attach together (now what a \(4\)-dimensional arrow is, I leave your imagination do the work).
+          It can be thought of as a set of \(k\)-dimensional edges, with a direction, that you can attach together.
+          A \(0\)-chain can be thought of as a point, a \(1\)-chain may be something like a sequence of arrows (a directed graph if you will), a \(2\)-chain a set of planes attached to one another and so one...<br>
+          
           PICTURE 
 
-          Let \(C_k(X)\) be the \(k\)-dimensional set whose elements are the \(k\)-chains. 
-          Let \(\partial_i: C_i(X) \rightarrow C_{i-1}(X)\) be a rule sending an \(i\)-cell to its boundary.
+          Let \(C_k(X)\) be the set whose elements are the \(k\)-chains. 
+          And let \(\partial_i: C_i(X) \rightarrow C_{i-1}(X)\) be a rule sending an \(i\)-chain to its boundary, we also require an extra condition; applying the rule two consecutive times cancels everything (\(\partial_{k-1} \circ \partial_k = 0 )).
+          One last condition is that taking two consecutive boundaries 
           Formally, we have the following sequence,
           $$ \{0\text{-chains}\} \xleftarrow{\partial_0} \{1\text{-chains}\} \xleftarrow{\partial_1} \{2\text{-chains}\} \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$
           Let \(Z_i := \text{ker}(\partial_i)\) be the set of cycles (so \(i\)-chains whose endpoints meet) and \(B_i := \text{im}(d_{i+1})\) the set of boundaries.
