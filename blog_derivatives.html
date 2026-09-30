@@ -8,7 +8,7 @@
     }
 
     main {
-      font-size: 13px;
+      font-size: 14px;
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
   </style>
@@ -51,38 +51,41 @@
 
 
 
+
       <p class="blog-txt a">
-        As the title suggests, in this essay we are going to discuss about derivatives. <br>
+        As the title suggests, in this essay we are going to discuss about derivatives. 
         You have certainly encountered derivatives before and you may even be very familiar with these objects.
-        However, there is an important caveat here. You may know how to differentiate functions that live in Euclidean spaces, but how do you differentiate a function over, say a Klein bottle (which has no inside, no outside and no boundary) ?
+        However, there is an important caveat here. You may know how to differentiate functions that live in Euclidean spaces, but how do you differentiate a function over, say a Klein bottle (which has no inside, nor outside and no boundary) ?
         This might be strange to consider at first, but this distinction is very important! Mathematicians and physicists frequently work over curved, hyperbolic, ..., whatever weird spaces all the time! <br>
         For example, imagine you want to know the speed of a probe that you have sent into space.
         Well this probe now lives in a curved space (spacetime) and you have to take into account the curvature of spacetime in your calcultions.<br>
-        
+      </p>
+      <p class="blog-txt a">
         The question now becomes how do you measure stuff on weird spaces ? 
         How can I make sense of what angles and distances are on a hyperbolic space for example ?
-        My answer to you is <i>differential forms</i>. 
-        Essentially, they are used to <i>measure</i> something geometric. <br>
-
-
-        Let me show you concretely what we want to do here. <br>
+        The answer is <i>differential forms</i>!
+        Essentially, they are used to <i>measure</i> something geometric. 
+        Let me show you concretely what we want to do here.
+      </p>
+      <p class="blog-txt a">
         Take the <i>gradient</i> \( \nabla f \) and the <i>differential</i> \(df\) of a function \(f\), and say \(f(x,y) = x^2 + y^2\). <br>
         On one hand, \(df = 2x \: dx + 2y \: dy\), it eats a vector \(v = (v_x,v_y)\) and outputs \(df(v) = 2xv_x + 2yv_y\),
-        the derivative of \(f\) at \((x,y)\) in the direction \(v\).<br>
-        On the other hand, \(\nabla f = 2x \frac{\partial}{\partial x} + 2y \frac{\partial}{\partial y}\) (it lives in the tangent space).
-        Now if you have ever taken a calculus course you would think;
-        ok, I know what those notations are, \(dx\)'s keep track of the variables with respect to which I am differentiating
-        and \(\frac{\partial}{\partial x}\)'s are the basis vectors of the tangent space. <br>
-
-        And this would be a perfectly reasonable explanation, your life would be perfectly fine ... if you are not a mathematician.
-        Have you ever wondered what is the relation between \(dx\) and \(\frac{\partial}{\partial x}\)?
-        Maybe you have heard that they are dual basis elements, so
-        $$dx (\frac{\partial}{\partial x}) = 1, dx (\frac{\partial}{\partial y}) = 0, dy (\frac{\partial}{\partial x})=0 \text{and} dy (\frac{\partial}{\partial y}) = 1.$$
-        
-        And here is the subtle part, the <i>Euclidean metric</i> maps \(\frac{\partial}{\partial i}\) to \(dj\) with factor \(\delta^i_j\) (\(1\) if \(i=j\) and \(0\) otherwise).
+        the derivative of \(f\) at \((x,y)\) in the direction \(v\).
+        On the other hand, \(\nabla f = 2x \frac{\partial}{\partial x} + 2y \frac{\partial}{\partial y}\) (it lives in the tangent space). <br>
+        Now if you have ever taken a calculus course you would have encountered such notations and you would think;
+        ok, I know that \(dx\)'s keep track of the variables with respect to which I am differentiating
+        and \(\frac{\partial}{\partial x}\)'s are the basis vectors of the tangent space. 
+        And this is a reasonable explanation, your life would be perfectly fine ... if you are not a mathematician.
+      </p>
+      <p class="blog-txt a">
+        The subtelty hides in the relation between \(dx\) and \(\frac{\partial}{\partial x}\).
+        Maybe you have heard that they are dual basis elements;
+        \(dx (\frac{\partial}{\partial x}) = 1, dx (\frac{\partial}{\partial y}) = 0, dy (\frac{\partial}{\partial x})=0\) and \(dy (\frac{\partial}{\partial y}) = 1\) which is true in \(\mathbb{R}^2\).
+        The secret here is that, we are using the <i>Euclidean metric</i>, this maps \(\frac{\partial}{\partial i}\) to \(dj\) with a factor \(\delta^i_j\) (\(1\) if \(i=j\) and \(0\) otherwise).
         But what if the space is curved and weird and highly dimensional ? Then the metric will also be weird, we may not have a factor \(1\) or \(0\), it may be a function depending on position. <br>
-
-        So we use differential forms because they describe derivatives intrinsically, that is to say, without assuming a metric.
+      </p>
+      <p class="blog-txt a">
+        Then we use differential forms, because they describe derivatives intrinsically, that is to say, without assuming a metric.
         I will not give a rigorous definition of differential forms because this would require the introduction of something called the <i>exterior algebra</i>
         (which really is the correct language for descrbing areas, volumes, and their higher-dimensional analogues).
         I will simply try to convey a good idea of what they are.<br>
@@ -97,8 +100,9 @@
         SUMMARY 0,1,2,3-forms.<br>
         This is where it might start skipping a few things, 
         it really is enough for us to just remember that the exterior product is used to combine lower dimensional things to measure into higher dimensional things to measure. <br>
-
-        The operator on differential forms I want to introduce is the <i>exterior derivative</i>.
+      </p>
+      <p class="blog-txt a">
+        The last operator on differential forms I want to introduce is the <i>exterior derivative</i>.
         It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\) and it is really the generalisation of the differentiation we wanted.
         How it works is as follow; <br>
           For a function \(f(x,y)\) (a \(O\)-form) it simply outputs its differential \(df\) (a \(1\)-form) which in \(\mathbb{R}^2\) we can identify with the gradient via the metric as above. <br>
@@ -111,9 +115,8 @@
 
         Finally, the exterior derivative has the property of being a nilpotent, that is, applying it twice cancels evrything.
         You don't have to understand how all the calculations work, but just the idea behind what it does.<br>
-
-
-      
+      </p>
+      <p class="blog-txt a">
         A PICTURE OF THE FOLLOWING <br>
         ordinary calculus -> multivariate/vector calculus -> differential forms on manifolds
       </p>
