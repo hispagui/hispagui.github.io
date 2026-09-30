@@ -39,13 +39,12 @@
       <h2>A peculiar interpretation of derivatives</h2>
 
       <p class="blog-txt a">
-        The motivation for this article comes from William Thurston's superb essay <i>On proof and progress in
-          mathematics</i>.
-        In this discussion I will explore deep and intricate connections from already hard mathematical concetps.
-        My goal is to provide the best possible intuition for those ideas.
-        In this context, I will resist my urge for using technical language and do my best to keep the discussion light
+        The motivation for this article comes from William Thurston's superb essay <i>On proof and progress in mathematics</i>.
+        In this discussion I will explore deep and intricate connections between mathematical concetps that are already hard on their own.
+        My goal is to provide the best possible intuition for these ideas.
+        To that end, I will resist the urge to using technical language and do my best to keep the discussion light
         and visual.
-        But, for sake of understanding, I must introduce two important abstract concepts, that of differential forms and
+        However, for sake of understanding, I must introduce two important abstract concepts: differential forms and
         (co)homology.
       </p>
 
@@ -53,72 +52,99 @@
 
 
       <p class="blog-txt a">
-        As the title suggests, in this essay we are going to discuss about derivatives. 
-        You have certainly encountered derivatives before and you may even be very familiar with these objects.
-        However, there is an important caveat here. You may know how to differentiate functions that live in Euclidean spaces, but how do you differentiate a function over, say a Klein bottle (which has no inside, nor outside and no boundary) ?
-        This might be strange to consider at first, but this distinction is very important! Mathematicians and physicists frequently work over curved, hyperbolic, ..., whatever weird spaces all the time! <br>
+        As the title suggests, this essay is about derivatives. 
+        You have certainly encountered derivatives before, and you may even be very familiar with them.
+        However, there is an important caveat. 
+        You may know how to differentiate functions that live in Euclidean space, but how do you differentiate a function defined on, say, a Klein bottle (a surface with no inside, no outside and no boundary) ?
+        This might be strange at first, but the question is very important! Mathematicians and physicists work with curved, hyperbolic, ..., all sorts of weird spaces all the time! <br>
         For example, imagine you want to know the speed of a probe that you have sent into space.
-        Well this probe now lives in a curved space (spacetime) and you have to take into account the curvature of spacetime in your calcultions.<br>
+        Well this probe now lives in a curved space (spacetime) and you have to take the curvature of spacetime into account in your calcultions.<br>
       </p>
       <p class="blog-txt a">
-        The question now becomes how do you measure stuff on weird spaces ? 
-        How can I make sense of what angles and distances are on a hyperbolic space for example ?
-        The answer is <i>differential forms</i>!
-        Essentially, they are used to <i>measure</i> something geometric. 
-        Let me show you concretely what we want to do here.
+        The question then becomes: how do we do calculus on weird spaces ? 
+        How can we make sense of a "rate of change", a "flow" or an "area" when there is no nice grid of straight lines to rely on?  
+        A big part of the answer is <i>differential forms</i>!
+        Essentially, they tools are used to <i>measure</i> something geometric: how fast a quantity changes along a direction, how much of a flow passes through a surface, and so on 
+        Let me show you concretely what I mean.
       </p>
       <p class="blog-txt a">
-        Take the <i>gradient</i> \( \nabla f \) and the <i>differential</i> \(df\) of a function \(f\), and say \(f(x,y) = x^2 + y^2\). <br>
-        On one hand, \(df = 2x \: dx + 2y \: dy\), it eats a vector \(v = (v_x,v_y)\) and outputs \(df(v) = 2xv_x + 2yv_y\),
-        the derivative of \(f\) at \((x,y)\) in the direction \(v\).
-        On the other hand, \(\nabla f = 2x \frac{\partial}{\partial x} + 2y \frac{\partial}{\partial y}\) (it lives in the tangent space). <br>
-        Now if you have ever taken a calculus course you would have encountered such notations and you would think;
-        ok, I know that \(dx\)'s keep track of the variables with respect to which I am differentiating
-        and \(\frac{\partial}{\partial x}\)'s are the basis vectors of the tangent space. 
-        And this is a reasonable explanation, your life would be perfectly fine ... if you are not a mathematician.
+        Take a function, say \(f(x,y) = x^2+y^2\), and think of it as the altitude of a landscape above the point \((x,y)\).
+        There are two objects that describe how \(f\) changes: its differential \(df\) and its gradient \(\nabla f\).
+        If you have ever taken a calculus course, you might tell me that these are the same thing written in two ways: 
+        \(df = 2x \: dx + 2y \: dy\) and \(\nabla f = (2x, 2y)\).
+        The coefficients are indeed identical. But this is a coincidence of the setting we are working in: the two objects are actually of a different nature.
       </p>
       <p class="blog-txt a">
-        The subtelty hides in the relation between \(dx\) and \(\frac{\partial}{\partial x}\).
-        Maybe you have heard that they are dual basis elements;
-        \(dx (\frac{\partial}{\partial x}) = 1, dx (\frac{\partial}{\partial y}) = 0, dy (\frac{\partial}{\partial x})=0\) and \(dy (\frac{\partial}{\partial y}) = 1\) which is true in \(\mathbb{R}^2\).
-        The secret here is that, we are using the <i>Euclidean metric</i>, this maps \(\frac{\partial}{\partial i}\) to \(dj\) with a factor \(\delta^i_j\) (\(1\) if \(i=j\) and \(0\) otherwise).
-        But what if the space is curved and weird and highly dimensional ? Then the metric will also be weird, we may not have a factor \(1\) or \(0\), it may be a function depending on position. <br>
+        The differential \(df\) is a machine that eats a direction and returns a number. 
+        Given a vector \(v = (v_x, v_y)\), it outputs \(df(v) = 2x\,v_x + 2y\,v_y\), the rate at which \(f\) changes when you move in the direction \(v\). 
+        To do its job, \(df\) needs no knowledge of lengths or angles; it only needs to know how \(f\) varies. 
+        Think of the contour lines on a hiking map: they contain everything there is to know about \(df\).
       </p>
       <p class="blog-txt a">
-        Then we use differential forms, because they describe derivatives intrinsically, that is to say, without assuming a metric.
-        I will not give a rigorous definition of differential forms because this would require the introduction of something called the <i>exterior algebra</i>
-        (which really is the correct language for descrbing areas, volumes, and their higher-dimensional analogues).
-        I will simply try to convey a good idea of what they are.<br>
+        The gradient \(\nabla f = 2x \frac{\partial}{\partial x} + 2y \frac{\partial}{\partial y}\) is a different kind of object: 
+        it is an arrow (a vector living in the tangent space) pointing in the direction of <i>steepest ascent</i>. 
+        And "steepest" hides a comparison: among all steps of the same length, which one makes you climb the most? 
+        To answer that question, you need to know what "the same length" means. 
+        (Equivalently, the gradient is perpendicular to the contour lines, and "perpendicular" is a statement about angles.) 
+        The rule that tells you how to measure lengths and angles is called a <i>metric</i>.
+      </p>
+      <p class="blog-txt a">
+        Here is a simple example. 
+        Imagine a map drawn on a stretched grid: one unit to the east is 1 km, but one unit to the north is 2 km.
+        Take the simplest possible landscape, \(f(x,y) = x + y\).
+        Moving one unit east or one unit north raises the altitude by the same amount, so \(df = dx + dy\), whatever the grid looks like: the contour lines don't care how we measure distances.
+        But walk one <i>kilometre</i> in each direction and you gain \(1\) going east, but only \(\frac{1}{2}\) going north.
+        The steepest way up therefore tilts towards the east, and with this metric \(\nabla f = \frac{\partial}{\partial x} + \frac{1}{4}\frac{\partial}{\partial y}\) instead of \(\frac{\partial}{\partial x} + \frac{\partial}{\partial y}\)
+        (one factor \(\frac{1}{2}\) because northward steps are less rewarding, another because the arrow \(\frac{\partial}{\partial y}\) is itself 2 km long).
+        Same landscape, same differential, different gradient. 
+        So where was the metric hiding in your calculus course?
+        The metric's job is to <i>convert</i> an arrow into a measuring machine and back, and the gradient is precisely the arrow that converts into \(df\).
+        With the usual Euclidean metric (the dot product), this conversion leaves the coefficients unchanged, which is why \(df\) and \(\nabla f\) look identical in \(\mathbb{R}^n\).
+        On a curved space, where the metric varies from point to point, they can look very different, 
+        <b>the differential does not depend on the metric, but the gradient does.</b>
+      </p>
+      <p class="blog-txt a">
+        This is why we use differential forms, they describe derivatives intrinsically, that is to say, without assuming a metric. 
+        I will not give a rigorous definition of differential forms, because this would require introducing something called the <i>exterior algebra</i> (which really is the correct language for describing areas, volumes and their higher-dimensional analogues). 
+        I will simply try to convey a good idea of what they are.
+      </p>
+      <p class="blog-txt a">
+        As it turns out, we have already met a \(1\)-(differential) form, the differential \(df\) above (surprise!). 
+        Recall that it takes one vector and returns a number. 
+        But maybe we don't want to measure along directions anymore, maybe we want to measure areas or volumes. 
+        This is what the \(2\)-form \(dx \wedge dy\) and the \(3\)-form \(dx \wedge dy \wedge dz\) do. 
+        The symbol \(\wedge\) is called the <i>exterior product</i>, and it is what allows us to combine directions into areas, areas into volumes, and so on...
+      </p>
+      <p class="blog-txt a">
+        Concretely, \(dx \wedge dy\) eats two vectors \(u\) and \(w\) and returns the area of the parallelogram they span PICTURE. 
+        This area comes with a sign that records orientation: swapping \(u\) and \(w\) flips the sign. 
+        In the same way, \(dx \wedge dy \wedge dz\) eats three vectors and returns the signed volume of the box they span. 
+        In general, a \(k\)-form eats \(k\) vectors and returns a signed \(k\)-dimensional "volume", and the measurement is allowed to change from point to point, as in \(f(x,y)\, dx \wedge dy\). 
+        For our purposes, it is enough to remember this: the exterior product combines lower-dimensional measurements into higher-dimensional ones.
+      </p>
+      <p class="blog-txt a">
+        The last operation on differential forms I want to introduce is the <i>exterior derivative</i>. 
+        It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\), and it is really the generalisation of differentiation we were looking for. 
+        Here is how it works:
+            For a function \(f(x,y)\) (a \(0\)-form), it simply outputs its differential \(df\) (a \(1\)-form), 
+              which in \(\mathbb{R}^2\) we can identify with the gradient using the Euclidean metric, as above.
+            For a \(1\)-form \(\alpha = f(x,y)\,dx + g(x,y)\,dy\), the exterior derivative gives the \(2\)-form \(d\alpha = \left(\frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}\right) dx \wedge dy\). 
+              Concretely, it measures how much \(\alpha\) "swirls" around each point: go around a tiny loop, add up what \(\alpha\) measures along the way, and divide by the area of the loop. 
+              This can be identified with the curl \(\nabla \times F\) (in \(\mathbb{R}^3\). PICTURE
+            For a \(2\)-form in \(\mathbb{R}^3\), \(\beta = P\, dy \wedge dz + Q\, dz \wedge dx + R\, dx \wedge dy\), the exterior derivative returns the \(3\)-form \(d\beta = \left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\right) dx \wedge dy \wedge dz\). 
+            It measures how much "flow" escapes from a tiny box, divided by its volume, and it can be identified with the divergence. 
+            And so forth...
+      </p>
+      <p class="blog-txt a">
+        And finally, the exterior derivative is nilpotent:
+         applying it twice always gives zero, \(d(d\omega) = 0\) for every form \(\omega\) (we will return to this later on).
+      </p>
 
-        As it stands, we have already encountered a \(1\)-(differential) form! 
-        This was the differential \(df\) we have introduced above (surpise !), recall it takes a vector and returns a number.
-        Now we want to generalise this process to higher dimensional things.
-        Maybe we don't want to measure lengths anymore but areas or volumes.
-        This is what a \(2\)-form \( dx \wedge dy \) and \(3\)-form \( dx \wedge dy \wedge dz \) do for example.
-        The symbol \(\wedge\) is called the <i>exterior product</i>, it is what allows us to combine directions into areas, areas into
-        volumes and so on... giving us \(k\)-forms.<br>
+
+
+
+      <p class="blog-txt a">
         SUMMARY 0,1,2,3-forms.<br>
-        This is where it might start skipping a few things, 
-        it really is enough for us to just remember that the exterior product is used to combine lower dimensional things to measure into higher dimensional things to measure. <br>
-      </p>
-      <p class="blog-txt a">
-        The last operator on differential forms I want to introduce is the <i>exterior derivative</i>.
-        It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\) and it is really the generalisation of the differentiation we wanted.
-        How it works is as follow; <br>
-          For a function \(f(x,y)\) (a \(O\)-form) it simply outputs its differential \(df\) (a \(1\)-form) which in \(\mathbb{R}^2\) we can identify with the gradient via the metric as above. <br>
-          For a \(1\)-form \(\alpha = f(x,y)dx + g(x,y)dy \), the exterior derivative gives \(d\alpha = (\frac{\partial f}{\partial x} - \frac{\partial g}{\partial y}) dx \wedge dy \) (a \(2\)-form).
-            concretely, it measures how. 
-            In turn, this can be identified with the <i>curl</i> (\(\nabla \times F\)) in \(\mathbb{R}^2\). <br>
-          For a \(2\)-form \(\beta = f(x,y,z) dx \wedge dy + g(x,y,z) dy \wedge dz + h(x,y,z) dx \wedge dz \),  the exterior derivative returns a \(3\)-form that can be identified with the <i>divergence</i> in \(\mathbb{R}^3\).
-          And so forth... <br>
-
-
-        Finally, the exterior derivative has the property of being a nilpotent, that is, applying it twice cancels evrything.
-        You don't have to understand how all the calculations work, but just the idea behind what it does.<br>
-      </p>
-      <p class="blog-txt a">
-        A PICTURE OF THE FOLLOWING <br>
-        ordinary calculus -> multivariate/vector calculus -> differential forms on manifolds
       </p>
 
 
