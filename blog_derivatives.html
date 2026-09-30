@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <style>
-    div.a {text-indent: 40px;}
+    div.a {
+      text-indent: 40px;
+    }
+
     main {
-      font-size: 12px;
-      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
   </style>
   <meta charset="UTF-8" />
@@ -18,6 +22,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="fox_logo.png">
   <link rel="icon" href="fox_logo.ico">
 </head>
+
 <body>
 
   <header class="site-header">
@@ -34,153 +39,90 @@
       <h2>A peculiar interpretation of derivatives</h2>
 
       <p class="blog-txt a">
-        The motivation for this article comes from William Thurston's superb essay <i>On proof and progress in mathematics</i>.
-        In this discussion I will explore deep and intricate connections from already hard mathematical concetps. 
+        The motivation for this article comes from William Thurston's superb essay <i>On proof and progress in
+          mathematics</i>.
+        In this discussion I will explore deep and intricate connections from already hard mathematical concetps.
         My goal is to provide the best possible intuition for those ideas.
-        In this context, I will resist my urge for using technical language and do my best to keep the discussion light and visual. 
-        But, for sake of understanding, I must introduce two important abstract concepts, that of differential forms and (co)homology.
+        In this context, I will resist my urge for using technical language and do my best to keep the discussion light
+        and visual.
+        But, for sake of understanding, I must introduce two important abstract concepts, that of differential forms and
+        (co)homology.
       </p>
-
-
-
-
-
 
 
 
       <p class="blog-txt a">
-          As the title indicats, in this essay we are going to discuss derivatives. 
-
-          One important warning here, is that the objects or spaces we are derivating over, are not the <i>usual</i> real coordinate spaces \(\mathbb{R}^n\).
-          This is a very important distinction because over arbitrary spaces (curved, highly-dimensional, ...), it is very difficult to give a sense of how me measure things. <br>
-          
-          A fair question to ask could be; why do we even care for how we measuring things over, say a donut shape?
-          Well in mathematics and physics, we often want to know what it means to integrate something over a weird space. <br>
-          So yes, there is an incentive for understanding how one can measure stuff over quite abstract objects. <br>
- 
-          
-          Let me tell you again why the notion of metric is important. 
-          Take the gradient \( \nabla f \) of a function \(f\). 
-          Now this is a vector field, meaning that \(\nabla f\) eats a function, a point, and outputs a vector.
-          And defining such an operator requires a notion of angles and lengths, i.e. a metric.<br>
-          The following equation relates the directional derivative \(df_p(v)\) to the gradient of \(f\) at \(p\).
-          $$ df_p(v) = \frac{\partial f}{\partial v}(p) = \nabla f(p) \cdot v $$
-          but again, \( \cdot \) is the dot product, and for it to make sense, there actually needs to be a metric on the space we work with. <br>
+        As the title suggests, in this essay we are going to discuss about derivatives. <br>
+        You have certainly encountered derivatives before and you may even be very familiar with these objects.
+        However, there is an important caveat here. You may know how to differentiate functions that live in Euclidean spaces, but how do you differentiate a function over, say a Klein bottle (which has no inside, no outside and no boundary) ?
+        This might be strange to consider at first, but this distinction is very important! Mathematicians and physicists frequently work over curved, hyperbolic, ..., whatever weird spaces all the time! <br>
+        For example, imagine you want to know the speed of a probe that you have sent into space.
+        Well this probe now lives in a curved space (spacetime) and you have to take into account the curvature of spacetime in your calcultions.<br>
+        
+        The question now becomes how do you measure stuff on weird spaces ? 
+        How can I make sense of what angles and distances are on a hyperbolic space for example ?
+        My answer to you is <i>differential forms</i>. 
+        Essentially, they are used to <i>measure</i> something geometric. <br>
 
 
-          We want to get arround this.
-          The trick here is to generalise the concept of gradient of a function \(f\), so that it tells you how \(f\) changes in every possible direction. 
-          Well that's exactly what differential forms do. Essentially, they are used to <i>measure</i> something geometric. <br>
-          
+        Let me show you concretely what we want to do here. <br>
+        Take the <i>gradient</i> \( \nabla f \) and the <i>differential</i> \(df\) of a function \(f\), and say \(f(x,y) = x^2 + y^2\). <br>
+        On one hand, \(df = 2x \: dx + 2y \: dy\), it eats a vector \(v = (v_x,v_y)\) and outputs \(df(v) = 2xv_x + 2yv_y\),
+        the derivative of \(f\) at \((x,y)\) in the direction \(v\).<br>
+        On the other hand, \(\nabla f = 2x \frac{\partial}{\partial x} + 2y \frac{\partial}{\partial y}\) (it lives in the tangent space).
+        Now if you have ever taken a calculus course you would think;
+        ok, I know what those notations are, \(dx\)'s keep track of the variables with respect to which I am differentiating
+        and \(\frac{\partial}{\partial x}\)'s are the basis vectors of the tangent space. <br>
 
-          I will not give a rigorous definition of differential forms because this would require the introduction of <i>exterior algebra</i>.
-          Which is really the correct language to study areas, volumes, and their higher-dimensional analogues.
-          Let me simply give you an idea of what they are.<br>
+        And this would be a perfectly reasonable explanation, your life would be perfectly fine ... if you are not a mathematician.
+        Have you ever wondered what is the relation between \(dx\) and \(\frac{\partial}{\partial x}\)?
+        Maybe you have heard that they are dual basis elements, so
+        $$dx (\frac{\partial}{\partial x}) = 1, dx (\frac{\partial}{\partial y}) = 0, dy (\frac{\partial}{\partial x})=0 \text{and} dy (\frac{\partial}{\partial y}) = 1.$$
+        
+        And here is the subtle part, the <i>Euclidean metric</i> maps \(\frac{\partial}{\partial i}\) to \(dj\) with factor \(\delta^i_j\) (\(1\) if \(i=j\) and \(0\) otherwise).
+        But what if the space is curved and weird and highly dimensional ? Then the metric will also be weird, we may not have a factor \(1\) or \(0\), it may be a function depending on position. <br>
+
+        So we use differential forms because they describe derivatives intrinsically, that is to say, without assuming a metric.
+        I will not give a rigorous definition of differential forms because this would require the introduction of something called the <i>exterior algebra</i>
+        (which really is the correct language for descrbing areas, volumes, and their higher-dimensional analogues).
+        I will simply try to convey a good idea of what they are.<br>
+
+        As it stands, we have already encountered a \(1\)-(differential) form! 
+        This was the differential \(df\) we have introduced above (surpise !), recall it takes a vector and returns a number.
+        Now we want to generalise this process to higher dimensional things.
+        Maybe we don't want to measure lengths anymore but areas or volumes.
+        This is what a \(2\)-form \( dx \wedge dy \) and \(3\)-form \( dx \wedge dy \wedge dz \) do for example.
+        The symbol \(\wedge\) is called the <i>exterior product</i>, it is what allows us to combine directions into areas, areas into
+        volumes and so on... giving us \(k\)-forms.<br>
+        SUMMARY 0,1,2,3-forms.<br>
+        This is where it might start skipping a few things, 
+        it really is enough for us to just remember that the exterior product is used to combine lower dimensional things to measure into higher dimensional things to measure. <br>
+
+        The operator on differential forms I want to introduce is the <i>exterior derivative</i>.
+        It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\) and it is really the generalisation of the differentiation we wanted.
+        How it works is as follow; <br>
+          For a function \(f(x,y)\) (a \(O\)-form) it simply outputs its differential \(df\) (a \(1\)-form) which in \(\mathbb{R}^2\) we can identify with the gradient via the metric as above. <br>
+          For a \(1\)-form \(\alpha = f(x,y)dx + g(x,y)dy \), the exterior derivative gives \(d\alpha = (\frac{\partial f}{\partial x} - \frac{\partial g}{\partial y}) dx \wedge dy \) (a \(2\)-form).
+            concretely, it measures how. 
+            In turn, this can be identified with the <i>curl</i> (\(\nabla \times F\)) in \(\mathbb{R}^2\). <br>
+          For a \(2\)-form \(\beta = f(x,y,z) dx \wedge dy + g(x,y,z) dy \wedge dz + h(x,y,z) dx \wedge dz \),  the exterior derivative returns a \(3\)-form that can be identified with the <i>divergence</i> in \(\mathbb{R}^3\).
+          And so forth... <br>
 
 
-          Suppose we have an ordinary function \(f\), which assigns a number to every point.
-          Its differential \(df\) describes how \(f\) changes when you move in a particular direction; so given a vector \(v\), \(df(v)\) is the directional derivative of \(f\) in that direction.<br>
-          This is essentially what a \(1\)-form does.
-          So \(df\) is a device that takes a direction and tells you how quickly \(f\) changes in that direction. <br>
+        Finally, the exterior derivative has the property of being a nilpotent, that is, applying it twice cancels evrything.
+        You don't have to understand how all the calculations work, but just the idea behind what it does.<br>
 
 
-          But differential forms also measure higher-dimensional things. <br>
-          \( dx \wedge dy \) is a \(2\)-form, it measures areas with an asigned orientation. <br>
-          \( dx \wedge dy \wedge dz \) is a \(3\)-form and it measures volumes given a certain orientation. <br>
-          Similarily, we define \(3\)-forms, \(4\)-forms, ..., \(k\)-forms, ..., etc. <br>
-          The symbol \(\wedge\) called the exterior product is what allows us to combine directions into areas, areas into volumes and so on... <br>
-
-          Exterior algebra, together with differential forms allow us to perform what is called calculus on manifolds (or weird spaces).
-          \( f(x,y,z) dx \wedge dy + g(x,y,z) dy \wedge dz + h(x,y,z) dx \wedge dz \) is a \(2\)-form, so it can be integrated over a surface \(S\) (of dimension \(2\)),
-          $$ \int_S (f(x,y,z) dx \wedge dy + g(x,y,z) dy \wedge dz + h(x,y,z) dx \wedge dz).$$
-
-
-          The last tool used in differential forms, is the <i>exterior derivative</i>. <br>
-          It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\), and gives us the familiar idea of the differential.
-          The last property worth mentionning for the exterior derivative is that applying it twice cancels everything.
-          So \(d^2 \alpha = 0\) for \(\alpha\) a \(k\)-form (this is called a nilpotent). <br>
-          
-
-
-          ordinary calculus -> multivariate/vector calculus -> differential forms on manifolds
+      
+        A PICTURE OF THE FOLLOWING <br>
+        ordinary calculus -> multivariate/vector calculus -> differential forms on manifolds
       </p>
-    
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-      <p class="blog-txt">
-          <!--  
-          Ok, so first, <i>differential forms</i>, what are they?
-          They were introduced to generalise the concept of gradient of a function onto arbitrary geometric objects of various dimensions,
-          such as loops, spheres, donuts, klein bottles, ..., or whatever smooth structure (that we call manifold).<br>
-          Recall that the gradient is an operator \(\nabla\) that eats a function \(f\) (differentiable), a point \(p\) and outputs a vector \(w\). <br>
-
-          
-
-          Now, the first connection with the <i>usual</i> derivative arises here.<br>
-          The following equation relates the gradient to the directional derivative, \(df_p(v) = \frac{\partial f}{\partial v}(p) = \nabla f(p) \cdot v \),
-          where \(v\) is a tangent vector at \(p\) and \(\cdot\) is the dot product. <br>
-
-          To summarise, the gradient of the function \(f\) can be understood as a vector field that assigns to each point \(p\), the directional derivative of \(f\) at \(p\).
-          
-          PICTURE ?<br>
-          
-          However, if we want to generalise such a notion to less trivial spaces, we are going to encounter a problem.
-          Namely, that the dot product is not defined in arbitrary vector spaces (this is quite complicated to imagine, but you have to trust me on this one). <br>
-          
-          So what can we do now ? <br>
-
-          To get around this, I will introduce the twin of vector spaces: its dual (vector) space! <br>
-          Where an element of the dual space is a linear function that sends a vector to a scalar. <br>
-          Now, we can interpret the gradient as a function that assigns to each point of a smooth space, an element of the dual of the tangent space at that point. 
-          That gives you the directional derivative (in direction \(v\)) when you give it \(v\) as input.
-          It is worth pausing here and rereading the previous sentences. <br>
-          
-          Theses functions from the smooth space to dual elements of the tangent space are called <i>differential forms</i>. <br>
-          
-          
-          
-          Ok, ok, maybe all this was a bit confusing my goal was just to give you some motivation on why we care about differential forms. <br>
-          Let me now state the definition of 
-
-
-
-
-
-
-          
-          
-          
-          
-          Concretely, LLLLLLLLLLLL
-
-
-
-          CONTINUE EXPLAINATION HERE !!!! <br>
-          
-          So formally, <br>
-          
-          Now, consider arbibtrary coordinates \(x,y,z,...\) that let us describe local regions of the manifold using Euclidean coordinates (this is quite standard in differential geometry).
-          These are just funcions, that give us a point in the manifold. Therefore, we can take their gradients! We get the differential forms \(dx, dy, dz, ...\).
-          Finally we can now understand \(df = (df/dx)dx + (df/dy)dy + (df/dz)dz+ ...\) <br>
-
-          What can we do with \(k\)-forms ?
-
-          -->
-      </p>
 
 
 
@@ -189,119 +131,150 @@
 
       <p class="blog-txt a">
 
-          Well, what does (co)homology even mean (such a weird name right)?   <br>
-          First of all, there are two notions here, <i>homology</i> and <i>cohomology</i>.
-          And they are actually two sides of the same coin, with many <i>flavours</i> to it, a little bit like there are mutiple currencies that use coins. <br>
-          Concretely, homology is the study of holes. <br>
-          It gives us a way to define what a hole is and it allows us to distinguish between different kinds of holes and how to find these holes. <br>
-        
-          Now, you may argue that you already know what a hole is! For example, if you do a cut inside a slice of paper, well, you have a hole. 
-          And you'd be half right. The issue here is that we want to understand <i>every</i> kind of hole, so higher dimensional holes as well. <br>
-          
-          I will not explain what it means to have a \(0,1,2, ...\)-dimensional hole,
-          but I will give you two examples in which I will explain how we can detect a hole.<br>
-          Imagine you have a sphere, a hollowed ball if you will.
-          What we can do to <it>test</it> for the existence of holes on that sphere is to consider a loop on its surface (like putting a rubber band arround a huge ping-pong ball) and move it arround.
-          If you assume that your rubber band is magic and that it can shrink so small until it becomes a point, then this situation will actually happen here. 
-          Without lifting the ruber band from the ping-poing ball, by sliding all of it to one part of the sphere, you can make it shrink to a single point ! (look at the picture)
-          This exactly means that the sphere does not have a \(1\)-dimensional hole.
-          <img src="sphere_claude.png" class="center-image" alt="rubber band shrinking on sphere"> <br>
+        Well, what does (co)homology even mean (such a weird name right)? <br>
+        First of all, there are two notions here, <i>homology</i> and <i>cohomology</i>.
+        And they are actually two sides of the same coin, with many <i>flavours</i> to it, a little bit like there are
+        mutiple currencies that use coins. <br>
+        Concretely, homology is the study of holes. <br>
+        It gives us a way to define what a hole is and it allows us to distinguish between different kinds of holes and
+        how to find these holes. <br>
 
-          Now in place of a sphere, consider a torus (or an inflated swim ring), and attach a rubber band to it.
-          The situation here is a bit different, there is actually two ways in which you can fit a rubber band onto a torus; one is to just put your rubber band onto the "exterior" of the torus and the other one is to imagine that the inflatable swim ring was constructed with a rubber band on its "inside" part (do you get it from picture bellow?).
-          And this is a completely different situation than the one we had with the sphere.
-          For the torus, it is impossible to shrink either rubber bands into a single point without lifting and breaking them (you can try if you want!).
-          This means that the torus has two \(1\)-dimensional holes.
-          And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints to us the fact that the torus has two circles <i>in it</i> (in mathematical, we usually write \(\mathbb{T}\cong S^1 \times S^1 \)).
-          <img src="torus_claude.png" class="center-image" alt="rubber bands on torus"> <br>
-        So far what we have checked for \(1\)-dimensional holes, but what about the hollowness of the sphere and the torus? Are they holes as well? How do we detect that?
+        Now, you may argue that you already know what a hole is! For example, if you do a cut inside a slice of paper,
+        well, you have a hole.
+        And you'd be half right. The issue here is that we want to understand <i>every</i> kind of hole, so higher
+        dimensional holes as well. <br>
+
+        I will not explain what it means to have a \(0,1,2, ...\)-dimensional hole,
+        but I will give you two examples in which I will explain how we can detect a hole.<br>
+        Imagine you have a sphere, a hollowed ball if you will.
+        What we can do to <it>test</it> for the existence of holes on that sphere is to consider a loop on its surface
+        (like putting a rubber band arround a huge ping-pong ball) and move it arround.
+        If you assume that your rubber band is magic and that it can shrink so small until it becomes a point, then this
+        situation will actually happen here.
+        Without lifting the ruber band from the ping-poing ball, by sliding all of it to one part of the sphere, you can
+        make it shrink to a single point ! (look at the picture)
+        This exactly means that the sphere does not have a \(1\)-dimensional hole.
+        <img src="sphere_claude.png" class="center-image" alt="rubber band shrinking on sphere"> <br>
+
+        Now in place of a sphere, consider a torus (or an inflated swim ring), and attach a rubber band to it.
+        The situation here is a bit different, there is actually two ways in which you can fit a rubber band onto a
+        torus; one is to just put your rubber band onto the "exterior" of the torus and the other one is to imagine that
+        the inflatable swim ring was constructed with a rubber band on its "inside" part (do you get it from picture
+        bellow?).
+        And this is a completely different situation than the one we had with the sphere.
+        For the torus, it is impossible to shrink either rubber bands into a single point without lifting and breaking
+        them (you can try if you want!).
+        This means that the torus has two \(1\)-dimensional holes.
+        And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints to us the fact
+        that the torus has two circles <i>in it</i> (in mathematical, we usually write \(\mathbb{T}\cong S^1 \times S^1
+        \)).
+        <img src="torus_claude.png" class="center-image" alt="rubber bands on torus"> <br>
+        So far what we have checked for \(1\)-dimensional holes, but what about the hollowness of the sphere and the
+        torus? Are they holes as well? How do we detect that?
       </p>
 
 
       <p class="blog-txt a">
-          Well, there is a way to describe and generalise this processus formally.
-          The idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
-          Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, even spacetime! or whatever smooth space you like).<br>
+        Well, there is a way to describe and generalise this processus formally.
+        The idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
+        Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, even
+        spacetime! or whatever smooth space you like).<br>
 
-          The alternative for loops we use here are called \(k\)-chains.
-          They can be thought of as a set of \(k\)-dimensional edges, with a direction, that you can attach together (at its endpoints).
-          A \(0\)-chain can be thought of as a point, a \(1\)-chain may be something like a sequence of arrows (a directed graph if you will), a \(2\)-chain a set of planes attached to one another and so one...<br>
-          If the sequence of element in the \(k\)-chain meet at its endpoints, then this forms a loop! 
-          And surprise surprise, we can put loops on our objects and check for holes! <br>
-          
-          PICTURE <br>
+        The alternative for loops we use here are called \(k\)-chains.
+        They can be thought of as a set of \(k\)-dimensional edges, with a direction, that you can attach together (at
+        its endpoints).
+        A \(0\)-chain can be thought of as a point, a \(1\)-chain may be something like a sequence of arrows (a directed
+        graph if you will), a \(2\)-chain a set of planes attached to one another and so one...<br>
+        If the sequence of element in the \(k\)-chain meet at its endpoints, then this forms a loop!
+        And surprise surprise, we can put loops on our objects and check for holes! <br>
 
-          Now the correct notion of loops we want to use here are <i>cycles</i>. 
-          And cycles are detected using the boundary, recording where you end, positively and where you start, negatively. 
-          (ok there is a little trick here, we can use algebra to sum elements in the chains, and when the elements of the boundary sum to 0, we have a cycle)<br>
-          
-         
-        
+        PICTURE <br>
+
+        Now the correct notion of loops we want to use here are <i>cycles</i>.
+        And cycles are detected using the boundary, recording where you end, positively and where you start, negatively.
+        (ok there is a little trick here, we can use algebra to sum elements in the chains, and when the elements of the
+        boundary sum to 0, we have a cycle)<br>
 
 
-          Now I will repeat everything but with the correct notations. <br>
-          Let \(C_k(X)\) be the set whose elements are \(k\)-chains. 
-          And let \(\partial_i: C_i(X) \rightarrow C_{i-1}(X)\) be a rule sending an \(i\)-chain to its boundary (look at the picture for intuition about what boundaries are). 
-          We also require an extra condition for \(\partial\); applying the rule two consecutive times cancels everything (\(\partial_{k-1} \circ \partial_k = 0\)). <br>
-          Formally, we have the following sequence,
-          $$ \{0\text{-chains}\} \xleftarrow{\partial_0} \{1\text{-chains}\} \xleftarrow{\partial_1} \{2\text{-chains}\} \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$
-          
-          
-          
-          Let  (so \(i\)-chains whose endpoints meet) and \(B_i := \text{im}(d_{i+1})\) the set of boundaries.
-          
-          Notice that an \(i+1\) boundary is also a \(i\)-cycle, so \(\text{im}(d_{i+1})\subset \text{ker}(d_i)\).
-          Finally we can define what the \(n\)-th homology group of \(X\) written \(H_n(X)\), it is<br>
-          $$ H_n(X) = \frac{\omega \mid \partial_n\omega = 0}{\omega \mid \partial_n\eta = \omega}. $$ 
-          It is important noting that it is also a vector space and dim \(H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
-      
-          
 
-          <!-- EXPLAIN HOW BOUNDARIES (0 BOUNDARIES) ARE/DETECT HOLES -->
 
-          Now cohomolgy on the other hand asks questions about functions (this is usually how we think about objects <i>dually</i>).
-          Instead of asking what cycles does the space contain, we ask what functions/rules can be put on those cycles ??? -such that- that detect their topology???
-          So for example instead of defining a \(k\)-chain as above, we will have a \(k\)-cochain which is a function \(f:C_k(X) \rightarrow R\) (where \(R\) is some number set, usually a ring).
-        
-          Something that happens when taking the duals is that we have to reverse the arrows (this way of thinking comes from <i>category theory</i>, and in this language this translates to: the dual operator is actually a contravariant functor).
-          What I mean is that our <i>co</i>boundary operator \(\delta^i\) takes an \(i\)-cochain in \(C^i\) and sends it a an \(i+1\)-cochain in \(C^{i+1}\).
-          What people often do in algebraic topology and category theory is draw diagrams. 
-          This is very useful when we want to visualise what we are talking about.<br>
-          
-          DIAGRAM HERE<br>
 
-          We have thus defined cochains and a coboundary operator, as above, we can now define cocycles and hence the cohomology of a space \(X\), written
-          $$ H^n(X) := \frac{\alpha \mid \delta^n\alpha = 0}{\alpha \mid \delta^n\beta = \alpha}. $$
+        Now I will repeat everything but with the correct notations. <br>
+        Let \(C_k(X)\) be the set whose elements are \(k\)-chains.
+        And let \(\partial_i: C_i(X) \rightarrow C_{i-1}(X)\) be a rule sending an \(i\)-chain to its boundary (look at
+        the picture for intuition about what boundaries are).
+        We also require an extra condition for \(\partial\); applying the rule two consecutive times cancels everything
+        (\(\partial_{k-1} \circ \partial_k = 0\)). <br>
+        Formally, we have the following sequence,
+        $$ \{0\text{-chains}\} \xleftarrow{\partial_0} \{1\text{-chains}\} \xleftarrow{\partial_1} \{2\text{-chains}\}
+        \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$
+
+
+
+        Let (so \(i\)-chains whose endpoints meet) and \(B_i := \text{im}(d_{i+1})\) the set of boundaries.
+
+        Notice that an \(i+1\) boundary is also a \(i\)-cycle, so \(\text{im}(d_{i+1})\subset \text{ker}(d_i)\).
+        Finally we can define what the \(n\)-th homology group of \(X\) written \(H_n(X)\), it is<br>
+        $$ H_n(X) = \frac{\omega \mid \partial_n\omega = 0}{\omega \mid \partial_n\eta = \omega}. $$
+        It is important noting that it is also a vector space and dim \(H_n(X)\) is exactly the number of
+        \(n\)-dimensional holes of the space \(X\).
+
+
+
+        <!-- EXPLAIN HOW BOUNDARIES (0 BOUNDARIES) ARE/DETECT HOLES -->
+
+        Now cohomolgy on the other hand asks questions about functions (this is usually how we think about objects
+        <i>dually</i>).
+        Instead of asking what cycles does the space contain, we ask what functions/rules can be put on those cycles ???
+        -such that- that detect their topology???
+        So for example instead of defining a \(k\)-chain as above, we will have a \(k\)-cochain which is a function
+        \(f:C_k(X) \rightarrow R\) (where \(R\) is some number set, usually a ring).
+
+        Something that happens when taking the duals is that we have to reverse the arrows (this way of thinking comes
+        from <i>category theory</i>, and in this language this translates to: the dual operator is actually a
+        contravariant functor).
+        What I mean is that our <i>co</i>boundary operator \(\delta^i\) takes an \(i\)-cochain in \(C^i\) and sends it a
+        an \(i+1\)-cochain in \(C^{i+1}\).
+        What people often do in algebraic topology and category theory is draw diagrams.
+        This is very useful when we want to visualise what we are talking about.<br>
+
+        DIAGRAM HERE<br>
+
+        We have thus defined cochains and a coboundary operator, as above, we can now define cocycles and hence the
+        cohomology of a space \(X\), written
+        $$ H^n(X) := \frac{\alpha \mid \delta^n\alpha = 0}{\alpha \mid \delta^n\beta = \alpha}. $$
       </p>
-          
 
 
-      <p class="blog-txt a">  
-          Now, one of the many currencies that exist in cohomolgy is the <i>de Rham</i> cohomology. 
-          This is where differential forms and cohomology theory merge. <br>
-          In place of taking cochains as abstract objets, we say that \(\Omega^i(X)\) is the set of \(i\)-differential forms on a smooth manifold \(X\)
-          and that the boundary operator \(d\) is the <i>exterior derivative</i>. <br>
-          
-          WHAT IS THE EXTERIOR DERIVATIVE ? <br>
-          CLOSED FORMS <br>
-          EXACT FORMS 
 
-          we can check that all this calculus grammar (about differential forms) has the properties that we want: <br>
-          the double exteriro derivative is null <br>
-          because \(d^2 = 0\), every exact form is necessarily closed
+      <p class="blog-txt a">
+        Now, one of the many currencies that exist in cohomolgy is the <i>de Rham</i> cohomology.
+        This is where differential forms and cohomology theory merge. <br>
+        In place of taking cochains as abstract objets, we say that \(\Omega^i(X)\) is the set of \(i\)-differential
+        forms on a smooth manifold \(X\)
+        and that the boundary operator \(d\) is the <i>exterior derivative</i>. <br>
 
-          $$ H_{dR}^n := \frac{ \text{closed } n\text{-forms} }{ \text{exact} n\text{-forms}}$$
+        WHAT IS THE EXTERIOR DERIVATIVE ? <br>
+        CLOSED FORMS <br>
+        EXACT FORMS
 
-          kind of 
+        we can check that all this calculus grammar (about differential forms) has the properties that we want: <br>
+        the double exteriro derivative is null <br>
+        because \(d^2 = 0\), every exact form is necessarily closed
+
+        $$ H_{dR}^n := \frac{ \text{closed } n\text{-forms} }{ \text{exact} n\text{-forms}}$$
+
+        kind of
 
 
         Finally, let me invoke a really powerful theorem, from de Rham himself.
-        It states that the \(n\)-th de Rham cohomology group and the <it>usual</it> \(n\)-th cohomology group are the same (or isomorphic).
+        It states that the \(n\)-th de Rham cohomology group and the <it>usual</it> \(n\)-th cohomology group are the
+        same (or isomorphic).
 
 
 
       </p>
-      
+
     </section>
   </main>
 
@@ -310,4 +283,5 @@
   </footer>
 
 </body>
+
 </html>
