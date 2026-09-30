@@ -3,6 +3,10 @@
 <head>
   <style>
     div.a {text-indent: 40px;}
+    main {
+      font-size: 12px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
   </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,14 +33,12 @@
     <section class="section">
       <h2>A peculiar interpretation of derivatives</h2>
 
-      <p class="blog-txt">
-        <div class="a">
-          The motivation for this article comes from William Thurston's superb essay <i>On proof and progress in mathematics</i>.
-          In this discussion I will explore deep and intricate connections from already hard mathematical concetps. 
-          My goal is to provide the best possible intuition for those ideas.
-          In this context, I will resist my urge for using technical language and do my best to keep the discussion light and visual. 
-          But, for sake of understanding, I must introduce two important abstract concepts, that of differential forms and (co)homology.
-        </div>
+      <p class="blog-txt a">
+        The motivation for this article comes from William Thurston's superb essay <i>On proof and progress in mathematics</i>.
+        In this discussion I will explore deep and intricate connections from already hard mathematical concetps. 
+        My goal is to provide the best possible intuition for those ideas.
+        In this context, I will resist my urge for using technical language and do my best to keep the discussion light and visual. 
+        But, for sake of understanding, I must introduce two important abstract concepts, that of differential forms and (co)homology.
       </p>
 
 
@@ -46,16 +48,16 @@
 
 
 
-      <p class="blog-txt">
-        <div class="a">
+      <p class="blog-txt a">
           As the title indicats, in this essay we are going to discuss derivatives. 
 
           One important warning here, is that the objects or spaces we are derivating over, are not the <i>usual</i> real coordinate spaces \(\mathbb{R}^n\).
-          This is a very important distinction because over arbitrary spaces (curved, highly-dimensional, ...), it is very difficult to give a sense of how me measure things.
+          This is a very important distinction because over arbitrary spaces (curved, highly-dimensional, ...), it is very difficult to give a sense of how me measure things. <br>
+          
           A fair question to ask could be; why do we even care for how we measuring things over, say a donut shape?
-          Well in mathematics and even in physics, we still want to know what it means to integrate something over weird spaces. <br>
-          So yes, there is an incentive for understanding how one can measure stuff over weird spaces. <br>
-
+          Well in mathematics and physics, we often want to know what it means to integrate something over a weird space. <br>
+          So yes, there is an incentive for understanding how one can measure stuff over quite abstract objects. <br>
+ 
           
           Let me tell you again why the notion of metric is important. 
           Take the gradient \( \nabla f \) of a function \(f\). 
@@ -101,7 +103,6 @@
 
 
           ordinary calculus -> multivariate/vector calculus -> differential forms on manifolds
-        </div>
       </p>
     
 
@@ -121,7 +122,6 @@
 
 
       <p class="blog-txt">
-        <div class="a">
           <!--  
           Ok, so first, <i>differential forms</i>, what are they?
           They were introduced to generalise the concept of gradient of a function onto arbitrary geometric objects of various dimensions,
@@ -177,33 +177,18 @@
           These are just funcions, that give us a point in the manifold. Therefore, we can take their gradients! We get the differential forms \(dx, dy, dz, ...\).
           Finally we can now understand \(df = (df/dx)dx + (df/dy)dy + (df/dz)dz+ ...\) <br>
 
-
           What can we do with \(k\)-forms ?
 
           -->
-
-
-
-
-
-
-        </div>
       </p>
 
-      <p>
-        \text{}
-      </p>
 
-        <div>
-          Now that we have an idea of what differential forms are, let's attack the next subject:
-        </div>
 
-      <p>
-        \<textarea name="" id=""></textarea>
-      </p>
+      Now that we have an idea of what differential forms are, let's attack the next subject:
 
-      <p class="blog-txt">
-        <div class="a">
+
+      <p class="blog-txt a">
+
           Well, what does (co)homology even mean (such a weird name right)?   <br>
           First of all, there are two notions here, <i>homology</i> and <i>cohomology</i>.
           And they are actually two sides of the same coin, with many <i>flavours</i> to it, a little bit like there are mutiple currencies that use coins. <br>
@@ -229,13 +214,11 @@
           This means that the torus has two \(1\)-dimensional holes.
           And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints to us the fact that the torus has two circles <i>in it</i> (in mathematical, we usually write \(\mathbb{T}\cong S^1 \times S^1 \)).
           <img src="torus_claude.png" class="center-image" alt="rubber bands on torus"> <br>
-        </div>
         So far what we have checked for \(1\)-dimensional holes, but what about the hollowness of the sphere and the torus? Are they holes as well? How do we detect that?
       </p>
 
 
-      <p class="blog-txt">
-        <div class="a">
+      <p class="blog-txt a">
           Well, there is a way to describe and generalise this processus formally.
           The idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
           Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, even spacetime! or whatever smooth space you like).<br>
@@ -276,8 +259,6 @@
 
           <!-- EXPLAIN HOW BOUNDARIES (0 BOUNDARIES) ARE/DETECT HOLES -->
 
-        </div>
-        <div class="a">
           Now cohomolgy on the other hand asks questions about functions (this is usually how we think about objects <i>dually</i>).
           Instead of asking what cycles does the space contain, we ask what functions/rules can be put on those cycles ??? -such that- that detect their topology???
           So for example instead of defining a \(k\)-chain as above, we will have a \(k\)-cochain which is a function \(f:C_k(X) \rightarrow R\) (where \(R\) is some number set, usually a ring).
@@ -291,13 +272,11 @@
 
           We have thus defined cochains and a coboundary operator, as above, we can now define cocycles and hence the cohomology of a space \(X\), written
           $$ H^n(X) := \frac{\alpha \mid \delta^n\alpha = 0}{\alpha \mid \delta^n\beta = \alpha}. $$
-        </div>
       </p>
           
 
 
-      <p>  
-        <div class="a">
+      <p class="blog-txt a">  
           Now, one of the many currencies that exist in cohomolgy is the <i>de Rham</i> cohomology. 
           This is where differential forms and cohomology theory merge. <br>
           In place of taking cochains as abstract objets, we say that \(\Omega^i(X)\) is the set of \(i\)-differential forms on a smooth manifold \(X\)
@@ -315,8 +294,6 @@
 
           kind of 
 
-
-        </div>
 
         Finally, let me invoke a really powerful theorem, from de Rham himself.
         It states that the \(n\)-th de Rham cohomology group and the <it>usual</it> \(n\)-th cohomology group are the same (or isomorphic).
