@@ -113,8 +113,10 @@
         Recall that it takes one vector and returns a number. 
         But maybe we don't want to measure along directions anymore, maybe we want to measure areas or volumes. 
         This is what the \(2\)-form \(dx \wedge dy\) and the \(3\)-form \(dx \wedge dy \wedge dz\) do. 
-        The symbol \(\wedge\) is called the <i>exterior product</i>, and it is what allows us to combine directions into areas, areas into volumes, and so on...
+        The symbol \(\wedge\) is called the <i>exterior product</i>, and it is what allows us to combine directions into areas, areas into volumes, and so on... 
+        For our purposes, this will be enough to remeber.
       </p>
+      <!-- 
       <p class="blog-txt a">
         Concretely, \(dx \wedge dy\) eats two vectors \(u\) and \(w\) and returns the area of the parallelogram they span PICTURE. 
         This area comes with a sign that records orientation: swapping \(u\) and \(w\) flips the sign. 
@@ -122,6 +124,7 @@
         In general, a \(k\)-form eats \(k\) vectors and returns a signed \(k\)-dimensional "volume", and the measurement is allowed to change from point to point, as in \(f(x,y)\, dx \wedge dy\). 
         For our purposes, it is enough to remember this: the exterior product combines lower-dimensional measurements into higher-dimensional ones.
       </p>
+      -->
       <p class="blog-txt a">
         The last operation on differential forms I want to introduce is the <i>exterior derivative</i>. 
         It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\), and it is really the generalisation of differentiation we were looking for. 
@@ -130,14 +133,14 @@
               which in \(\mathbb{R}^2\) we can identify with the gradient using the Euclidean metric, as above.
             For a \(1\)-form \(\alpha = f(x,y)\,dx + g(x,y)\,dy\), the exterior derivative gives the \(2\)-form \(d\alpha = \left(\frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}\right) dx \wedge dy\). 
               Concretely, it measures how much \(\alpha\) "swirls" around each point: go around a tiny loop, add up what \(\alpha\) measures along the way, and divide by the area of the loop. 
-              This can be identified with the curl \(\nabla \times F\) (in \(\mathbb{R}^3\). PICTURE
+              This can be identified with the curl \(\nabla \times F\) (in \(\mathbb{R}^3\)). PICTURE
             For a \(2\)-form in \(\mathbb{R}^3\), \(\beta = P\, dy \wedge dz + Q\, dz \wedge dx + R\, dx \wedge dy\), the exterior derivative returns the \(3\)-form \(d\beta = \left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\right) dx \wedge dy \wedge dz\). 
             It measures how much "flow" escapes from a tiny box, divided by its volume, and it can be identified with the divergence. 
             And so forth...
       </p>
       <p class="blog-txt a">
-        And finally, the exterior derivative is nilpotent:
-         applying it twice always gives zero, \(d(d\omega) = 0\) for every form \(\omega\) (we will return to this later on).
+        And finally, the exterior derivative is nilpotent, meaning that 
+        applying it twice always gives zero, \(d(d\omega) = 0\) for every form \(\omega\) (we will return to this later on).
       </p>
 
 
@@ -158,23 +161,25 @@
       Now that we have an idea of what differential forms are, let's attack the next subject:
 
 
-      <p class="blog-txt a">
 
-        Well, what does (co)homology even mean (such a weird name right)? <br>
+      
+      <p class="blog-txt a">
+        <b>What does (co)homology mean?</b> (such a weird name right) <br>
         First of all, there are two notions here, <i>homology</i> and <i>cohomology</i>.
-        And they are actually two sides of the same coin, with many <i>flavours</i> to it, a little bit like there are
+        And they are actually two sides of the same coin, with many <i>iterations</i> to it, a little bit like there are
         mutiple currencies that use coins. <br>
         Concretely, homology is the study of holes. <br>
         It gives us a way to define what a hole is and it allows us to distinguish between different kinds of holes and
         how to find these holes. <br>
-
-        Now, you may argue that you already know what a hole is! For example, if you do a cut inside a slice of paper,
-        well, you have a hole.
-        And you'd be half right. The issue here is that we want to understand <i>every</i> kind of hole, so higher
-        dimensional holes as well. <br>
-
+      </p>
+      <p class="blog-txt a">
+        Now, you may argue that you already know what a hole is! 
+        For example, if you do a cut inside a slice of paper, well, you have a hole.
+        And you'd be half right. The issue here is that we want to understand <i>every</i> kind of hole, so higher dimensional holes as well. <br>
         I will not explain what it means to have a \(0,1,2, ...\)-dimensional hole,
-        but I will give you two examples in which I will explain how we can detect a hole.<br>
+        but I will give you two examples in which we will see how we can detect holes.<br>
+      </p>
+      <p class="blog-txt a">
         Imagine you have a sphere, a hollowed ball if you will.
         What we can do to <it>test</it> for the existence of holes on that sphere is to consider a loop on its surface
         (like putting a rubber band arround a huge ping-pong ball) and move it arround.
@@ -184,7 +189,8 @@
         make it shrink to a single point ! (look at the picture)
         This exactly means that the sphere does not have a \(1\)-dimensional hole.
         <img src="sphere_claude.png" class="center-image" alt="rubber band shrinking on sphere"> <br>
-
+      </p>
+      <p class="blog-txt a">
         Now in place of a sphere, consider a torus (or an inflated swim ring), and attach a rubber band to it.
         The situation here is a bit different, there is actually two ways in which you can fit a rubber band onto a
         torus; one is to just put your rubber band onto the "exterior" of the torus and the other one is to imagine that
@@ -193,36 +199,42 @@
         And this is a completely different situation than the one we had with the sphere.
         For the torus, it is impossible to shrink either rubber bands into a single point without lifting and breaking
         them (you can try if you want!).
-        This means that the torus has two \(1\)-dimensional holes.
+        Informally, this means that the torus has two \(1\)-dimensional holes.
         And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints to us the fact
-        that the torus has two circles <i>in it</i> (in mathematical, we usually write \(\mathbb{T}\cong S^1 \times S^1
-        \)).
+        that the torus is "made of" two circles (we usually mathematically write \(\mathbb{T}\cong S^1 \times S^1\)).
         <img src="torus_claude.png" class="center-image" alt="rubber bands on torus"> <br>
+      </p>
+      <p class="blog-txt a">
         So far what we have checked for \(1\)-dimensional holes, but what about the hollowness of the sphere and the
         torus? Are they holes as well? How do we detect that?
       </p>
-
-
       <p class="blog-txt a">
         Well, there is a way to describe and generalise this processus formally.
         The idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
         Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, even
         spacetime! or whatever smooth space you like).<br>
-
         The alternative for loops we use here are called \(k\)-chains.
-        They can be thought of as a set of \(k\)-dimensional edges, with a direction, that you can attach together (at
+        They can be thought of as a set of \(k\)-dimensional edges (with a direction), that you can attach together (at
         its endpoints).
         A \(0\)-chain can be thought of as a point, a \(1\)-chain may be something like a sequence of arrows (a directed
         graph if you will), a \(2\)-chain a set of planes attached to one another and so one...<br>
         If the sequence of element in the \(k\)-chain meet at its endpoints, then this forms a loop!
         And surprise surprise, we can put loops on our objects and check for holes! <br>
-
+      </p>
         PICTURE <br>
+      <p class="blog-txt a">
+        Now the correct notion of loops we want to use here are called <i>cycles</i>.
+        And cycles are detected using the boundary, which records where your chains ends positively and where it starts negatively.
+        Remember their endpoints is where we attach our \(k\)-elements to make a full \(k/)-chain, so when "added up", if the boundary sums to zero, we have a cycle.
+      </p>
 
-        Now the correct notion of loops we want to use here are <i>cycles</i>.
-        And cycles are detected using the boundary, recording where you end, positively and where you start, negatively.
-        (ok there is a little trick here, we can use algebra to sum elements in the chains, and when the elements of the
-        boundary sum to 0, we have a cycle)<br>
+
+
+
+
+
+
+
 
 
 
