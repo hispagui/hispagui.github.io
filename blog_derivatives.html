@@ -32,10 +32,10 @@
       <p class="blog-txt">
         <div class="a">
           The motivation for this article comes from William Thurston's superb essay <i>On proof and progress in mathematics</i>.
-          In this discussion I will explore deep and intricate connections from already hard mathematical concetps. <br>
+          In this discussion I will explore deep and intricate connections from already hard mathematical concetps. 
           My goal is to provide the best possible intuition for those ideas.
-          In this context, I will resist my urge for using technical language and do my best to keep the discussion light and visual. <br>
-          But, for sake of understanding I must introduce two important abstract concepts, that of differential forms and (co)homology.
+          In this context, I will resist my urge for using technical language and do my best to keep the discussion light and visual. 
+          But, for sake of understanding, I must introduce two important abstract concepts, that of differential forms and (co)homology.
         </div>
       </p>
 
@@ -47,61 +47,61 @@
 
 
       <p class="blog-txt">
-        
-        As the title indicats, in this essay we are going to discuss derivatives.
+        <div class="a">
+          As the title indicats, in this essay we are going to discuss derivatives. 
 
-        One important warning here, is that the objects or spaces we are derivating over, are not the <i>usual</i> real coordinate spaces \(\mathbb{R}^n\).
-        This is a very important distinction because over arbitrary spaces (curved, highly-dimensional, ...), it is very difficult to give a sense of how me measure things.
-        A fair question to ask could be, why do we even care for how we measuring things over, say a donut shape?<br>
-        Well in mathematics and even in physics, we still want to know what it means to integrate something over weird spaces. <br>
-        So yes, there is an incentive for understanding how one can measure over weird spaces.
+          One important warning here, is that the objects or spaces we are derivating over, are not the <i>usual</i> real coordinate spaces \(\mathbb{R}^n\).
+          This is a very important distinction because over arbitrary spaces (curved, highly-dimensional, ...), it is very difficult to give a sense of how me measure things.
+          A fair question to ask could be; why do we even care for how we measuring things over, say a donut shape?
+          Well in mathematics and even in physics, we still want to know what it means to integrate something over weird spaces. <br>
+          So yes, there is an incentive for understanding how one can measure stuff over weird spaces. <br>
 
-        
-        Let me tell you again why the notion of metric is important. 
-        Take the gradient \( \nabla f \) of a function \(f\). 
-        Now this is a vector field, meaning that \(\nabla f\) eats a function, a point, and outputs a vector.
-        And defining such an operator requires a notion of angles and lengths, i.e. a metric.<br>
-        The following equation relates the directional derivative \(df_p(v)\) to the gradient of \(f\) at \(p\).
-        $$ df_p(v) = \frac{\partial f}{\partial v}(p) = \nabla f(p) \cdot v $$
-        but again, \( \cdot \) is the dot product, and for it to make sense, there actually needs to be a metric on the space we work with. <br>
-
-
-        We want to get arround this.
-        The trick here is to generalise the concept of gradient of a function \(f\), so that it tells you how \(f\) changes in every possible direction. 
-        Well that's exactly what differential forms do. Essentially, they are used to <i>measure</i> something geometric.
-        
-
-        I will not give a rigorous definition of differential forms because this would require the introduction of <i>exterior algebra</i>.
-        Which is really the correct language to study areas, volumes, and their higher-dimensional analogues.
-        Let me simply give you an idea of what they are.<br>
+          
+          Let me tell you again why the notion of metric is important. 
+          Take the gradient \( \nabla f \) of a function \(f\). 
+          Now this is a vector field, meaning that \(\nabla f\) eats a function, a point, and outputs a vector.
+          And defining such an operator requires a notion of angles and lengths, i.e. a metric.<br>
+          The following equation relates the directional derivative \(df_p(v)\) to the gradient of \(f\) at \(p\).
+          $$ df_p(v) = \frac{\partial f}{\partial v}(p) = \nabla f(p) \cdot v $$
+          but again, \( \cdot \) is the dot product, and for it to make sense, there actually needs to be a metric on the space we work with. <br>
 
 
-        Suppose we have an ordinary function \(f\), which assigns a number to every point.
-        Its differential \(df\) describes how \(f\) changes when you move in a particular direction; so given a vector \(v\), \(df(v)\) is the directional derivative of \(f\) in that direction.<br>
-        This is essentially what a \(1\)-form does.
-        So \(df\) is a device that takes a direction and tells you how quickly \(f\) changes in that direction. <br>
+          We want to get arround this.
+          The trick here is to generalise the concept of gradient of a function \(f\), so that it tells you how \(f\) changes in every possible direction. 
+          Well that's exactly what differential forms do. Essentially, they are used to <i>measure</i> something geometric. <br>
+          
+
+          I will not give a rigorous definition of differential forms because this would require the introduction of <i>exterior algebra</i>.
+          Which is really the correct language to study areas, volumes, and their higher-dimensional analogues.
+          Let me simply give you an idea of what they are.<br>
 
 
-        But differential forms also measure higher-dimensional things. <br>
-        \( dx \wedge dy \) is a \(2\)-form, it measures areas with an asigned orientation. <br>
-        \( dx \wedge dy \wedge dz \) is a \(3\)-form and it measures volumes given a certain orientation. <br>
-        Similarily, we define \(3\)-forms, \(4\)-forms, ..., \(k\)-forms, ..., etc. <br>
-        The symbol \(\wedge\) called the exterior product is what allows us to combine directions into areas, areas into volumes and so on... <br>
-
-        Exterior algebra, together with differential forms allow us to perform what is called calculus on manifolds (weird spaces).
-        \( f(x,y,z) dx \wedge dy + g(x,y,z) dy \wedge dz + h(x,y,z) dx \wedge dz \) is a \(2\)-form, so it can be integrated over a surface \(S\) (of dimension \(2\)),
-        $$ \int_S (f(x,y,z) dx \wedge dy + g(x,y,z) dy \wedge dz + h(x,y,z) dx \wedge dz).$$
+          Suppose we have an ordinary function \(f\), which assigns a number to every point.
+          Its differential \(df\) describes how \(f\) changes when you move in a particular direction; so given a vector \(v\), \(df(v)\) is the directional derivative of \(f\) in that direction.<br>
+          This is essentially what a \(1\)-form does.
+          So \(df\) is a device that takes a direction and tells you how quickly \(f\) changes in that direction. <br>
 
 
-        The last tool used in differential forms, is the <i>exterior derivative</i>. 
-        It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\), and gives us the familiar idea of the differential.
-        The last property worth mentionning for the exterior derivative is that applying it twice cancels everything.
-        So \(d^2 \alpha = 0\) for \(\alpha\) a \(k\)-form (this is called a nilpotent). <br>
-        
+          But differential forms also measure higher-dimensional things. <br>
+          \( dx \wedge dy \) is a \(2\)-form, it measures areas with an asigned orientation. <br>
+          \( dx \wedge dy \wedge dz \) is a \(3\)-form and it measures volumes given a certain orientation. <br>
+          Similarily, we define \(3\)-forms, \(4\)-forms, ..., \(k\)-forms, ..., etc. <br>
+          The symbol \(\wedge\) called the exterior product is what allows us to combine directions into areas, areas into volumes and so on... <br>
+
+          Exterior algebra, together with differential forms allow us to perform what is called calculus on manifolds (or weird spaces).
+          \( f(x,y,z) dx \wedge dy + g(x,y,z) dy \wedge dz + h(x,y,z) dx \wedge dz \) is a \(2\)-form, so it can be integrated over a surface \(S\) (of dimension \(2\)),
+          $$ \int_S (f(x,y,z) dx \wedge dy + g(x,y,z) dy \wedge dz + h(x,y,z) dx \wedge dz).$$
 
 
-       ordinary calculus -> multivariate/vector calculus -> differential forms on manifolds
-        
+          The last tool used in differential forms, is the <i>exterior derivative</i>. <br>
+          It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\), and gives us the familiar idea of the differential.
+          The last property worth mentionning for the exterior derivative is that applying it twice cancels everything.
+          So \(d^2 \alpha = 0\) for \(\alpha\) a \(k\)-form (this is called a nilpotent). <br>
+          
+
+
+          ordinary calculus -> multivariate/vector calculus -> differential forms on manifolds
+        </div>
       </p>
     
 
@@ -190,9 +190,17 @@
         </div>
       </p>
 
+      <p>
+        \text{}
+      </p>
+
         <div>
           Now that we have an idea of what differential forms are, let's attack the next subject:
         </div>
+
+      <p>
+        \<textarea name="" id=""></textarea>
+      </p>
 
       <p class="blog-txt">
         <div class="a">
