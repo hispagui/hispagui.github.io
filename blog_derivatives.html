@@ -242,7 +242,7 @@
         \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$-->
         Notice that the boundary of an \(i+1\)-form is also an \(i\)-cycle (by applying twice annulates thing), so \(\text{im}(d_{i+1})\subset \text{ker}(d_i)\).
         Finally we can define what the \(n\)-th homology group of \(X\) written \(H_n(X)\) is,
-        $$ H_n(X) = \frac{\omega \mid \partial_n\omega = 0}{\omega \mid \partial_{n+1}\eta = \omega}.$$
+        $$ H_n(X) = \frac{\omega \mid \partial_n\omega = 0}{\omega \mid \partial_{n+1}\eta = \omega}$$
         
         Now, \(H_n(X)\) is not only a group, but also a vector space, and dim \(H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
       </p>
@@ -259,13 +259,11 @@
         A useful practice people often do in algebraic topology and category theory is draw diagrams.
       </p>
       <p class="blog-txt a">
-        <!-- https://q.uiver.app/#q=WzAsMTAsWzAsMCwiLi4uIl0sWzEsMCwiKGstMSlcXHRleHR7LWNoYWluc30iXSxbMCwxLCIuLi4iXSxbMSwxLCIoay0xKVxcdGV4dHstY29jaGFpbnN9Il0sWzIsMCwia1xcdGV4dHstY2hhaW5zfSJdLFszLDAsIihrKzEpXFx0ZXh0ey1jaGFpbnN9Il0sWzQsMCwiLi4uIl0sWzIsMSwia1xcdGV4dHstY29jaGFpbnN9Il0sWzMsMSwiKGsrMSlcXHRleHR7LWNvY2hhaW5zfSJdLFs0LDEsIi4uLiJdLFsxLDAsIlxccGFydGlhbCIsMl0sWzEsM10sWzIsMywiXFxkZWx0YV57aysxfSJdLFs0LDEsIlxccGFydGlhbF97ay0xfSIsMl0sWzUsNCwiXFxwYXJ0aWFsX2siLDJdLFs2LDUsIlxccGFydGlhbF97aysxfSIsMl0sWzMsNywiXFxkZWx0YV5rIl0sWzcsOCwiXFxkZWx0YV57ay0xfSJdLFs4LDksIlxcZGVsdGEiXSxbNCw3XSxbNSw4XV0= -->
-<iframe class="quiver-embed center-image" src="https://q.uiver.app/#q=WzAsMTAsWzAsMCwiLi4uIl0sWzEsMCwiKGstMSlcXHRleHR7LWNoYWluc30iXSxbMCwxLCIuLi4iXSxbMSwxLCIoay0xKVxcdGV4dHstY29jaGFpbnN9Il0sWzIsMCwia1xcdGV4dHstY2hhaW5zfSJdLFszLDAsIihrKzEpXFx0ZXh0ey1jaGFpbnN9Il0sWzQsMCwiLi4uIl0sWzIsMSwia1xcdGV4dHstY29jaGFpbnN9Il0sWzMsMSwiKGsrMSlcXHRleHR7LWNvY2hhaW5zfSJdLFs0LDEsIi4uLiJdLFsxLDAsIlxccGFydGlhbCIsMl0sWzEsM10sWzIsMywiXFxkZWx0YV57aysxfSJdLFs0LDEsIlxccGFydGlhbF97ay0xfSIsMl0sWzUsNCwiXFxwYXJ0aWFsX2siLDJdLFs2LDUsIlxccGFydGlhbF97aysxfSIsMl0sWzMsNywiXFxkZWx0YV5rIl0sWzcsOCwiXFxkZWx0YV57ay0xfSJdLFs4LDksIlxcZGVsdGEiXSxbNCw3XSxbNSw4XV0=&embed" width="1083" height="304" style="border-radius: 8px; border: none;"></iframe>
-      </p>
+        <img src="images/diagram.svg" class="center-image" alt="Mathematical diagram"></p>
       <p class="blog-txt a">
         We have thus defined cochains and a coboundary operator.
         So like before, we can now define <i>cocycles</i> and hence the cohomology of a space \(X\), written
-        $$ H^n(X) := \frac{\alpha \mid \delta^n\alpha = 0}{\alpha \mid \delta^n\beta = \alpha}. $$
+        $$ H^n(X) := \frac{\alpha \mid \delta^n\alpha = 0}{\alpha \mid \delta^{n-1}\beta = \alpha} $$
       </p>
 
       <p class="blog-txt a b">
