@@ -103,6 +103,12 @@ main,
   width: 60%;
 }
 
+.large-image {
+  display: block;
+  width: 75%;
+  max-width: 90%;
+  height: auto;
+}
 
 
 .nav {

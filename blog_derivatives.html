@@ -87,7 +87,7 @@
         To answer that question, you need to know what "the same length" means. 
         (Equivalently, the gradient is perpendicular to the contour lines, and "perpendicular" is a statement about angles.) 
         The rule that tells you how to measure lengths and angles is called a <i>metric</i>.
-        <img src="images/gradient_example.svg" class="center-image">
+        <img src="images/gradient_example.svg" class="large-image">
       </p>
       <p class="blog-txt a">
         Here is a simple example. 
@@ -259,27 +259,25 @@
         A useful practice people often do in algebraic topology and category theory is draw diagrams.
       </p>
       <p class="blog-txt a">
-        <img src="images/diagram.svg" class="center-image" alt="Mathematical diagram"></p>
+        <img src="images/diagram_ok.svg" class="center-image" alt="Mathematical diagram"></p>
       <p class="blog-txt a">
         We have thus defined cochains and a coboundary operator.
         So like before, we can now define <i>cocycles</i> and hence the cohomology of a space \(X\), written
         $$ H^n(X) := \frac{\alpha \mid \delta^n\alpha = 0}{\alpha \mid \delta^{n-1}\beta = \alpha} $$
       </p>
 
+
+
       <p class="blog-txt a b">
         Now, one of the many currencies that exist in cohomolgy is the <i>de Rham</i> cohomology.
         This is where differential forms and cohomology theory merge.
-        In place of taking cochains as abstract objets, we say that \(\Omega^i(X)\) is the set of \(i\)-differential
-        forms on \(X\) and that the boundary operator \(d\) is the <i>exterior derivative</i>. <br>
+        In place of taking cochains as abstract objets, we now say that \(k\)-cochains are \(k\)-forms and that the boundary operator is the <i>exterior derivative</i> \(d\). <br>
+        Hopefully, I have introduced differential forms in a way that convinces you that what we are doing here is legal !
       </p>
       <p class="blog-txt a">
-        This is really ok to do !
-        What is left to do is to make sense of cochains in this context
-        
-
-        WHAT IS THE EXTERIOR DERIVATIVE ? <br>
-        CLOSED FORMS <br>
-        EXACT FORMS
+        So, what is left to do is to make sense of cycles in this context.
+        We distinguish special kinds of differential forms, which are <i>closed forms</i> and <i>exact forms</i><div class=""></div>
+        A \(k\)-form is said to be closed if 
 
         we can check that all this calculus grammar (about differential forms) has the properties that we want: <br>
         the double exteriro derivative is null <br>
