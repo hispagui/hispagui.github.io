@@ -18,7 +18,8 @@
   <script>
     window.MathJax = {
       options: {
-        enableMenu: false
+        enableMenu: false,
+        enableEnrichment: false
       }
     };
   </script>
@@ -126,15 +127,6 @@
         The symbol \(\wedge\) is called the <i>exterior product</i>, and it is what allows us to combine directions into areas, areas into volumes, and so on... 
         For our purposes, this is enough to remember.
       </p>
-      <!-- 
-      <p class="blog-txt a">
-        Concretely, \(dx \wedge dy\) eats two vectors \(u\) and \(w\) and returns the area of the parallelogram they span PICTURE. 
-        This area comes with a sign that records orientation: swapping \(u\) and \(w\) flips the sign. 
-        In the same way, \(dx \wedge dy \wedge dz\) eats three vectors and returns the signed volume of the box they span. 
-        In general, a \(k\)-form eats \(k\) vectors and returns a signed \(k\)-dimensional "volume", and the measurement is allowed to change from point to point, as in \(f(x,y)\, dx \wedge dy\). 
-        For our purposes, it is enough to remember this: the exterior product combines lower-dimensional measurements into higher-dimensional ones.
-      </p>
-      -->
       <p class="blog-txt a">
         Now that we have a way of describing derivatives without needing a metric, we can start doing calculus!
         So we need some kind of operation that connects differential forms of various degrees.
@@ -233,13 +225,12 @@
         In a way, the boundary expresses for every piece in the \(k\)-chain, where it starts negatively and where it ends positively.
         And then what happens, is that when the boundary is zero (as a sum, remember), we say that we have a \(k\)-cycle (meaning that the endpoints of our whole \(k\)-chain meet, so it's a loop). 
         And surprise surprise, like how loops helped us detect holes, now \(k\)-cycles will help us detect \(k\)-dimensional holes!
-        <br> PICTURE <br>
+        <br> PICTURE (boundary and k-forms) <br>
       </p>
       <p class="blog-txt a">
         Let me repeat everything but with the correct wording and notation.
         Let \(C_k(X)\) be a set whose elements \(a\) are \(k\)-chains.
-        And let \(\partial_k: C_k(X) \rightarrow C_{k-1}(X)\) be a rule sending a \(k\)-chain to its boundary 
-        (look at the PICTURE for intuition about what boundaries are).
+        And let \(\partial_k: C_k(X) \rightarrow C_{k-1}(X)\) be a rule sending a \(k\)-chain to its boundary.
         The boundary also has an extra rule; applying it twice cancels everything
         (\(\partial_{k-1} \circ \partial_k = 0\)), this seems familiar right?
         Notice that the boundary of a \(k+1\)-chain is also a \(k\)-cycle, since applying \(\partial\) twice gives zero (so \(\text{im}(\partial_{k+1})\subset \text{ker}(\partial_k)\)).
@@ -265,6 +256,7 @@
         A useful practice people often do in algebraic topology and category theory is draw diagrams.
       </p>
       <p class="blog-txt a">
+        PICTURE would be better
         <img src="images/diagram_1.svg" class="center-image" alt="Mathematical diagram"></p>
       <p class="blog-txt a">
         We have thus defined cochains and a coboundary operator.
@@ -299,17 +291,23 @@
       </p>
       <p class="blog-txt a">
         Finally, let me state the main theorem from de Rham himself.<br>
+      </p>
+      <p class="blog-txt a">
         <b>Theorem:</b> (<i>de Rham</i>) for \(X\) a smooth \(n\)-dimensional object, the de Rham cohomology and the <i>classical</i> cohomology with real coefficients are the same (they are naturally isomorphic).<br>
+      </p>
+      <p class="blog-txt a">
         And this identification is made possible by the famous theorem of Stokes. 
         With differential forms, it generalises the <i>fundamental theorem of calculus</i>, <i>Green's theorem</i> and <i>Stokes' theorem over surfaces</i>:<br>
+      </p>
+      <p class="blog-txt a">
         <b>Theorem:</b> (<i>Stokes</i>) \(X\) is a smooth \(n\)-dimensional object that has a boundary denoted by \(\partial X\) and \(\omega\) is an \((n-1\))-form on \(X\).
         Then 
         $$ \int_X d\omega = \int_{\partial X} \omega.$$
-        In other words: measuring the derivative of \(\omega\) over a piece of space is the same as measuring \(\omega\) itself on the edge of that piece.
+        In other words, measuring the derivative of \(\omega\) over a piece of space is the same as measuring \(\omega\) itself on the edge of that piece.
       </p>
       <p class="blog-txt a">
         Concretely, integration turns every \(k\)-form into a \(k\)-cochain (indeed, you feed it a chain and get back a number).
-        And Stokes' theorem explains how \(d\) turns into the coboundary operator \delta, closed forms become cocycles and exact forms are coboundaries.
+        And Stokes' theorem explains how \(d\) turns into the coboundary operator \(\delta\), closed forms become cocycles and exact forms are coboundaries.
         So we have a map \(H^n_{dR}(X) \rightarrow H^n(X,_{\mathbb{R}})\)
         In a sense, Stokes provides the bridge and de Rham says the bridge is perfect.
       </p>
