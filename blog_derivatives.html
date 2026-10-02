@@ -40,11 +40,11 @@
 
       <p class="blog-txt a b">
         The motivation for this article comes from William Thurston's superb essay <i>On proof and progress in mathematics</i>.
-        In this discussion I will explore deep and intricate connections between mathematical concetps that are already hard on their own.
+        In this discussion I will explore deep and intricate connections between mathematical concepts that are already hard on their own.
         My goal is to provide the best possible intuition for these ideas.
-        To that end, I will resist the urge to using technical language and do my best to keep the discussion light
+        To that end, I will resist the urge to use technical language and do my best to keep the discussion light
         and visual.
-        However, for sake of understanding, I must introduce two important abstract concepts: differential forms and
+        However, for the sake of understanding, I must introduce two important abstract concepts: differential forms and
         (co)homology.
       </p>
 
@@ -55,16 +55,16 @@
         As the title suggests, this essay is about derivatives. 
         You have certainly encountered derivatives before, and you may even be very familiar with them.
         However, there is an important caveat. 
-        You may know how to differentiate functions that live in Euclidean space, but how do you differentiate a function defined on, say, a Klein bottle (a surface with no inside, no outside and no boundary) ?
+        You may know how to differentiate functions that live in Euclidean space, but how do you differentiate a function defined on, say, a Klein bottle (a surface with no inside, no outside and no boundary)?
         This might be strange at first, but the question is very important! Mathematicians and physicists work with curved, hyperbolic, ..., all sorts of weird spaces all the time! <br>
         For example, imagine you want to know the speed of a probe that you have sent into space.
-        Well this probe now lives in a curved space (spacetime) and you have to take the curvature of spacetime into account in your calcultions.<br>
+        Well this probe now lives in a curved space (spacetime) and you have to take the curvature of spacetime into account in your calculations.<br>
       </p>
       <p class="blog-txt a">
-        The question then becomes: how do we do calculus on weird spaces ? 
+        The question then becomes: how do we do calculus on weird spaces? 
         How can we make sense of a "rate of change", a "flow" or an "area" when there is no nice grid of straight lines to rely on?  
         A big part of the answer is <i>differential forms</i>!
-        Essentially, they tools are used to <i>measure</i> something geometric: how fast a quantity changes along a direction, how much of a flow passes through a surface, and so on 
+        Essentially, these tools are used to <i>measure</i> something geometric: how fast a quantity changes along a direction, how much of a flow passes through a surface, and so on...
         Let me show you concretely what I mean.
       </p>
       <p class="blog-txt a">
@@ -101,11 +101,11 @@
         So where was the metric hiding in your calculus course?
         The metric's job is to <i>convert</i> an arrow into a measuring machine and back, and the gradient is precisely the arrow that converts into \(df\).
         With the usual Euclidean metric (the dot product), this conversion leaves the coefficients unchanged, which is why \(df\) and \(\nabla f\) look identical in \(\mathbb{R}^n\).
-        On a curved space, where the metric varies from point to point, they can look very different, 
+        On a curved space, where the metric varies from point to point, they can look very different:
         <b>the differential does not depend on the metric, but the gradient does.</b>
       </p>
       <p class="blog-txt a">
-        This is why we use differential forms, they describe derivatives intrinsically, that is to say, without assuming a metric. 
+        This is why we use differential forms: they describe derivatives intrinsically, that is to say, without assuming a metric. 
         I will not give a rigorous definition of differential forms, because this would require introducing something called the <i>exterior algebra</i> (which really is the correct language for describing areas, volumes and their higher-dimensional analogues). 
         I will simply try to convey a good idea of what they are.
       </p>
@@ -115,7 +115,7 @@
         But maybe we don't want to measure along directions anymore, maybe we want to measure areas or volumes. 
         This is what the \(2\)-form \(dx \wedge dy\) and the \(3\)-form \(dx \wedge dy \wedge dz\) do. 
         The symbol \(\wedge\) is called the <i>exterior product</i>, and it is what allows us to combine directions into areas, areas into volumes, and so on... 
-        For our purposes, this will be enough to remeber.
+        For our purposes, this will be enough to remember.
       </p>
       <!-- 
       <p class="blog-txt a">
@@ -130,6 +130,7 @@
         The last operation on differential forms I want to introduce is the <i>exterior derivative</i>. <br>
         It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\), and it is really the generalisation of differentiation we were looking for. 
         Here is how it works:
+      </p>
         <ul>
           <li>For a function \(f(x,y)\) (a \(0\)-form), it simply outputs its differential \(df\) (a \(1\)-form), 
               which in \(\mathbb{R}^2\) we can identify with the gradient using the Euclidean metric, as above. </li>
@@ -140,6 +141,7 @@
             It measures how much "flow" escapes from a tiny box, divided by its volume, and it can be identified with the divergence. </li>
           <li>And so forth...</li>
         </ul>
+      <p class="blog-txt a"></p>
         And finally, the exterior derivative has the property that,
         applying it twice always gives zero, \(d(d\omega) = 0\) for every form \(\omega\) (we will return to this later on).
       </p>
@@ -164,40 +166,40 @@
 
 
 
+
+
       <p class="blog-txt a b">
         <b>What does (co)homology mean?</b> (such a weird name right) <br>
         First of all, there are two notions here, <i>homology</i> and <i>cohomology</i>.
         And they are actually two sides of the same coin, with many "iterations" of it, a little bit like there are
-        mutiple currencies that use coins. 
+        multiple currencies that use coins. 
         Concretely, <i>homology is the study of holes</i>.
         It gives us a way to define what a hole is and it allows us to distinguish between different kinds of holes and
         how to find these holes. 
       </p>
       <p class="blog-txt a">
         Now, you may argue that you already know what a hole is! 
-        For example, if you do a cut inside a slice of paper, well, you have a hole.
+        For example, if you puncture a sheet of paper, well, you have a hole.
         And you'd be half right. The issue here is that we want to understand <i>every</i> kind of hole, so higher dimensional holes as well.
         I will not explain what it means to have a \(0,1,2, ...\)-dimensional hole,
         but I will give you two examples in which we will see how we can detect holes.
       </p>
       <p class="blog-txt a">
         Imagine you have a sphere, a hollowed ball if you will.
-        What we can do to <it>test</it> for the existence of holes on that sphere is to consider a loop on its surface
-        (like putting a rubber band arround a huge ping-pong ball) and move it arround.
-        If you assume that your rubber band is magic and that it can shrink so small until it becomes a point, then this
-        situation will actually happen here.
-        Without lifting the ruber band from the ping-poing ball, by sliding all of it to one part of the sphere, you can
-        make it shrink to a single point ! (look at the picture)
+        What we can do to <i>test</i> for the existence of holes on that sphere is to consider a loop on its surface
+        (like putting a rubber band around a huge ping-pong ball) and move it around.
+        Imagine your rubber band is magic and can shrink all the way down to a point. 
+        On the sphere, you can always do this: just slide it towards one side until it disappears into a single point! (look at the picture)
         This exactly means that the sphere does not have a \(1\)-dimensional hole.
         <!-- <img src="sphere_claude.png" class="center-image" alt="rubber band shrinking on sphere"> -->
-        <img src="images/sphere_loops_example.svg" class="center-image">
+        <img src="photos/spheres_1.png" class="center-image">
+        <img src="photos/spheres_2.png" class="center-image">
       </p>
       <p class="blog-txt a">
         Now in place of a sphere, consider a torus (or an inflated swim ring), and attach a rubber band to it.
-        The situation here is a bit different, there is actually two ways in which you can fit a rubber band onto a
-        torus; one is to just put your rubber band onto the "exterior" of the torus and the other one is to imagine that
-        the inflatable swim ring was constructed with a rubber band on its "inside" part (do you get it from picture
-        bellow?).
+        The situation here is a bit different, there are two genuinely different ways to put a rubber band on a swim ring. 
+        You can wrap it around the tube, like a ring on a finger, or you can lay it along the ring so that it goes all the way around the central hole (do you get it from picture
+        below?).
         And this is a completely different situation than the one we had with the sphere.
         For the torus, it is impossible to shrink either rubber bands into a single point without lifting and breaking
         them (you can try if you want!).
@@ -208,71 +210,85 @@
         <img src="images/torus_example.svg" class="center-image">
       </p>
       <p class="blog-txt a">
-        So far what we have checked for \(1\)-dimensional holes, but what about the hollowness of the sphere and the
+        So far, we have checked for \(1\)-dimensional holes, but what about the hollowness of the sphere and the
         torus? Are they holes as well? How do we detect that?
       </p>
+
+
       <p class="blog-txt a">
-        Well, there is a way to describe and generalise this processus formally.
-        The idea is to use <it>chains</it>, <it>cycles</it> and <it>boundaries</it>.
-        Suppose we have a (resonnable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, even
+        Well, there is a way to describe and generalise this process formally.
+        The idea is to use <i>chains</i>, <i>cycles</i> and <i>boundaries</i>.
+        Suppose we have a (reasonable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, even
         spacetime! or whatever smooth space you like).
         The alternative for loops we use here are called \(k\)-chains.
         They can be thought of as a set of \(k\)-dimensional edges (with a direction), that you can attach together (at
         its endpoints).
-        A \(0\)-chain can be thought of as a point, a \(1\)-chain may be something like a sequence of arrows (a directed
-        graph if you will), a \(2\)-chain a set of planes attached to one another and so one...
-        If the sequence of element in the \(k\)-chain meet at its endpoints, then this forms a loop!
-        And surprise surprise, we can put loops on our objects and check for holes!
+        You can think of \(0\)-chain as a point, a \(1\)-chain may be something like a sequence of arrows (a directed
+        graph if you will), a \(2\)-chain a set of planes attached to one another and so on...
       </p>
+      <p class="blog-txt a">
+        Now, the idea, is that you can "sum" together all the pieces of a \(k\)-chain, using its endpoints (which are \((k-1)\)-chains themselves) as a way of tracking them.
+        The generalised notion for endpoints here is the boundary.
+        In a way, the boundary expresses for every piece in the \(k\)-chain, where it starts negatively and where it ends positively.
+        And then what happens, is that when the boundary is zero (as a sum, remember), we say that we have a \(k\)-cycle (meaning that the endpoints of our whole \(k\)-chain meet, so it's a loop). 
+        And surprise surprise, like how loops helped us detect holes, now \(k\)-cycles will help us detect \(k\)-dimensional holes!
         <br> PICTURE <br>
-      <p class="blog-txt a">
-        Now the correct notion of loops we want to use here are called <i>cycles</i>.
-        And cycles are detected using the boundary, which records where your chains ends positively and where it starts negatively.
-        Remember their endpoints is where we attach our \(k\)-elements to make a full \(k/)-chain, so when "added up", if the boundary sums to zero, we have a cycle.
       </p>
+
+
       <p class="blog-txt a">
-        Now I will repeat everything but with the correct wording.
-        Let \(C_k(X)\) be a set whose elements \(\omega\) are \(k\)-chains.
-        And let \(\partial_i: C_i(X) \rightarrow C_{i-1}(X)\) be a rule sending an \(i\)-chain to its boundary 
+        Now I will repeat everything but with the correct wording and notation.
+        Let \(C_k(X)\) be a set whose elements \(a\) are \(k\)-chains.
+        And let \(\partial_k: C_k(X) \rightarrow C_{k-1}(X)\) be a rule sending an \(i\)-chain to its boundary 
         (look at the PICTURE for intuition about what boundaries are).
-        We also require an extra condition for \(\partial\); applying the rule two consecutive times cancels everything
-        (\(\partial_{k-1} \circ \partial_k = 0\)), this seems familiar right ?
+        The boundary also has an extra rule; applying it twice cancels everything
+        (\(\partial_{k-1} \circ \partial_k = 0\)), this seems familiar right?
         <!--Formally, we have the following sequence,
         $$ \{0\text{-chains}\} \xleftarrow{\partial_0} \{1\text{-chains}\} \xleftarrow{\partial_1} \{2\text{-chains}\}
         \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$-->
-        Notice that the boundary of an \(i+1\)-form is also an \(i\)-cycle (by applying twice annulates thing), so \(\text{im}(d_{i+1})\subset \text{ker}(d_i)\).
+        Notice that the boundary of a \(k+1\)-chain is also an \(k\)-cycle, by applying twice, it annulates things (so \(\text{im}(\partial_{k+1})\subset \text{ker}(\partial_k)\)).
         Finally we can define what the \(n\)-th homology group of \(X\) written \(H_n(X)\) is,
-        $$ H_n(X) = \frac{\omega \mid \partial_n\omega = 0}{\omega \mid \partial_{n+1}\eta = \omega}$$
-        
-        Now, \(H_n(X)\) is not only a group, but also a vector space, and dim \(H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
+        $$ H_n(X) = \frac{ \{ a \in C_n(X) \mid \partial_n a = 0 \} }{ \{ \partial_{n+1}b \mid b \in C_{n+1}(X) \} } = \frac{n\text{-cycles}}{n\text{-boundaries}}$$
+        with \(b\) an \(n+1\)-chain.
+        In words it says: <b>a hole is a cycle that is not the boundary of anything</b>. 
+        On the sphere, the rubber band encloses a cap, so it is a boundary and detects nothing. 
+        On the torus, the band around the tube encloses nothing on the surface, so it detects a hole.
+        When the conditions are nice enough, \(H_n(X)\) is actually a vector space, and dim \(H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
+        A small caveat here is that \(H_0(X)\) counts connected pieces of \(X\) rather than holes.
       </p>
       <p class="blog-txt a b">
-        Now cohomolgy on the other hand asks questions about functions (this is usually how we think about objects
-        <i>dually</i>).
-        Instead of asking what cycles does the space contain, we ask what functions/rules can be put on those cycles and what are they telling us about our space ?
-        So for example instead of defining a \(k\)-chain as above, we will have a \(k\)-<i>co</i>chain which is a function
-        \(f:C_k(X) \rightarrow R\) (where \(R\) is some number set, usually a ring). <br>
-        Something that happens when taking working dually is that we have to reverse the arrows (this way of thinking comes from <i>category theory</i>, and in its language this translates to: 
-        the dual operator is actually a contravariant functor).
-        What I mean is that our <i>co</i>boundary operator \(\delta^i\) takes an \(i-1\)-cochain in \(C^{i-1}\) and sends it a
-        an \(i\)-cochain in \(C^{i}\).
+        Now cohomology on the other hand asks questions about functions 
+        (this is usually how we think about objects <i>dually</i>, 
+        when considering the dual object, we usually write it with a <i>co</i> in front).
+        Instead of asking what cycles does the space contain, we ask what functions/rules can be put on those cycles and what are they telling us about the space?
+        So for example instead of defining a \(i\)-chain as above, we will have a \(i\)-<i>cochain</i> which is a function that respects sums of chains
+        \(f:C_i(X) \rightarrow R\) taking \(i\)-chains as input and returning something in \(R\), a number set. <br>
+        Something that happens when working dually, is that we have to reverse the arrows (see diagram below, the meaning of this can be made very precise using <i>category theory</i>).
+        Here what I mean is that our <i>coboundary</i> operator \(\delta^i\) takes an \(i\)-cochain in \(C^{i}\) and sends it to a
+        an \((i+1)\)-cochain in \(C^{i+1}\).
         A useful practice people often do in algebraic topology and category theory is draw diagrams.
       </p>
       <p class="blog-txt a">
         <img src="images/diagram_ok.svg" class="center-image" alt="Mathematical diagram"></p>
       <p class="blog-txt a">
         We have thus defined cochains and a coboundary operator.
-        So like before, we can now define <i>cocycles</i> and hence the cohomology of a space \(X\), written
-        $$ H^n(X) := \frac{\alpha \mid \delta^n\alpha = 0}{\alpha \mid \delta^{n-1}\beta = \alpha} $$
+        So like before, we can now define <i>cocycles</i> (checking for \(0\) coboundary) and hence the cohomology of a space \(X\), written
+        $$ H^n(X) := \frac{ \{ \alpha \in C^n(X) \mid \delta^n\alpha = 0 \} }{ \{ \delta^{n-1}\beta \mid  \beta \in C^{n-1}(X) \} } = \frac{n\text{-cocycles}}{n\text{-coboundaries}} $$
       </p>
 
 
 
+
+
+
+
+
+
       <p class="blog-txt a b">
-        Now, one of the many currencies that exist in cohomolgy is the <i>de Rham</i> cohomology.
+        One of the many currencies that exist in cohomology is the <i>de Rham</i> cohomology.
         This is where differential forms and cohomology theory merge.
         In place of taking cochains as abstract objets, we now say that \(k\)-cochains are \(k\)-forms and that the boundary operator is the <i>exterior derivative</i> \(d\). <br>
-        Hopefully, I have introduced differential forms in a way that convinces you that what we are doing here is legal !
+        Hopefully, I have introduced differential forms in a way that convinces you that what we are doing here is legal!
       </p>
       <p class="blog-txt a">
         So, what is left to do is to make sense of cycles in this context.
@@ -289,7 +305,7 @@
 
 
         Finally, let me invoke a really powerful theorem, from de Rham himself.
-        It states that the \(n\)-th de Rham cohomology group and the <it>usual</it> \(n\)-th cohomology group are the
+        It states that the \(n\)-th de Rham cohomology group and the <i>usual</i> \(n\)-th cohomology group are the
         same (or isomorphic).
 
 
