@@ -86,8 +86,9 @@
         And "steepest" hides a comparison: among all steps of the same length, which one makes you climb the most? 
         To answer that question, you need to know what "the same length" means. 
         (Equivalently, the gradient is perpendicular to the contour lines, and "perpendicular" is a statement about angles.) 
+        Lenghts and angles might not even be the same in different areas of our space.
         The rule that tells you how to measure lengths and angles is called a <i>metric</i>.
-        <img src="images/gradient_example.svg" class="large-image">
+        <img src="photos/metric_1.png" class="center-image">
       </p>
       <p class="blog-txt a">
         Here is a simple example. 
@@ -149,7 +150,17 @@
         I do not expect you to immediatelly start doing calculations and playing with differential forms. 
         After all, you still don't know that the exterior product is skew-symmetric or even how to integrate differential forms.
         I just want you to have a small idea of how things work.
-        </p>
+      </p>
+
+
+
+
+      QUICKLY ABOUT INTEGRATION ?
+
+
+
+
+
 
 
 
@@ -162,7 +173,7 @@
 
 
       <p class="blog-txt a b">
-        Now that we roughly know what differential forms are, let's move.
+        Now that we roughly know what differential forms are, let's move one.
         What is cohomology? <br> 
         (such a weird name right)
         First of all, there are two hidden notions here, <i>homology</i> and <i>cohomology</i>.
@@ -191,11 +202,11 @@
       </p>
       <p class="blog-txt a">
         Now in place of a sphere, consider a torus (or an inflated swim ring), and attach a rubber band to it.
-        The situation here is a bit different, there are two genuinely different ways to put a rubber band on a swim ring. 
+        The situation here is a bit different: there are two genuinely different ways to put a rubber band on a swim ring. 
         You can wrap it around the tube, like a ring on a finger, or you can lay it along the ring so that it goes all the way around the central hole (do you get it from picture
         below?).
         And this is a completely different situation than the one we had with the sphere.
-        For the torus, it is impossible to shrink either rubber bands into a single point without lifting and breaking
+        For the torus, it is impossible to shrink either rubber band into a single point without lifting and breaking
         them (you can try if you want!).
         Informally, this means that the torus has two \(1\)-dimensional holes.
         And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints to us the fact
@@ -228,23 +239,20 @@
         <br> PICTURE <br>
       </p>
       <p class="blog-txt a">
-        Let me will repeat everything but with the correct wording and notation.
+        Let me repeat everything but with the correct wording and notation.
         Let \(C_k(X)\) be a set whose elements \(a\) are \(k\)-chains.
-        And let \(\partial_k: C_k(X) \rightarrow C_{k-1}(X)\) be a rule sending an \(i\)-chain to its boundary 
+        And let \(\partial_k: C_k(X) \rightarrow C_{k-1}(X)\) be a rule sending a \(k\)-chain to its boundary 
         (look at the PICTURE for intuition about what boundaries are).
         The boundary also has an extra rule; applying it twice cancels everything
         (\(\partial_{k-1} \circ \partial_k = 0\)), this seems familiar right?
-        <!--Formally, we have the following sequence,
-        $$ \{0\text{-chains}\} \xleftarrow{\partial_0} \{1\text{-chains}\} \xleftarrow{\partial_1} \{2\text{-chains}\}
-        \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$-->
-        Notice that the boundary of a \(k+1\)-chain is also an \(k\)-cycle, by applying twice, it annulates things (so \(\text{im}(\partial_{k+1})\subset \text{ker}(\partial_k)\)).
+        Notice that the boundary of a \(k+1\)-chain is also a \(k\)-cycle, since applying \(\partial\) twice gives zero (so \(\text{im}(\partial_{k+1})\subset \text{ker}(\partial_k)\)).
         Finally we can define what the \(n\)-th homology group of \(X\) written \(H_n(X)\) is,
-        $$ H_n(X) := \frac{ \{ a \in C_n(X) \mid \partial_n a = 0 \} }{ \{ \partial_{n+1}b \mid b \in C_{n+1}(X) \} } = \frac{n\text{-cycles}}{n\text{-boundaries}}$$
-        with \(b\) an \(n+1\)-chain.
+        $$ H_n(X) := \frac{ \{ a \in C_n(X) \mid \partial_n a = 0 \} }{ \{ \partial_{n+1}b \mid b \in C_{n+1}(X) \} } = \frac{n\text{-cycles}}{n\text{-boundaries}}.$$
         In words it says: <b>a hole is a cycle that is not the boundary of anything</b>. 
         On the sphere, the rubber band encloses a cap, so it is a boundary and detects nothing. 
+        The sphere itself is a \(2\)-cycle (a closed surface with no boundary), and on the sphere it doesn't enclose any solid piece, so it detects a \(2\)-dimensional hole.
         On the torus, the band around the tube encloses nothing on the surface, so it detects a hole.
-        When the conditions are nice enough, \(H_n(X)\) is actually a vector space, and dim \(H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
+        When the conditions are nice enough (when the coefficients are real numbers), \(H_n(X)\) is actually a vector space, and dim \(H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
         A small caveat here is that \(H_0(X)\) counts connected pieces of \(X\) rather than holes.
       </p>
       <p class="blog-txt a b">
@@ -255,7 +263,7 @@
         So for example instead of defining a \(i\)-chain as above, we will have a \(i\)-<i>cochain</i> which is a function that respects sums of chains
         \(f:C_i(X) \rightarrow R\) taking \(i\)-chains as input and returning something in \(R\), a number set. <br>
         Something that happens when working dually, is that we have to reverse the arrows (see diagram below, the meaning of this can be made very precise using <i>category theory</i>).
-        Here what I mean is that our <i>coboundary</i> operator \(\delta^i\) takes an \(i\)-cochain in \(C^{i}\) and sends it to a
+        Here what I mean is that our <i>coboundary</i> operator \(\delta^i\) takes an \(i\)-cochain in \(C^{i}\) and sends it to
         an \((i+1)\)-cochain in \(C^{i+1}\).
         A useful practice people often do in algebraic topology and category theory is draw diagrams.
       </p>
@@ -277,35 +285,31 @@
 
       <p class="blog-txt a b">
         One of the many currencies that exist in cohomology is the <i>de Rham</i> cohomology.
-        This is where differential forms and cohomology theory merge, the heart the article.
-        In place of taking cochains as abstract objets, we now say that \(k\)-cochains are \(k\)-forms and that the coboundary operator is the <i>exterior derivative</i> \(d\). <br>
+        This is where differential forms and cohomology theory merge, the heart of the article.
+        In place of taking cochains as abstract objects, we now say that \(k\)-cochains are \(k\)-forms and that the coboundary operator is the <i>exterior derivative</i> \(d\).
         Hopefully, I have introduced differential forms in a way that convinces you that what we are doing here is legal 
         (\(d\) takes \(k\)-forms to \((k+1)\)-forms, raising the degree just like \(\delta\) does, while \(\partial\) lowers it. So forms naturally sit on the "co" side).
 
       </p>
       <p class="blog-txt a">
-        So, what is left to do is to make sense of cocycles in this context.
-        
-        
-        
-        
-        
-        
-        We distinguish kinds of differential forms, which are <i>closed forms</i> and <i>exact forms</i>.
-        A \(k\)-form is said to be closed if 
+        The last step is to make sense of cocycles in this context.
+        For that, let me distinguish two kinds of differential forms. 
+        We call a differential form <i>closed</i> if its exterior derivative is zero (it has no "swirl") and <i>exact</i> if it's the derivative of something ( \(\omega = d\eta\) ).
+        Since \(d(d\eta) = 0\), every exact form is closed. 
+        The interesting question is the converse: if a form has no swirl anywhere, is it necessarily the derivative of something?
+        This is really the same reasoning we were having when thinking about cohomology.
+        Well this structure is what we call the <i>de Rham cohomology</i> and it is denoted and defined as,
+        $$ H_{dR}^n := \frac{ \{ \omega \mid d\omega = 0\} }{ \{ d\eta \mid \eta \text{ an } (n-1)\text{-form} \} } = \frac{ \text{closed } n\text{-forms} }{ \text{exact } n\text{-forms}}.$$
+      </p>
+      <p class="blog-txt a">
+        Finally, let me invoke a really powerful theorem, from de Rham himself.
+        Basically, it says that the de Rham cohomology is the same thing as the usual cohomology with real coefficients (in maths, we say that they are isomorphic).
 
-        we can check that all this calculus grammar (about differential forms) has the properties that we want: <br>
-        the double exteriro derivative is null <br>
-        because \(d^2 = 0\), every exact form is necessarily closed
-
-        $$ H_{dR}^n := \frac{ \{ \omega \mid d\omega = 0\} }{ \{ d\eta \mid \eta \text{ an } (n-1)\text{-form} \} } = \frac{ \text{closed } n\text{-forms} }{ \text{exact } n\text{-forms}}$$
-
+      </p>
       
 
 
-        Finally, let me invoke a really powerful theorem, from de Rham himself.
-        It states that the \(n\)-th de Rham cohomology group and the <i>usual</i> \(n\)-th cohomology group are the
-        same (or isomorphic).
+        
 
 
 
