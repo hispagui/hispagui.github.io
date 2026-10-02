@@ -45,7 +45,7 @@
         To that end, I will resist the urge to use technical language and do my best to keep the discussion light
         and visual.
         However, for the sake of understanding, I must introduce two important abstract concepts: differential forms and
-        (co)homology.
+        cohomology.
       </p>
 
 
@@ -101,13 +101,13 @@
         So where was the metric hiding in your calculus course?
         The metric's job is to <i>convert</i> an arrow into a measuring machine and back, and the gradient is precisely the arrow that converts into \(df\).
         With the usual Euclidean metric (the dot product), this conversion leaves the coefficients unchanged, which is why \(df\) and \(\nabla f\) look identical in \(\mathbb{R}^n\).
-        On a curved space, where the metric varies from point to point, they can look very different:
-        <b>the differential does not depend on the metric, but the gradient does.</b>
+        On a curved space, where the metric varies from point to point, they can look very different. <br>
+        So the takeaway here the differential does not depend on the metric, but the gradient does.
       </p>
       <p class="blog-txt a">
         This is why we use differential forms: they describe derivatives intrinsically, that is to say, without assuming a metric. 
         I will not give a rigorous definition of differential forms, because this would require introducing something called the <i>exterior algebra</i> (which really is the correct language for describing areas, volumes and their higher-dimensional analogues). 
-        I will simply try to convey a good idea of what they are.
+        Rather, I will simply try to give a good picture of what they are.
       </p>
       <p class="blog-txt a">
         As it turns out, we have already met a \(1\)-(differential) form, the differential \(df\) above (surprise!). 
@@ -115,7 +115,7 @@
         But maybe we don't want to measure along directions anymore, maybe we want to measure areas or volumes. 
         This is what the \(2\)-form \(dx \wedge dy\) and the \(3\)-form \(dx \wedge dy \wedge dz\) do. 
         The symbol \(\wedge\) is called the <i>exterior product</i>, and it is what allows us to combine directions into areas, areas into volumes, and so on... 
-        For our purposes, this will be enough to remember.
+        For our purposes, this is enough to remember.
       </p>
       <!-- 
       <p class="blog-txt a">
@@ -127,41 +127,34 @@
       </p>
       -->
       <p class="blog-txt a">
-        The last operation on differential forms I want to introduce is the <i>exterior derivative</i>. <br>
+        Now that we have a way of describing derivatives without needing a metric, we can start doing calculus!
+        So we need some kind of operation that connects differential forms of various degrees.
+        That operation is called the <i>exterior derivative</i>.
         It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\), and it is really the generalisation of differentiation we were looking for. 
-        Here is how it works:
+        Here is how it works (roughly):
       </p>
         <ul>
           <li>For a function \(f(x,y)\) (a \(0\)-form), it simply outputs its differential \(df\) (a \(1\)-form), 
               which in \(\mathbb{R}^2\) we can identify with the gradient using the Euclidean metric, as above. </li>
-          <li>For a \(1\)-form \(\alpha = f(x,y)\,dx + g(x,y)\,dy\), the exterior derivative gives the \(2\)-form \(d\alpha = \left(\frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}\right) dx \wedge dy\). 
+          <li>For a \(1\)-form \(\alpha = f(x,y)\,dx + g(x,y)\,dy\), the exterior derivative gives the \(2\)-form \(d\alpha = \left(\frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}\right) dx \wedge dy.\) 
               Concretely, it measures how much \(\alpha\) "swirls" around each point: go around a tiny loop, add up what \(\alpha\) measures along the way, and divide by the area of the loop. 
-              This can be identified with the curl \(\nabla \times F\) (in \(\mathbb{R}^3\)). PICTURE</li>
-          <li>For a \(2\)-form in \(\mathbb{R}^3\), \(\beta = p(x,y,z)\, dy \wedge dz + q(x,y,z)\, dz \wedge dx + r(x,y,z)\, dx \wedge dy\), the exterior derivative returns the \(3\)-form \(d\beta = \left(\frac{\partial p}{\partial x} + \frac{\partial q}{\partial y} + \frac{\partial r}{\partial z}\right) dx \wedge dy \wedge dz\). 
-            It measures how much "flow" escapes from a tiny box, divided by its volume, and it can be identified with the divergence. </li>
+              Similar to the curl \(\nabla \times F\) (in \(\mathbb{R}^3\)).</li>
+          <li>For a \(2\)-form in \(\mathbb{R}^3\), \(\beta = p(x,y,z)\, dy \wedge dz + q(x,y,z)\, dz \wedge dx + r(x,y,z)\, dx \wedge dy\), we obtain the \(3\)-form \(d\beta = \left(\frac{\partial p}{\partial x} + \frac{\partial q}{\partial y} + \frac{\partial r}{\partial z}\right) dx \wedge dy \wedge dz\). 
+            It measures how much "flow" escapes from a tiny box, divided by its volume. The same as divergence. </li>
           <li>And so forth...</li>
         </ul>
       <p class="blog-txt a"></p>
         And finally, the exterior derivative has the property that,
         applying it twice always gives zero, \(d(d\omega) = 0\) for every form \(\omega\) (we will return to this later on).
-      </p>
-
-
-
-
-      <p class="blog-txt a">
-        SUMMARY 0,1,2,3-forms.<br>
-      </p>
-
+        I do not expect you to immediatelly start doing calculations and playing with differential forms. 
+        After all, you still don't know that the exterior product is skew-symmetric or even how to integrate differential forms.
+        I just want you to have a small idea of how things work.
+        </p>
 
 
 
 
 
-
-
-
-      Now that we have an idea of what differential forms are, let's attack the next subject:
 
 
 
@@ -169,8 +162,10 @@
 
 
       <p class="blog-txt a b">
-        <b>What does (co)homology mean?</b> (such a weird name right) <br>
-        First of all, there are two notions here, <i>homology</i> and <i>cohomology</i>.
+        Now that we roughly know what differential forms are, let's move.
+        What is cohomology? <br> 
+        (such a weird name right)
+        First of all, there are two hidden notions here, <i>homology</i> and <i>cohomology</i>.
         And they are actually two sides of the same coin, with many "iterations" of it, a little bit like there are
         multiple currencies that use coins. 
         Concretely, <i>homology is the study of holes</i>.
@@ -191,9 +186,8 @@
         Imagine your rubber band is magic and can shrink all the way down to a point. 
         On the sphere, you can always do this: just slide it towards one side until it disappears into a single point! (look at the picture)
         This exactly means that the sphere does not have a \(1\)-dimensional hole.
-        <!-- <img src="sphere_claude.png" class="center-image" alt="rubber band shrinking on sphere"> -->
         <img src="photos/spheres_1.png" class="center-image">
-        <img src="photos/spheres_2.png" class="center-image">
+        
       </p>
       <p class="blog-txt a">
         Now in place of a sphere, consider a torus (or an inflated swim ring), and attach a rubber band to it.
@@ -206,8 +200,7 @@
         Informally, this means that the torus has two \(1\)-dimensional holes.
         And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints to us the fact
         that the torus is "made of" two circles (mathematically, we write \(\mathbb{T}\cong S^1 \times S^1\)).
-        <!-- <img src="torus_claude.png" class="center-image" alt="rubber bands on torus"> -->
-        <img src="images/torus_example.svg" class="center-image">
+        <img src="photos/torus_1.png" class="center-image">
       </p>
       <p class="blog-txt a">
         So far, we have checked for \(1\)-dimensional holes, but what about the hollowness of the sphere and the
@@ -234,10 +227,8 @@
         And surprise surprise, like how loops helped us detect holes, now \(k\)-cycles will help us detect \(k\)-dimensional holes!
         <br> PICTURE <br>
       </p>
-
-
       <p class="blog-txt a">
-        Now I will repeat everything but with the correct wording and notation.
+        Let me will repeat everything but with the correct wording and notation.
         Let \(C_k(X)\) be a set whose elements \(a\) are \(k\)-chains.
         And let \(\partial_k: C_k(X) \rightarrow C_{k-1}(X)\) be a rule sending an \(i\)-chain to its boundary 
         (look at the PICTURE for intuition about what boundaries are).
@@ -248,7 +239,7 @@
         \xleftarrow{\partial_2} \{3\text{-chains}\} \xleftarrow{\partial_3} ... $$-->
         Notice that the boundary of a \(k+1\)-chain is also an \(k\)-cycle, by applying twice, it annulates things (so \(\text{im}(\partial_{k+1})\subset \text{ker}(\partial_k)\)).
         Finally we can define what the \(n\)-th homology group of \(X\) written \(H_n(X)\) is,
-        $$ H_n(X) = \frac{ \{ a \in C_n(X) \mid \partial_n a = 0 \} }{ \{ \partial_{n+1}b \mid b \in C_{n+1}(X) \} } = \frac{n\text{-cycles}}{n\text{-boundaries}}$$
+        $$ H_n(X) := \frac{ \{ a \in C_n(X) \mid \partial_n a = 0 \} }{ \{ \partial_{n+1}b \mid b \in C_{n+1}(X) \} } = \frac{n\text{-cycles}}{n\text{-boundaries}}$$
         with \(b\) an \(n+1\)-chain.
         In words it says: <b>a hole is a cycle that is not the boundary of anything</b>. 
         On the sphere, the rubber band encloses a cap, so it is a boundary and detects nothing. 
@@ -286,22 +277,30 @@
 
       <p class="blog-txt a b">
         One of the many currencies that exist in cohomology is the <i>de Rham</i> cohomology.
-        This is where differential forms and cohomology theory merge.
-        In place of taking cochains as abstract objets, we now say that \(k\)-cochains are \(k\)-forms and that the boundary operator is the <i>exterior derivative</i> \(d\). <br>
-        Hopefully, I have introduced differential forms in a way that convinces you that what we are doing here is legal!
+        This is where differential forms and cohomology theory merge, the heart the article.
+        In place of taking cochains as abstract objets, we now say that \(k\)-cochains are \(k\)-forms and that the coboundary operator is the <i>exterior derivative</i> \(d\). <br>
+        Hopefully, I have introduced differential forms in a way that convinces you that what we are doing here is legal 
+        (\(d\) takes \(k\)-forms to \((k+1)\)-forms, raising the degree just like \(\delta\) does, while \(\partial\) lowers it. So forms naturally sit on the "co" side).
+
       </p>
       <p class="blog-txt a">
-        So, what is left to do is to make sense of cycles in this context.
-        We distinguish special kinds of differential forms, which are <i>closed forms</i> and <i>exact forms</i><div class=""></div>
+        So, what is left to do is to make sense of cocycles in this context.
+        
+        
+        
+        
+        
+        
+        We distinguish kinds of differential forms, which are <i>closed forms</i> and <i>exact forms</i>.
         A \(k\)-form is said to be closed if 
 
         we can check that all this calculus grammar (about differential forms) has the properties that we want: <br>
         the double exteriro derivative is null <br>
         because \(d^2 = 0\), every exact form is necessarily closed
 
-        $$ H_{dR}^n := \frac{ \text{closed } n\text{-forms} }{ \text{exact} n\text{-forms}}$$
+        $$ H_{dR}^n := \frac{ \{ \omega \mid d\omega = 0\} }{ \{ d\eta \mid \eta \text{ an } (n-1)\text{-form} \} } = \frac{ \text{closed } n\text{-forms} }{ \text{exact } n\text{-forms}}$$
 
-        kind of
+      
 
 
         Finally, let me invoke a really powerful theorem, from de Rham himself.
