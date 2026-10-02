@@ -15,6 +15,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog — Loris De Vos</title>
+  <script>
+    window.MathJax = {
+      options: {
+        enableMenu: false
+      }
+    };
+  </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js">
   </script>
   <meta name="description" content="Writing by Loris De Vos." />
@@ -47,6 +54,7 @@
         However, for the sake of understanding, I must introduce two important abstract concepts: differential forms and
         cohomology.
       </p>
+
 
 
 
@@ -151,22 +159,12 @@
         After all, you still don't know that the exterior product is skew-symmetric or even how to integrate differential forms.
         I just want you to have a small idea of how things work.
       </p>
-
-
-
-
-      QUICKLY ABOUT INTEGRATION ?
-
-
-
-
-
-
-
-
-
-
-
+      <p class="blog-txt a">
+        \(\text{ }\)
+      </p>
+      <p class="blog-txt a">
+        \(\text{ }\)
+      </p>
 
 
 
@@ -174,8 +172,7 @@
 
       <p class="blog-txt a b">
         Now that we roughly know what differential forms are, let's move one.
-        What is cohomology? <br> 
-        (such a weird name right)
+        What is cohomology? Weird name right? <br>
         First of all, there are two hidden notions here, <i>homology</i> and <i>cohomology</i>.
         And they are actually two sides of the same coin, with many "iterations" of it, a little bit like there are
         multiple currencies that use coins. 
@@ -289,7 +286,6 @@
         In place of taking cochains as abstract objects, we now say that \(k\)-cochains are \(k\)-forms and that the coboundary operator is the <i>exterior derivative</i> \(d\).
         Hopefully, I have introduced differential forms in a way that convinces you that what we are doing here is legal 
         (\(d\) takes \(k\)-forms to \((k+1)\)-forms, raising the degree just like \(\delta\) does, while \(\partial\) lowers it. So forms naturally sit on the "co" side).
-
       </p>
       <p class="blog-txt a">
         The last step is to make sense of cocycles in this context.
@@ -299,22 +295,32 @@
         The interesting question is the converse: if a form has no swirl anywhere, is it necessarily the derivative of something?
         This is really the same reasoning we were having when thinking about cohomology.
         Well this structure is what we call the <i>de Rham cohomology</i> and it is denoted and defined as,
-        $$ H_{dR}^n := \frac{ \{ \omega \mid d\omega = 0\} }{ \{ d\eta \mid \eta \text{ an } (n-1)\text{-form} \} } = \frac{ \text{closed } n\text{-forms} }{ \text{exact } n\text{-forms}}.$$
+        $$ H_{dR}^n(X) := \frac{ \{ \omega \mid d\omega = 0\} }{ \{ d\eta \mid \eta \text{ an } (n-1)\text{-form} \} } = \frac{ \text{closed } n\text{-forms} }{ \text{exact } n\text{-forms}}.$$
       </p>
       <p class="blog-txt a">
-        Finally, let me invoke a really powerful theorem, from de Rham himself.
-        Basically, it says that the de Rham cohomology is the same thing as the usual cohomology with real coefficients (in maths, we say that they are isomorphic).
+        Finally, let me state the main theorem from de Rham himself.<br>
+        <b>Theorem:</b> (<i>de Rham</i>) for \(X\) a smooth \(n\)-dimensional object, the de Rham cohomology and the <i>classical</i> cohomology with real coefficients are the same (they are naturally isomorphic).<br>
+        And this identification is made possible by the famous theorem of Stokes. 
+        With differential forms, it generalises the <i>fundamental theorem of calculus</i>, <i>Green's theorem</i> and <i>Stokes' theorem over surfaces</i>:<br>
+        <b>Theorem:</b> (<i>Stokes</i>) \(X\) is a smooth \(n\)-dimensional object that has a boundary denoted by \(\partial X\) and \(\omega\) is an \((n-1\))-form on \(X\).
+        Then 
+        $$ \int_X d\omega = \int_{\partial X} \omega.$$
+        In other words: measuring the derivative of \(\omega\) over a piece of space is the same as measuring \(\omega\) itself on the edge of that piece.
       </p>
       <p class="blog-txt a">
-        The derivative is really the opposite of the boundary
+        Concretely, integration turns every \(k\)-form into a \(k\)-cochain (indeed, you feed it a chain and get back a number).
+        And Stokes' theorem explains how \(d\) turns into the coboundary operator \delta, closed forms become cocycles and exact forms are coboundaries.
+        So we have a map \(H^n_{dR}(X) \rightarrow H^n(X,_{\mathbb{R}})\)
+        In a sense, Stokes provides the bridge and de Rham says the bridge is perfect.
       </p>
+      <p class="blog-txt a b">
+      So we end up with some unexpected associations.
+      Derivatives and boundaries turn out to be two faces of the same idea:
+      the derivative of a derivative is zero <i>because</i> the boundary of a boundary is empty,
+      and a closed form that refuses to be a derivative is the shadow of a hole that refuses to be a boundary.
+      Calculus, the most local tool we have, ends up seeing the most global feature of a space: its shape.
+</p>
 
-
-        
-
-
-
-      </p>
 
     </section>
   </main>
