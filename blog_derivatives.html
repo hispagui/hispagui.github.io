@@ -18,8 +18,15 @@
   <script>
     window.MathJax = {
       options: {
-        enableMenu: false,
-        enableEnrichment: false
+        menuOption: {
+          setting: {
+            enrich: true,         // true to enable semantic-enrichment
+            collapsible: true,   // true to enable collapsible math
+            speech: true,         // true to enable speech generation
+            braille: true,        // true to enable Braille generation
+            assistiveMml: true,  // true to enable assistive MathML
+          }
+        }
       }
     };
   </script>
