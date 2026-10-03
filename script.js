@@ -1,3 +1,4 @@
+
 /* ---------- Footer quotes ---------- */
 
 const quotes = [
@@ -44,21 +45,21 @@ function currentTheme() {
     (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 }
 
-// Connects the ☾ / ☀ button
+// Connects the dark / light button
 function initThemeToggle() {
   const toggle = document.getElementById("theme-toggle");
   if (!toggle) return;
 
-  function updateIcon() {
-    toggle.textContent = currentTheme() === "dark" ? "☀" : "☾";
+  function updateLabel() {
+    toggle.textContent = currentTheme() === "dark" ? "light" : "dark";
   }
 
   toggle.addEventListener("click", () => {
     const next = currentTheme() === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem("theme", next); } catch (e) {}
-    updateIcon();
+    updateLabel();
   });
 
-  updateIcon();
+  updateLabel();
 }

@@ -42,13 +42,11 @@ html {
 }
 .theme-toggle {
   font: inherit;
-  font-size: 1rem;
   color: var(--ink);
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  line-height: 1;
 }
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
@@ -245,7 +243,6 @@ main,
 .quote {
   margin: 0 0 10px;
   font-family: var(--font-quote);
-  font-style: italic;
   font-size: 1.1rem;
 }
 
