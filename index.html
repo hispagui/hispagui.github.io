@@ -62,15 +62,31 @@
     </section>
   </main>
 
-  <footer class="site-footer" id="random-footer"></footer>
+  <footer class="site-footer">
+    <p class="quote" id="random-footer" aria-live="polite"></p>
+    <button type="button" class="quote-button" id="new-quote">other</button>
+  </footer> 
   <script>
     const quotes = [
       "The man who never alters his opinion is like standing water, and breeds reptiles of the mind.",
       "quote_2",
     ];
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    document.getElementById("random-footer").textContent = randomQuote;
-  </script>
+    const quoteEl = document.getElementById("random-quote");
+    let current = -1
+
+    function showRandomQuote() {
+      let next;
+      do {
+        next = Math.floor(Math.random() * quotes.length);
+      } while (quotes.length > 1 && next == current);
+      current = next;
+      quoteEl.textContent = quotes[current];
+
+    }
+
+    showRandomQuote();
+    document.getElementById("new-quote").addEventListener("click", showRandomQuote);
+    </script>
 
 </body>
 </html>
