@@ -1,4 +1,6 @@
 /* ---------- Tokens ---------- */
+
+
 :root {
   --paper: #f7f6f2;
   --ink: #1b1b18;
@@ -6,9 +8,9 @@
   --accent: #3d5a50;
   --rule: #dedad0;
 
-  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", ui-serif, serif;
+  --font-display: "Parisienne", cursive;
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-quote: "Caveat", serif;
 
   --max-width: 800px;
 }
@@ -92,7 +94,7 @@ main,
 }
 
 .tagline {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.92rem;
   color: var(--ink-soft);
   margin: 0;
@@ -116,7 +118,7 @@ main,
   display: flex;
   gap: 18px;
   align-items: center;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   padding: 0;
 }
@@ -142,7 +144,7 @@ main,
 }
 
 .section h2 {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -197,13 +199,16 @@ main,
 .site-footer {
   padding-top: 20px;
   padding-bottom: 72px;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   color: var(--ink-soft);
 }
 
 .quote {
-  margin: 0 0 10px
+  margin: 0 0 10px;
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: 1.1rem;
 }
 
 .quote-button {
