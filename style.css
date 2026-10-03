@@ -21,6 +21,44 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* ---------- Dark theme ---------- */
+:root[data-theme="dark"] {
+  --paper: #161614;
+  --ink: #ecebe6;
+  --ink-soft: #9d9b93;
+  --accent: #8fb5a6;
+  --rule: #34332e;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #161614;
+    --ink: #ecebe6;
+    --ink-soft: #9d9b93;
+    --accent: #8fb5a6;
+    --rule: #34332e;
+    color-scheme: dark;
+  }
+}
+.theme-toggle {
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--accent);
+}
+
+
+
+
+/* ---------- Main theme ---------- */
 body {
   margin: 0;
   background: var(--paper);
@@ -87,7 +125,7 @@ main,
 
 .name {
   font-family: var(--font-display);
-  font-size: 2.1rem;
+  font-size: 3rem;
   font-weight: 400;
   margin: 0 0 8px;
   letter-spacing: -0.01em;
@@ -213,11 +251,12 @@ main,
 
 .quote-button {
   font: inherit;
+  font-size: 0.75rem;
   color: var(--ink-soft);
   background: none;
   border: 1px solid var(--rule);
-  border-radius: 4px;
-  padding: 4px 10px;
+  border-radius: 3px;
+  padding: 3px 8px;
   cursor: pointer;
   transition: color 0.15s ease, border-color 0.15s ease;
 }

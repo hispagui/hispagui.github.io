@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- page title and description -->
   <title>Loris De Vos</title>
-  <meta name="description" content="Personal site of Your Name." />
+  <meta name="description" content="Personal site of Lolo" />
+  <script src="script.js"></script>
+  <script>applySavedTheme();</script>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" sizes="64x64" href="fox_logo.png">
   <link rel="icon" href="fox_logo.ico">
@@ -18,8 +20,9 @@
       <p class="tagline">mathematician, avid reader and arts enthusiast</p>
     </div>
     <nav class="nav">
-      <a href="#writing">Blog</a>
+      <!-- <a href="#writing">Blog</a> -->
       <a href="#contact">Contact</a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch between light and dark mode">☾</button>
     </nav>
   </header>
 
@@ -66,6 +69,13 @@
     <p class="quote" id="random-quote" aria-live="polite"></p>
     <button type="button" class="quote-button" id="new-quote">other</button>
   </footer> 
+
+  <script>
+    initQuotes();
+    initThemeToggle();
+  </script>
+
+  <!--
   <script>
     const quotes = [
       "The man who never alters his opinion is like standing water, and breeds reptiles of the mind.",
@@ -87,6 +97,7 @@
     showRandomQuote();
     document.getElementById("new-quote").addEventListener("click", showRandomQuote);
     </script>
+    -->
 
 </body>
 </html>
