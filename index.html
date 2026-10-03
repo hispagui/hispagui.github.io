@@ -61,9 +61,9 @@
       </ul>
     </section>
   </main>
-
+  
   <footer class="site-footer">
-    <p class="quote" id="random-footer" aria-live="polite"></p>
+    <p class="quote" id="random-quote" aria-live="polite"></p>
     <button type="button" class="quote-button" id="new-quote">other</button>
   </footer> 
   <script>
@@ -72,7 +72,7 @@
       "quote_2",
     ];
     const quoteEl = document.getElementById("random-quote");
-    let current = -1
+    let current = -1;
 
     function showRandomQuote() {
       let next;
