@@ -102,7 +102,7 @@
         And "steepest" hides a comparison: among all steps of the same length, which one makes you climb the most? 
         To answer that question, you need to know what "the same length" means. 
         (Equivalently, the gradient is perpendicular to the contour lines, and "perpendicular" is a statement about angles.) 
-        Lenghts and angles might not even be the same in different areas of our space.
+        Lengths and angles might not even be the same in different areas of our space.
         The rule that tells you how to measure lengths and angles is called a <i>metric</i>.
         <img src="photos/metric_1.png" class="center-image">
       </p>
@@ -119,7 +119,7 @@
         The metric's job is to <i>convert</i> an arrow into a measuring machine and back, and the gradient is precisely the arrow that converts into \(df\).
         With the usual Euclidean metric (the dot product), this conversion leaves the coefficients unchanged, which is why \(df\) and \(\nabla f\) look identical in \(\mathbb{R}^n\).
         On a curved space, where the metric varies from point to point, they can look very different. <br>
-        So the takeaway here the differential does not depend on the metric, but the gradient does.
+        So the takeaway here is that the differential does not depend on the metric, but the gradient does.
       </p>
       <p class="blog-txt a">
         This is why we use differential forms: they describe derivatives intrinsically, that is to say, without assuming a metric. 
@@ -127,7 +127,7 @@
         Rather, I will simply try to give a good picture of what they are.
       </p>
       <p class="blog-txt a">
-        As it turns out, we have already met a \(1\)-(differential) form, the differential \(df\) above (surprise!). 
+        As it turns out, we have already met a differential \(1\)-form, the differential \(df\) above (surprise!). 
         Recall that it takes one vector and returns a number. 
         But maybe we don't want to measure along directions anymore, maybe we want to measure areas or volumes. 
         This is what the \(2\)-form \(dx \wedge dy\) and the \(3\)-form \(dx \wedge dy \wedge dz\) do. 
@@ -148,36 +148,38 @@
               Concretely, it measures how much \(\alpha\) "swirls" around each point: go around a tiny loop, add up what \(\alpha\) measures along the way, and divide by the area of the loop. 
               Similar to the curl \(\nabla \times F\) (in \(\mathbb{R}^3\)).</li>
           <li>For a \(2\)-form in \(\mathbb{R}^3\), \(\beta = p(x,y,z)\, dy \wedge dz + q(x,y,z)\, dz \wedge dx + r(x,y,z)\, dx \wedge dy\), we obtain the \(3\)-form \(d\beta = \left(\frac{\partial p}{\partial x} + \frac{\partial q}{\partial y} + \frac{\partial r}{\partial z}\right) dx \wedge dy \wedge dz\). 
-            It measures how much "flow" escapes from a tiny box, divided by its volume. The same as divergence. </li>
+            It measures how much "flow" escapes from a tiny box, divided by its volume. This is exactly the divergence. </li>
           <li>And so forth...</li>
         </ul>
       <p class="blog-txt a"></p>
         And finally, the exterior derivative has the property that,
         applying it twice always gives zero, \(d(d\omega) = 0\) for every form \(\omega\) (we will return to this later on).
-        I do not expect you to immediatelly start doing calculations and playing with differential forms. 
+        I do not expect you to immediately start doing calculations and playing with differential forms. 
         After all, you still don't know that the exterior product is skew-symmetric or even how to integrate differential forms.
         I just want you to have a small idea of how things work.
       </p>
-      <p class="blog-txt a">
-        \(\text{ }\)
-      </p>
-      <p class="blog-txt a">
-        \(\text{ }\)
-      </p>
+
+
+
+
+
+      <br>
+      <br>
+
 
 
 
 
 
       <p class="blog-txt a b">
-        Now that we roughly know what differential forms are, let's move one.
-        What is cohomology? Weird name right? <br>
+        Now that we roughly know what differential forms are, let's move on.
+        What is cohomology? Weird name, right? <br>
         First of all, there are two hidden notions here, <i>homology</i> and <i>cohomology</i>.
         And they are actually two sides of the same coin, with many "iterations" of it, a little bit like there are
         multiple currencies that use coins. 
         Concretely, <i>homology is the study of holes</i>.
         It gives us a way to define what a hole is and it allows us to distinguish between different kinds of holes and
-        how to find these holes. 
+        how to find them. 
       </p>
       <p class="blog-txt a">
         Now, you may argue that you already know what a hole is! 
@@ -187,7 +189,7 @@
         but I will give you two examples in which we will see how we can detect holes.
       </p>
       <p class="blog-txt a">
-        Imagine you have a sphere, a hollowed ball if you will.
+        Imagine you have a sphere, a hollow ball if you will.
         What we can do to <i>test</i> for the existence of holes on that sphere is to consider a loop on its surface
         (like putting a rubber band around a huge ping-pong ball) and move it around.
         Imagine your rubber band is magic and can shrink all the way down to a point. 
@@ -201,11 +203,11 @@
         The situation here is a bit different: there are two genuinely different ways to put a rubber band on a swim ring. 
         You can wrap it around the tube, like a ring on a finger, or you can lay it along the ring so that it goes all the way around the central hole (do you get it from picture
         below?).
-        And this is a completely different situation than the one we had with the sphere.
+        And this is a completely different situation from the one we had with the sphere.
         For the torus, it is impossible to shrink either rubber band into a single point without lifting and breaking
-        them (you can try if you want!).
+        it (you can try if you want!).
         Informally, this means that the torus has two \(1\)-dimensional holes.
-        And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints to us the fact
+        And this actually tells us a lot about the <b>structure</b> of the inflatable swim ring, it hints at the fact
         that the torus is "made of" two circles (mathematically, we write \(\mathbb{T}\cong S^1 \times S^1\)).
         <img src="photos/torus_1.png" class="center-image">
       </p>
@@ -220,17 +222,16 @@
         The idea is to use <i>chains</i>, <i>cycles</i> and <i>boundaries</i>.
         Suppose we have a (reasonable topological) space \(X\) (think of a ping-pong ball, an inflatable swim ring, even
         spacetime! or whatever smooth space you like).
-        The alternative for loops we use here are called \(k\)-chains.
-        They can be thought of as a set of \(k\)-dimensional edges (with a direction), that you can attach together (at
-        its endpoints).
-        You can think of \(0\)-chain as a point, a \(1\)-chain may be something like a sequence of arrows (a directed
+        The objects replacing loops here are called \(k\)-chains.
+        They can be thought of as a set of \(k\)-dimensional edges (with a direction), that you can attach together (at their endpoints).
+        You can think of a \(0\)-chain as a collection of points, a \(1\)-chain may be something like a sequence of arrows (a directed
         graph if you will), a \(2\)-chain a set of planes attached to one another and so on...
       </p>
       <p class="blog-txt a">
-        Now, the idea, is that you can "sum" together all the pieces of a \(k\)-chain, using its endpoints (which are \((k-1)\)-chains themselves) as a way of tracking them.
+        Now, the idea is that you can "sum" together all the pieces of a \(k\)-chain, using its endpoints (which are \((k-1)\)-chains themselves) as a way of tracking them.
         The generalised notion for endpoints here is the boundary.
         In a way, the boundary expresses for every piece in the \(k\)-chain, where it starts negatively and where it ends positively.
-        And then what happens, is that when the boundary is zero (as a sum, remember), we say that we have a \(k\)-cycle (meaning that the endpoints of our whole \(k\)-chain meet, so it's a loop). 
+        Then, when the boundary is zero (as a sum, remember), we say that we have a \(k\)-cycle (meaning that the endpoints of our whole \(k\)-chain meet, so it's a loop). 
         And surprise surprise, like how loops helped us detect holes, now \(k\)-cycles will help us detect \(k\)-dimensional holes!
         <br> PICTURE (boundary and k-forms) <br>
       </p>
@@ -238,29 +239,29 @@
         Let me repeat everything but with the correct wording and notation.
         Let \(C_k(X)\) be a set whose elements \(a\) are \(k\)-chains.
         And let \(\partial_k: C_k(X) \rightarrow C_{k-1}(X)\) be a rule sending a \(k\)-chain to its boundary.
-        The boundary also has an extra rule; applying it twice cancels everything
-        (\(\partial_{k-1} \circ \partial_k = 0\)), this seems familiar right?
-        Notice that the boundary of a \(k+1\)-chain is also a \(k\)-cycle, since applying \(\partial\) twice gives zero (so \(\text{im}(\partial_{k+1})\subset \text{ker}(\partial_k)\)).
-        Finally we can define what the \(n\)-th homology group of \(X\) written \(H_n(X)\) is,
+        The boundary also has an extra rule, applying it twice cancels everything
+        (\(\partial_{k-1} \circ \partial_k = 0\)). Does this seem familiar?
+        Notice that the boundary of a \((k+1)\)-chain is also a \(k\)-cycle, since applying \(\partial\) twice gives zero (so \(\text{im}(\partial_{k+1})\subset \text{ker}(\partial_k)\)).
+        Finally, we can define the \(n\)-th homology group of \(X\), written \(H_n(X)\);
         $$ H_n(X) := \frac{ \{ a \in C_n(X) \mid \partial_n a = 0 \} }{ \{ \partial_{n+1}b \mid b \in C_{n+1}(X) \} } = \frac{n\text{-cycles}}{n\text{-boundaries}}.$$
         In words it says: <b>a hole is a cycle that is not the boundary of anything</b>. 
         On the sphere, the rubber band encloses a cap, so it is a boundary and detects nothing. 
         The sphere itself is a \(2\)-cycle (a closed surface with no boundary), and on the sphere it doesn't enclose any solid piece, so it detects a \(2\)-dimensional hole.
         On the torus, the band around the tube encloses nothing on the surface, so it detects a hole.
-        When the conditions are nice enough (when the coefficients are real numbers), \(H_n(X)\) is actually a vector space, and dim \(H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
+        When the conditions are nice enough (when the coefficients are real numbers), \(H_n(X)\) is actually a vector space, and \(dim H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
         A small caveat here is that \(H_0(X)\) counts connected pieces of \(X\) rather than holes.
       </p>
       <p class="blog-txt a b">
         Now cohomology on the other hand asks questions about functions 
         (this is usually how we think about objects <i>dually</i>, 
         when considering the dual object, we usually write it with a <i>co</i> in front).
-        Instead of asking what cycles does the space contain, we ask what functions/rules can be put on those cycles and what are they telling us about the space?
-        So for example instead of defining a \(i\)-chain as above, we will have a \(i\)-<i>cochain</i> which is a function that respects sums of chains
+        Instead of asking what cycles the space contains, we ask what functions/rules can be put on those cycles and what do they tell us about the space?
+        So for example instead of defining an \(i\)-chain as above, we will have an \(i\)-<i>cochain</i> which is a function that respects sums of chains
         \(f:C_i(X) \rightarrow R\) taking \(i\)-chains as input and returning something in \(R\), a number set. <br>
-        Something that happens when working dually, is that we have to reverse the arrows (see diagram below, the meaning of this can be made very precise using <i>category theory</i>).
+        When working dually, is that we have to reverse the arrows (see diagram below, the meaning of this can be made very precise using <i>category theory</i>).
         Here what I mean is that our <i>coboundary</i> operator \(\delta^i\) takes an \(i\)-cochain in \(C^{i}\) and sends it to
         an \((i+1)\)-cochain in \(C^{i+1}\).
-        A useful practice people often do in algebraic topology and category theory is draw diagrams.
+        A common practice people often do in algebraic topology and category theory is to draw diagrams.
       </p>
       <p class="blog-txt a">
         PICTURE would be better
@@ -275,6 +276,8 @@
 
 
 
+      <br>
+      <br>
 
 
 
@@ -293,21 +296,21 @@
         Since \(d(d\eta) = 0\), every exact form is closed. 
         The interesting question is the converse: if a form has no swirl anywhere, is it necessarily the derivative of something?
         This is really the same reasoning we were having when thinking about cohomology.
-        Well this structure is what we call the <i>de Rham cohomology</i> and it is denoted and defined as,
+        This structure is what we call the <i>de Rham cohomology</i> and it is denoted and defined as,
         $$ H_{dR}^n(X) := \frac{ \{ \omega \mid d\omega = 0\} }{ \{ d\eta \mid \eta \text{ an } (n-1)\text{-form} \} } = \frac{ \text{closed } n\text{-forms} }{ \text{exact } n\text{-forms}}.$$
       </p>
       <p class="blog-txt a">
         Finally, let me state the main theorem from de Rham himself.<br>
       </p>
       <p class="blog-txt a">
-        <b>Theorem:</b> (<i>de Rham</i>) for \(X\) a smooth \(n\)-dimensional object, the de Rham cohomology and the <i>classical</i> cohomology with real coefficients are the same (they are naturally isomorphic).<br>
+        <b>Theorem:</b> (<i>de Rham</i>) For \(X\) a smooth \(n\)-dimensional object, the de Rham cohomology and the <i>classical</i> cohomology with real coefficients are the same (they are naturally isomorphic).<br>
       </p>
       <p class="blog-txt a">
         And this identification is made possible by the famous theorem of Stokes. 
         With differential forms, it generalises the <i>fundamental theorem of calculus</i>, <i>Green's theorem</i> and <i>Stokes' theorem over surfaces</i>:<br>
       </p>
       <p class="blog-txt a">
-        <b>Theorem:</b> (<i>Stokes</i>) \(X\) is a smooth \(n\)-dimensional object that has a boundary denoted by \(\partial X\) and \(\omega\) is an \((n-1\))-form on \(X\).
+        <b>Theorem:</b> (<i>Stokes</i>) \(X\) is a smooth \(n\)-dimensional object that has a boundary denoted by \(\partial X\) and \(\omega\) is an \((n-1)\)-form on \(X\).
         Then 
         $$ \int_X d\omega = \int_{\partial X} \omega.$$
         In other words, measuring the derivative of \(\omega\) over a piece of space is the same as measuring \(\omega\) itself on the edge of that piece.
@@ -315,7 +318,7 @@
       <p class="blog-txt a">
         Concretely, integration turns every \(k\)-form into a \(k\)-cochain (indeed, you feed it a chain and get back a number).
         And Stokes' theorem explains how \(d\) turns into the coboundary operator \(\delta\), closed forms become cocycles and exact forms are coboundaries.
-        So we have a map \(H^n_{dR}(X) \rightarrow H^n(X,_{\mathbb{R}})\)
+        So we have a map \(H^n_{dR}(X) \rightarrow H^n(X, \mathbb{R})\).
         In a sense, Stokes provides the bridge and de Rham says the bridge is perfect.
       </p>
       <p class="blog-txt a b">

@@ -62,10 +62,15 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <!-- optional personal touch, like Nina's "1 raccoon++" -->
-    <p><i>The man who never alters his opinion is like standing water, and breeds reptiles of the mind.</i></p>
-  </footer>
+  <footer class="site-footer" id="random-footer"></footer>
+  <script>
+    const quotes = [
+      "The man who never alters his opinion is like standing water, and breeds reptiles of the mind.",
+      "quote_2",
+    ];
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("random-footer").textContent = randomQuote;
+  </script>
 
 </body>
 </html>
