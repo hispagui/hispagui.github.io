@@ -236,7 +236,10 @@
         In a way, the boundary expresses for every piece in the \(k\)-chain, where it starts negatively and where it ends positively.
         Then, when the boundary is zero (as a sum, remember), we say that we have a \(k\)-cycle (meaning that the endpoints of our whole \(k\)-chain meet, so it's a loop). 
         And surprise surprise, like how loops helped us detect holes, now \(k\)-cycles will help us detect \(k\)-dimensional holes!
-        <br> PICTURE (boundary and k-forms) <br>
+        <figure></figure>
+        <img src="photos/k_chains.png" class="center-image" alt="Mathematical diagram"></p>
+        <figcaption><i>Example of \(k\)-chains, and their respective boundaries (in yellow)</i></figcaption>
+        </figure>
       </p>
       <p class="blog-txt a">
         Let me repeat everything but with the correct wording and notation.
@@ -251,13 +254,13 @@
         On the sphere, the rubber band encloses a cap, so it is a boundary and detects nothing. 
         The sphere itself is a \(2\)-cycle (a closed surface with no boundary), and on the sphere it doesn't enclose any solid piece, so it detects a \(2\)-dimensional hole.
         On the torus, the band around the tube encloses nothing on the surface, so it detects a hole.
-        When the conditions are nice enough (when the coefficients are real numbers), \(H_n(X)\) is actually a vector space, and \(dim H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
+        When the conditions are nice enough (when the coefficients are real numbers, which we'll assume), \(H_n(X)\) is actually a vector space, and \(\text{dim} \: H_n(X)\) is exactly the number of \(n\)-dimensional holes of the space \(X\).
         A small caveat here is that \(H_0(X)\) counts connected pieces of \(X\) rather than holes.
       </p>
       <p class="blog-txt a b">
         Now cohomology on the other hand asks questions about functions 
         (this is usually how we think about objects <i>dually</i>, 
-        when considering the dual object, we usually write it with a <i>co</i> in front).
+        when considering the dual of an object, we usually write it with a <i>co</i> in front).
         Instead of asking what cycles the space contains, we ask what functions/rules can be put on those cycles and what do they tell us about the space?
         So for example instead of defining an \(i\)-chain as above, we will have an \(i\)-<i>cochain</i> which is a function that respects sums of chains
         \(f:C_i(X) \rightarrow R\) taking \(i\)-chains as input and returning something in \(R\), a number set. <br>
@@ -267,10 +270,9 @@
         A common practice people often do in algebraic topology and category theory is to draw diagrams.
       </p>
       <p class="blog-txt a">
-        PICTURE would be better
-        <img src="images/diagram_1.svg" class="center-image" alt="Mathematical diagram"></p>
+        <img src="photos/diagram.png" class="center-image" alt="Mathematical diagram"></p>
       <p class="blog-txt a">
-        We have thus defined cochains and a coboundary operator.
+        Fun right! We have thus defined cochains and a coboundary operator.
         So like before, we can now define <i>cocycles</i> (checking for \(0\) coboundary) and hence the cohomology of a space \(X\), written
         $$ H^n(X) := \frac{ \{ \alpha \in C^n(X) \mid \delta^n\alpha = 0 \} }{ \{ \delta^{n-1}\beta \mid  \beta \in C^{n-1}(X) \} } = \frac{n\text{-cocycles}}{n\text{-coboundaries}} $$
       </p>
