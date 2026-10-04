@@ -261,11 +261,13 @@
         Now cohomology on the other hand asks questions about functions 
         (this is usually how we think about objects <i>dually</i>, 
         when considering the dual of an object, we usually write it with a <i>co</i> in front).
-        Instead of asking what cycles the space contains, we ask what functions/rules can be put on those cycles and what do they tell us about the space?
+        Instead of asking what cycles does the space contain, we ask what functions/rules can be put on those cycles and what do they tell us about the space?
         So for example instead of defining an \(i\)-chain as above, we will have an \(i\)-<i>cochain</i> which is a function that respects sums of chains
-        \(f:C_i(X) \rightarrow R\) taking \(i\)-chains as input and returning something in \(R\), a number set. <br>
-        So cohomology doesn't really have the same puropose as homology, 
-        here, a cochain can be understood as a measuring device on \(n\)-dimensional pieces of the space (a bit like a differential form right?)
+        \(f:C_i(X) \rightarrow R\) taking \(i\)-chains as input and returning something in \(R\), a number set.
+        </p>
+        <p class="blog-txt a b">
+        So cohomology has the same purpose as homology; wanting to say something about holes, through something like cycles and boundaries, but it lives in a different realm, that of functions.
+        Here, a cochain can be understood as a measuring device on \(n\)-dimensional pieces of the space (a bit like a differential form right?)
         When working dually, is that we have to reverse the arrows (see diagram below, the meaning of this can be made very precise using <i>category theory</i>).
         Here what I mean is that our <i>coboundary</i> operator \(\delta^i\) takes an \(i\)-cochain in \(C^{i}\) and sends it to
         an \((i+1)\)-cochain in \(C^{i+1}\).
@@ -281,14 +283,14 @@
         Yes, this is becoming quite abstract. 
         Finally, we usurprisingly define the cohomology of a space \(X\) as
         $$ H^n(X) := \frac{ \{ \alpha \in C^n(X) \mid \delta^n\alpha = 0 \} }{ \{ \delta^{n-1}\beta \mid  \beta \in C^{n-1}(X) \} } = \frac{n\text{-cocycles}}{n\text{-coboundaries}}. $$
-        In a few words, this says <b>a "hole detector" is a cocycle that isn't a coboundary</b>
+        In a few words, this kind of says <b>a "hole detector" is a cocycle that isn't a coboundary</b>.
       </p>
 
 
 
 
 
-      <br>
+
       <br>
 
 
@@ -308,7 +310,7 @@
         Since \(d(d\eta) = 0\), every exact form is closed. 
         The interesting question is the converse: if a form has no swirl anywhere, is it necessarily the derivative of something?
         This is really the same reasoning we were having when thinking about cohomology.
-        This structure is what we call the <i>de Rham cohomology</i> and it is denoted and defined as,
+        This interpretation of the structure is what we call the <i>de Rham cohomology</i> and it is denoted and defined as,
         $$ H_{dR}^n(X) := \frac{ \{ \omega \mid d\omega = 0\} }{ \{ d\eta \mid \eta \text{ an } (n-1)\text{-form} \} } = \frac{ \text{closed } n\text{-forms} }{ \text{exact } n\text{-forms}}.$$
       </p>
       <p class="blog-txt a">
@@ -330,13 +332,13 @@
       <p class="blog-txt a">
         Concretely, integration turns every \(k\)-form into a \(k\)-cochain (indeed, you feed it a chain and get back a number).
         And Stokes' theorem explains how \(d\) turns into the coboundary operator \(\delta\), closed forms become cocycles and exact forms are coboundaries.
-        So we have a map \(H^n_{dR}(X) \rightarrow H^n(X, \mathbb{R})\).
+        So we have a map \(H^n_{dR}(X) \rightarrow H^n(X)\) which goes both ways.
         In a sense, Stokes provides the bridge and de Rham says the bridge is perfect.
       </p>
       <p class="blog-txt a b">
-      So we end up with some unexpected associations.
+      We end up with some unexpected associations!
       Derivatives and boundaries turn out to be two faces of the same idea:
-      the derivative of a derivative is zero <i>because</i> the boundary of a boundary is empty,
+      the derivative of a derivative is zero <i>because</i> the coboundary of a coboundary is empty,
       and a closed form that refuses to be a derivative is the shadow of a hole that refuses to be a boundary.
       Calculus, the most local tool we have, ends up seeing the most global feature of a space: its shape.
 </p>
