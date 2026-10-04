@@ -46,7 +46,7 @@ function initThemeToggle() {
   if (!toggle) return;
 
   function updateLabel() {
-    toggle.textContent = currentTheme() === "dark" ? "light" : "dark";
+    toggle.textContent = currentTheme() === "dark" ? "☀" : "☾";
   }
 
   toggle.addEventListener("click", () => {

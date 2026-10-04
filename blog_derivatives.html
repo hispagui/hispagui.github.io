@@ -128,38 +128,44 @@
         But maybe we don't want to measure along directions anymore, maybe we want to measure areas or volumes. 
         This is what the \(2\)-form \(dx \wedge dy\) and the \(3\)-form \(dx \wedge dy \wedge dz\) do. 
         The symbol \(\wedge\) is called the <i>exterior product</i>, and it is what allows us to combine directions into areas, areas into volumes, and so on... 
-        For our purposes, this is enough to remember.
+        For our purposes, we will not care about such notations.
       </p>
       <p class="blog-txt a">
-        Now that we have a way of describing derivatives without needing a metric, we can start doing calculus!
-        So we need some kind of operation that connects differential forms of various degrees.
-        That operation is called the <i>exterior derivative</i>.
-        It is denoted \(d : k\text{-forms} \rightarrow (k+1)\text{-forms}\), and it is really the generalisation of differentiation we were looking for. 
-        Here is how it works (roughly):
+        Now that we can describ derivatives without a metric, we need a way to differentiate the forms themselves (this is called exterior calculus).
+        This is the job of the <i>exterior derivative</i>, written \(d\).
+        It turns a \( k\text{-form}\) into a \((k+1)\text{-form}\), and it is the generalisation of differentiation we were looking for. 
+        The recipe is always the same, take a tiny piece of space, look at what your form measures along its edge,
+        and divide by the size of the piece. Here is what this gives in the first three cases:
       </p>
-        <ul>
-          <li>For a function \(f(x,y)\) (a \(0\)-form), it simply outputs its differential \(df\) (a \(1\)-form), 
-              which in \(\mathbb{R}^2\) we can identify with the gradient using the Euclidean metric, as above. </li>
-          <li>For a \(1\)-form \(\alpha = f(x,y)\,dx + g(x,y)\,dy\), the exterior derivative gives the \(2\)-form \(d\alpha = \left(\frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}\right) dx \wedge dy.\) 
-              Concretely, it measures how much \(\alpha\) "swirls" around each point: go around a tiny loop, add up what \(\alpha\) measures along the way, and divide by the area of the loop. 
-              Similar to the curl \(\nabla \times F\) (in \(\mathbb{R}^3\)).</li>
-          <li>For a \(2\)-form in \(\mathbb{R}^3\), \(\beta = p(x,y,z)\, dy \wedge dz + q(x,y,z)\, dz \wedge dx + r(x,y,z)\, dx \wedge dy\), we obtain the \(3\)-form \(d\beta = \left(\frac{\partial p}{\partial x} + \frac{\partial q}{\partial y} + \frac{\partial r}{\partial z}\right) dx \wedge dy \wedge dz\). 
-            It measures how much "flow" escapes from a tiny box, divided by its volume. This is exactly the divergence. </li>
-          <li>And so forth...</li>
-        </ul>
+      <ul class="blog-txt a">
+        <li><i>From \(0\)-forms to \(1\)-forms.</i><br>
+          A \(0\)-form is just a function \(f\), like the altitude of our landscape.
+          Its derivative is the differential \(df\) we have already met, how fast \(f\) changes in each direction.
+          Once we choose a metric, this becomes the familiar <i>gradient</i>.
+        </li>
+        <li><i>From \(1\)-forms to \(2\)-forms.</i><br>
+          A \(1\)-form measures along curves, think of the wind pushing you as you walk.
+          Its derivative measures how much it <i>swirls</i>: walk around a tiny loop, add up how much the wind helped you along the way, and divide by the area of the loop.
+          Physicists call this the <i>curl</i>, it is large in the eye of a whirlpool and zero in a steady breeze.</li>
+        <li><i>From \(2\)-forms to \(3\)-forms.</i><br>
+          A \(2\)-form measures flow through surfaces, like water through a fishing net.
+          Its derivative measures how much flow escapes from a tiny box, divided by its volume.
+          This is the <i>divergence</i>, positive near a tap, where water appears, and negative near a drain, where it disappears.</li>
+      </ul>
+      <p class="blog-txt a">
+        Gradient, curl and divergence are usually taught as three separate operations, each with its own formula.
+        With differential forms, they are one and the same operation \(d\), applied to forms of different degrees.
+        And it doesn't stop there, \(d\) works in any dimension, long after the old vector calculus names run out.
+      </p>
       <p class="blog-txt a"></p>
-        And finally, the exterior derivative has the property that,
+        Finally, the exterior derivative has the property that,
         applying it twice always gives zero, \(d(d\omega) = 0\) for every form \(\omega\) (we will return to this later on).
         I do not expect you to immediately start doing calculations and playing with differential forms. 
         After all, you still don't know that the exterior product is skew-symmetric or even how to integrate differential forms.
-        I just want you to have a small idea of how things work.
+        It is already fantastic if you have a small idea of how things work.
       </p>
 
 
-
-
-
-      <br>
       <br>
 
 
