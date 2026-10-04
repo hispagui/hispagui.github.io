@@ -5,23 +5,18 @@ const quotes = [
   "The man who never alters his opinion is like standing water, and breeds reptiles of the mind.",
   "quote_2",
 ];
-
 let currentQuote = -1;
-
 // Shows a random quote, never the same one twice in a row
 function showRandomQuote() {
   const quoteEl = document.getElementById("random-quote");
   if (!quoteEl) return;
-
   let next;
   do {
     next = Math.floor(Math.random() * quotes.length);
   } while (quotes.length > 1 && next === currentQuote);
-
   currentQuote = next;
   quoteEl.textContent = quotes[currentQuote];
 }
-
 // Shows a first quote and connects the "Another quote" button
 function initQuotes() {
   showRandomQuote();

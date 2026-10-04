@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <style>
-    div.a {
-      text-indent: 40px;
-    }
-
     main {
       font-size: 14px;
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -15,26 +10,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog — Loris De Vos</title>
-  <script>
-    window.MathJax = {
-      options: {
-        menuOption: {
-          setting: {
-            enrich: true,         // true to enable semantic-enrichment
-            collapsible: true,   // true to enable collapsible math
-            speech: true,         // true to enable speech generation
-            braille: true,        // true to enable Braille generation
-            assistiveMml: true,  // true to enable assistive MathML
-          }
-        }
-      }
-    };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js">
-  </script>
   <meta name="description" content="on derivatives by Lolo" />
   <script src="script.js"></script>
   <script>applySavedTheme();</script>
+   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" sizes="64x64" href="fox_logo.png">
   <link rel="icon" href="fox_logo.ico">
@@ -43,12 +22,11 @@
 <body>
 
   <header class="site-header">
-
     <nav class="nav">
       <a href="index.html">Home</a>
       <!-- <a href="index.html#about">About</a> -->
       <!-- <a href="index.html#contact">Contact</a> -->
-       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch between light and dark mode">☾</button>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch between light and dark mode">☾</button>
     </nav>
   </header>
 
@@ -95,13 +73,14 @@
       </p>
       <p class="blog-txt a">
         The differential \(df\) is a machine that eats a direction and returns a number. 
-        Given a vector \(v = (v_x, v_y)\), it outputs \(df(v) = 2x\,v_x + 2y\,v_y\), the rate at which \(f\) changes when you move in the direction \(v\). 
+        Given a vector \(v = (v_x, v_y)\), it outputs <br>
+        \(df(v) = 2x\,v_x + 2y\,v_y\), the rate at which \(f\) changes when you move in the direction \(v\). 
         To do its job, \(df\) needs no knowledge of lengths or angles; it only needs to know how \(f\) varies. 
         Think of the contour lines on a hiking map: they contain everything there is to know about \(df\).
       </p>
       <p class="blog-txt a">
         The gradient \(\nabla f = 2x \frac{\partial}{\partial x} + 2y \frac{\partial}{\partial y}\) is a different kind of object: 
-        it is an arrow (a vector living in the tangent space) pointing in the direction of <i>steepest ascent</i>. 
+        it is an arrow (a vector living in the tangent space spanned by \(\frac{\partial}{\partial x}\), \( \frac{\partial}{\partial y}\)) pointing in the direction of <i>steepest ascent</i>. 
         And "steepest" hides a comparison: among all steps of the same length, which one makes you climb the most? 
         To answer that question, you need to know what "the same length" means. 
         (Equivalently, the gradient is perpendicular to the contour lines, and "perpendicular" is a statement about angles.) 
@@ -110,7 +89,20 @@
         <img src="photos/metric_1.png" class="center-image">
       </p>
       <p class="blog-txt a">
-        Here is a simple example. 
+        Here is a simple example. Imagine a hiking map printed with a stretched grid:
+        each square is \(1\) km wide but \(2\) km tall.
+        Take a gentle slope that rises by one metre for every square you cross, whether you go east or north, so \(f(x,y) = x + y\) and \(df = dx + dy\).
+        The contour lines tell you exactly this, and the stretched grid doesn't change them at all.
+        Now ask a hiker which way is steepest.
+        Walking east, she climbs one metre per kilometre; walking north, only half a metre, because the squares are twice as long.
+        So the steepest path tilts towards the east, and on the distorted map it no longer even looks perpendicular to the contour lines.
+        Same landscape, same contour lines, same \(df\), but a different gradient (recall the gradient cares about steepness).
+        So where was the metric hiding in your calculus course?
+        On a flat sheet with ordinary distances, the steepest direction happens to have the same coordinates as \(df\), which is why the two look identical.
+        On a curved space, where distances change from place to place, you get no such luck.
+        <b>The differential does not depend on the metric, but the gradient does.</b>
+    
+      <!--Here is a simple example. 
         Imagine a map drawn on a stretched grid: one unit to the east is 1 km, but one unit to the north is 2 km.
         Take the simplest possible landscape, \(f(x,y) = x + y\).
         Moving one unit east or one unit north raises the altitude by the same amount, so \(df = dx + dy\), whatever the grid looks like: the contour lines don't care how we measure distances.
@@ -123,6 +115,7 @@
         With the usual Euclidean metric (the dot product), this conversion leaves the coefficients unchanged, which is why \(df\) and \(\nabla f\) look identical in \(\mathbb{R}^n\).
         On a curved space, where the metric varies from point to point, they can look very different. <br>
         So the takeaway here is that the differential does not depend on the metric, but the gradient does.
+      -->
       </p>
       <p class="blog-txt a">
         This is why we use differential forms: they describe derivatives intrinsically, that is to say, without assuming a metric. 
@@ -236,16 +229,17 @@
         In a way, the boundary expresses for every piece in the \(k\)-chain, where it starts negatively and where it ends positively.
         Then, when the boundary is zero (as a sum, remember), we say that we have a \(k\)-cycle (meaning that the endpoints of our whole \(k\)-chain meet, so it's a loop). 
         And surprise surprise, like how loops helped us detect holes, now \(k\)-cycles will help us detect \(k\)-dimensional holes!
-        <figure></figure>
+      </p>
+        <figure>
         <img src="photos/k_chains.png" class="center-image" alt="Mathematical diagram"></p>
         <figcaption><i>Example of \(k\)-chains, and their respective boundaries (in yellow)</i></figcaption>
         </figure>
-      </p>
+      
       <p class="blog-txt a">
         Let me repeat everything but with the correct wording and notation.
         Let \(C_k(X)\) be a set whose elements \(a\) are \(k\)-chains.
-        And let \(\partial_k: C_k(X) \rightarrow C_{k-1}(X)\) be a rule sending a \(k\)-chain to its boundary.
-        The boundary also has an extra rule, applying it twice cancels everything
+        And let \(\partial_k: C_k(X) \rightarrow C_{k-1}(X)\) be a rule sending a \(k\)-chain to its boundary, confusingly, we call this rule the boundary operator.
+        The boundary operator also has an extra rule, applying it twice cancels everything
         (\(\partial_{k-1} \circ \partial_k = 0\)). Does this seem familiar?
         Notice that the boundary of a \((k+1)\)-chain is also a \(k\)-cycle, since applying \(\partial\) twice gives zero (so \(\text{im}(\partial_{k+1})\subset \text{ker}(\partial_k)\)).
         Finally, we can define the \(n\)-th homology group of \(X\), written \(H_n(X)\);
@@ -264,6 +258,8 @@
         Instead of asking what cycles the space contains, we ask what functions/rules can be put on those cycles and what do they tell us about the space?
         So for example instead of defining an \(i\)-chain as above, we will have an \(i\)-<i>cochain</i> which is a function that respects sums of chains
         \(f:C_i(X) \rightarrow R\) taking \(i\)-chains as input and returning something in \(R\), a number set. <br>
+        So cohomology doesn't really have the same puropose as homology, 
+        here, a cochain can be understood as a measuring device on \(n\)-dimensional pieces of the space (a bit like a differential form right?)
         When working dually, is that we have to reverse the arrows (see diagram below, the meaning of this can be made very precise using <i>category theory</i>).
         Here what I mean is that our <i>coboundary</i> operator \(\delta^i\) takes an \(i\)-cochain in \(C^{i}\) and sends it to
         an \((i+1)\)-cochain in \(C^{i+1}\).
@@ -273,8 +269,13 @@
         <img src="photos/diagram.png" class="center-image" alt="Mathematical diagram"></p>
       <p class="blog-txt a">
         Fun right! We have thus defined cochains and a coboundary operator.
-        So like before, we can now define <i>cocycles</i> (checking for \(0\) coboundary) and hence the cohomology of a space \(X\), written
-        $$ H^n(X) := \frac{ \{ \alpha \in C^n(X) \mid \delta^n\alpha = 0 \} }{ \{ \delta^{n-1}\beta \mid  \beta \in C^{n-1}(X) \} } = \frac{n\text{-cocycles}}{n\text{-coboundaries}} $$
+        So like before, we can now define <i>cocycles</i> as cochains that have zero coboundary.
+        Now how to interpret cocycles; think that whatever it measures, locally, it stays consistent or conserved.
+        So nothing gets created or destroyed, inside any small filled-in piece.
+        Yes, this is becoming quite abstract. 
+        Finally, we usurprisingly define the cohomology of a space \(X\) as
+        $$ H^n(X) := \frac{ \{ \alpha \in C^n(X) \mid \delta^n\alpha = 0 \} }{ \{ \delta^{n-1}\beta \mid  \beta \in C^{n-1}(X) \} } = \frac{n\text{-cocycles}}{n\text{-coboundaries}}. $$
+        In a few words, this says <b>a "hole detector" is a cocycle that isn't a coboundary</b>
       </p>
 
 
@@ -342,6 +343,9 @@
     <p><a href="index.html">&larr; Back home</a></p>
   </footer>
 
+    <script>
+    initThemeToggle();
+  </script>
 </body>
 
 </html>
