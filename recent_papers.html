@@ -32,46 +32,52 @@
 
   <main>
     <section class="section">
-        <h2>Some recent papers that caught my attention</h2>
+        <h2>A small breakthrough for the Inverse Galois Problem</h2>
 
         <p class="blog-txt a">
-            The first paper that I found really cool was this one: 
-            <a href="https://arxiv.org/abs/2608.08538v1" target="_blank" rel="noopener" class="entry-title">The Mathieu group \(M_{23}\) is a Galois group over \(\mathbb{Q}\)</a> by <br>
-            Xiaoyu Huang, Blake Jackson, Kyu-Hwan Lee, Bjorn Poonen, Rachel Pries and Shaowu Zhang.
-          
+            The paper that I want to highlight today made an outstanding novel contributions to mathematics and 
+            in my opinion also serves as a compelling example of how LLMs can serve as valuable tools for assisting researchers in their work. 
+            It is titled: <i>the Mathieu group \(M_{23}\) is a Galois group over \(\mathbb{Q}\)</i> and is freely available at <a href="https://arxiv.org/abs/2608.08538" target="_blank" rel="noopener" class="entry-title">arXiv 2608.08538</a>.
+        </p>
+        <p class="blog-txt a">
+            A bit of context first; in Galois theory, we can attach to any polynomial with rational coefficients (\(\mathbb{Q})\) a finite group \(G\), its <b>Galois group</b>. 
+            If you don't know what Galois groups are, you can think of them as groups that record symmetries along a specific polynomial's roots (this is very informal, the subtelty here is that the Galois group should also preserve algebraic relations over the base field).<br>
+            Now, the Inverse Galois Problem turns this arround and asks; given a finite group \(G\), is there a polynomial with coefficients in \(\mathbb{Q}\) whose Galois group is the same as \(G\)? <br>
 
-            For a bit of context, Galois theory attaches to every polynomial with rational coefficients a finite group, its <b>Galois group</b>, it records the symmetries among the polynomial's roots.
-            The <b>inverse Galois problem</b> turns this arround and asks, given a finite group \(G\), does there exist a polynomial over \(\mathbb{Q}\) whose Galois group is the same as \(G\)?
-            This problem is quite hard, as of today very open, and has already been extensively studied.
-            It is known that alternating groups, abelian groups and solvable groups are all realisable as Galois groups from a polynomial (to be more precise, we say a finite Galois extension of \(\mathbb{Q}\)).
-            Nonetheless, there are many, many, many more groups for which the problem remains open.
+            While it is not hard to find the Galois group of any polynomial over \(\mathbb{Q}\), the converse is very very very hard in general.
+            We don't even know if it possible to realise every finite group as Galois groups associated to a certain polynomial.<br>
+            Therefore this question remains open.
+        </p>
+        <p class="blog-txt a">
+            However, some progress has been made. 
+            For example, we know that for <i>alternating groups</i>, <i>abelian groups</i> and <i>solvable groups</i>, it is always possible to find polynomials such that their Galois groups are one of these.
+            Another natural place to test the problem is for a special set of groups called <b>finite simple groups</b>. 
+            They have been extensively studied as they can be understood as the <i>building blocks</i> from which all finite groups are assembled (they are quite important).
+            There is even a famous <b>classification of finite simple groups</b> (also the longest mathematical proof in history!), saying that each finite simple group belongs to a few infinite families: <br>
+            cyclic groups of prime order, alternating groups, groups of Lie type or sporadic groups.
+        </p>
+
+
+        <p class="blog-txt a">
+            Today we are interested in those sporadic groups. 
+            They are a total of \(26\) sporadic groups, each of them being different in their own way and they usually have high order (one of them even has approximately \(8 \times 10^{53}\) elements).
+            The cool thing about these sporadic groups is that for \(25\) of them, mathematicians in the \(80\)'s have shown that they occur as Galois groups of certain polynomials.
+            They used a method called the <i>rigidity method</i> (and its variants).
+            The method combines complexes geometric areas of mathematics such as Riemann surfaces, monodromy, fundamental groups, descent theory and modulli spaces.<br>
+            The trick is that over \( \mathbb{C} \), 
         </p>
 
         <p class="blog-txt a">
-            A natural place to test the problem is for a special set of groups, the <b>finite simple groups</b>. 
-            They are kind of the <i>building blocks</i> from which all finite groups are assembled.
-            <b>The classification of finite simple groups</b> (also the longest mathematical proof in history!) says that each finite simple group belongs to a few infinite families: <br>
-            cyclic groups of prime order, alternating groups, groups of Lie type and sporadic groups.
+            The only holdout was the Mathieu group \(M_{23}\), for which a proof was given only \(4\) decades later, in this new paper!
+            The issue was that to use one of the rigidity method, one needs to find triples 
+
         </p>
+
 
         <p class="blog-txt a">
-            My interest today does not lie in explaining what all this groups are, nor talk about this classification of finite simple groups.
-            But that last familiy is the one we are interested in.
-            To put it simply, <b>sporadic groups </b> are "weird" groups that are finite and simple and usually have high order.
-            There are \(26\) sporadic groups in total and they are the following (let me just throw names at you): <br>
-            - Mathieu groups: \(M_{11}\), \(M_{12}\), \(M_{22}\), \(M_{23}\), \(M_{24}\).<br>
-            - Janko groups: \(J_1\), \(J_2\), \(J_3\), \(J_4\).<br>
-            - Conway groups: \(Co_1\), \(Co_2\), \(Co_3\).<br>
-            - Suzuki group: \(Sz\).<br>
-            - Baby Monster group: \(B\).<br>
-            - Monster group: \(M\).<br>
-            - [...]
-        </p>
+            On the use of AI in this paper:<br>
 
-        <p class="blog-txt a">
-            Now back to the inverse Galois problem
         </p>
-
     </section>
   </main>
 
