@@ -6,6 +6,9 @@
       font-size: 14px;
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
+    p.centered {
+        text-align:center;
+    }
   </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,9 +73,9 @@
             Now the whole idea of the rigidity method is to "descend" this kind of relation over to \(\mathbb{Q}\). <br>
         </p>
 
-        For the mathematicians over here; 
+        For mathematicians reading this: 
 
-        <p class="blog-txt a", style="color: SlateBlue;">
+        <p class="blog-txt a", style="color: SlateBlue; text-align: center">
             First of all, the field of meromorphic functions of the Riemann sphere \(\mathcal{M}(\mathbb{P}^1(\mathbb{C})) \cong \mathbb{C}(t)\), and
             let \(S = \{ P_1, ..., P_r \}\) be a finite set of points on \(\mathbb{P}^1(\mathbb{C})\).
 
@@ -87,7 +90,7 @@
         
             These two worlds are linked by filling in the punctures.
             Near each \(P_i\), a finite covering of \(\mathbb{P}^1(\mathbb{C}) - S\) is a disjoint union of punctured discs \(z \mapsto z^e\). 
-            Now, filling them in gives a compact Riemann surface \(X\) with a branched covering \(X \to \mathbb{P}^1(\mathbb{C})\), and the deck transformations extend. 
+            Now, filling them in gives a compact Riemann surface \(X\) with a branched covering \(X \to \mathbb{P}^1(\mathbb{C}),\) and the deck transformations extend. 
             (Since \(\mathbb{P}^1(\mathbb{C})\) is simply connected, it is the branching over \(S\) that makes non-trivial covers possible.) <br>
 
             The last piece of information we need is that, the topology of Riemann surfaces lets any finite group \(G\) 
@@ -100,8 +103,10 @@
             And to tie everything together, the Galois group of this finite Galois extensions \(Gal(\mathcal{M}(X) | \mathbb{C}(t)) \cong Aut(X | \mathbb{P}^1(\mathbb{C})) \cong \pi_1(\mathbb{P}^1(\mathbb{C})- S) / N \) is exactly \(G\).
         </p>
 
+
+
         <p class="blog-txt a">
-            The only holdout was the Mathieu group \(M_{23}\), well we now have the proof \(4\) decades later!
+            The only holdout was the Mathieu group \(M_{23}\). Well, we now have a proof \(4\) decades later!
             The issue was that to use the rigidity method, one needs to find a specific rigid triple of conjugacy classes. 
             And for \( M_{23} \) such conjugacy classes cannot be rigid.
             
