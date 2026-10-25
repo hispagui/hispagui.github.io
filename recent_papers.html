@@ -69,24 +69,33 @@
             The trick is that over the field \( \mathbb{C}(t) \), every finite group DOES occur as the Galois group of a finite Galois extension of \(\mathbb{C}(t)\).
             Now the whole idea of the rigidity method is to "descend" this kind of relation over to \(\mathbb{Q}\). <br>
         </p>
-        For the mathematicians over here; 
-        <p class="blog-txt a", style="color: SlateBlue;">
-            First of all, the field of meromorphic functions of the Riemann sphere \(\mathcal{M}(\mathbb{P}^1(\mathbb{C})) \cong \mathbb{C}(t)\).
-            Let \(S = \{ P_1, ..., P_r \}\) be a finite set of points on \(\mathbb{P}^1(\mathbb{C})\).
 
-            The main result is the equivalence of categories between <br> 
+        For the mathematicians over here; 
+
+        <p class="blog-txt a", style="color: SlateBlue;">
+            First of all, the field of meromorphic functions of the Riemann sphere \(\mathcal{M}(\mathbb{P}^1(\mathbb{C})) \cong \mathbb{C}(t)\), and
+            let \(S = \{ P_1, ..., P_r \}\) be a finite set of points on \(\mathbb{P}^1(\mathbb{C})\).
+
+            The main results here is the equivalence of categories between <br> 
             \( \{ \) Compact connected Riemann surfaces \(X\) with a non-constant map \(X \rightarrow \mathbb{P}^1(\mathbb{C})\} \) and  <br>
-            \(\{\) Finite field extensions of \(\mathbb{C}(t) \} \) . <br>
-            And covering-space theory matches covers with subgroups up to conjugacy, and finite covers with finite-index subgroups, more precisely: <br>
+            \(\{\) Finite field extensions of \(\mathbb{C}(t) \} \). 
+            And the mathching, from covering-space theory between covers and subgroups up to conjugacy, and finite covers and finite-index subgroups. More precisely: <br>
             
-            A finite connected covering \(X\) of \(\mathbb{P}^1(\mathbb{C}) - S\) \(\leftrightarrow\) a subgroup \(H \le \pi_1(\mathbb{P}^1(\mathbb{C}) - S)\).<br>
-            A finite normal covering \(Z\) \(\leftrightarrow\) a normal subgroup \(N \trianglelefteq \pi_1(\mathbb{P}^1(\mathbb{C}) - S)\).<br>
-            And the quotient group \(\pi_1(\mathbb{P}^1(\mathbb{C}) - S)/N \cong Aut(Z|\mathbb{P}^1(\mathbb{C}) - S)\) the group of deck transformations for \(N \leftrightarrow Z\).
+            A finite connected covering \(X\) of \(\mathbb{P}^1(\mathbb{C}) - S\) corresponds to a subgroup \(H \le \pi_1(\mathbb{P}^1(\mathbb{C}) - S)\).
+            A finite normal covering \(Z\) corresponds to a normal subgroup \(N \trianglelefteq \pi_1(\mathbb{P}^1(\mathbb{C}) - S)\).
+            And the quotient group \(\pi_1(\mathbb{P}^1(\mathbb{C}) - S)/N \cong Aut(Z|\mathbb{P}^1(\mathbb{C}) - S)\) the group of deck transformations for \(N \leftrightarrow Z\).<br>
         
-            The last piece of information we need is that, by the topology of Riemann surfaces, any finite group \(G\) can be realised as a quotient of the fundamental group of the Riemann sphere minus finitely many points, \(\pi_1(\mathbb{P}^1(\mathbb{C}) - S )/ N \), this is somewhat very familiar!<br>
+            These two worlds are linked by filling in the punctures.
+            Near each \(P_i\), a finite covering of \(\mathbb{P}^1(\mathbb{C}) - S\) is a disjoint union of punctured discs \(z \mapsto z^e\). 
+            Now, filling them in gives a compact Riemann surface \(X\) with a branched covering \(X \to \mathbb{P}^1(\mathbb{C})\), and the deck transformations extend. 
+            (Since \(\mathbb{P}^1(\mathbb{C})\) is simply connected, it is the branching over \(S\) that makes non-trivial covers possible.) <br>
+
+            The last piece of information we need is that, the topology of Riemann surfaces lets any finite group \(G\) 
+            be realised as a quotient of the fundamental group of the Riemann sphere minus finitely many points, \(\pi_1(\mathbb{P}^1(\mathbb{C}) - S )/ N \), this may sound familiar!<br>
             
-            Finally, we have all the ingredients. Take a finite group \(G\), it's isomorphic to a quotient \(\pi_1(\mathbb{P}^1(\mathbb{C})- S) / N\), for \(S\) a finite number of points and \(N\) the normal subgroup corresponding to the finite unramified Galois cover \(X\) over \(\mathbb{P}^1(\mathbb{C}) - S \) (it is a \(\sharp G\) sheeted cover).
-            This Galois unramified cover corresponds to a branched \(\sharp G\) sheeted Galois cover \(X^{\circ} \rightarrow \mathbb{P}^1(\mathbb{C})\), (the branching is what makes our cover non-trivial).
+            Finally, we have all the ingredients. 
+            Take a finite group \(G\), it's isomorphic to a quotient \(\pi_1(\mathbb{P}^1(\mathbb{C})- S) / N\), for \(S\) a finite number of points and \(N\) the normal subgroup corresponding to the finite unramified Galois cover \(X^{\circ}\) over \(\mathbb{P}^1(\mathbb{C}) - S \) (it is a \(\sharp G\) sheeted cover).
+            This Galois unramified cover \(X^{\circ}\) corresponds (by filling in) to a compact Riemann surface \(X\) with a branched \(\sharp G\)-sheeted Galois covering \(X \rightarrow \mathbb{P}^1(\mathbb{C})\), (the branching is what makes our cover non-trivial).
             And this branched cover corresponds to a finite Galois extension \(\mathcal{M}(X) | \mathbb{C}(t) \) of degree \(\sharp G\). 
             And to tie everything together, the Galois group of this finite Galois extensions \(Gal(\mathcal{M}(X) | \mathbb{C}(t)) \cong Aut(X | \mathbb{P}^1(\mathbb{C})) \cong \pi_1(\mathbb{P}^1(\mathbb{C})- S) / N \) is exactly \(G\).
         </p>
