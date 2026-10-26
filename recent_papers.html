@@ -38,51 +38,57 @@
         <h2>Latest breakthrough in the Inverse Galois Problem</h2>
 
         <p class="blog-txt a">
-            The paper that I want to highlight today made an outstanding novel contributions to mathematics.
-            In my opinion, it is also serves as a compelling example for how LLMs can be used as valuable tools for assisting researchers in their work. 
-            It is titled: <i>the Mathieu group \(M_{23}\) is a Galois group over \(\mathbb{Q}\)</i> and is freely available at <a href="https://arxiv.org/abs/2608.08538" target="_blank" rel="noopener" class="entry-title">arXiv 2608.08538</a>.
-        </p>
-        <p class="blog-txt a">
-            A bit of context first; in Galois theory, we can attach to any polynomial with rational coefficients (\(\mathbb{Q})\) a finite group \(G\), its <b>Galois group</b>. 
-            If you don't know what Galois groups are, you can think of them as groups that record symmetries along a specific polynomial's roots (this is very informal, the subtelty here is that the Galois group should also preserve algebraic relations over the base field).<br>
-            
-        </p>
-        <p class="blog-txt a">
-            Now, the Inverse Galois Problem turns this arround and asks; given a finite group \(G\), is there a polynomial with coefficients in \(\mathbb{Q}\) whose Galois group is the same as \(G\)? 
-            While it is not hard to find the Galois group of any polynomial over \(\mathbb{Q}\), the converse is very very very hard in general.
-            We don't even know if it possible to realise every finite group as Galois groups associated to a certain polynomial.<br>
-            Therefore this question remains open.
+            The paper that I want to highlight today settles a question that had been open for almost four decades:
+            it shows that the Mathieu group \(M_{23}\), the last remaining sporadic group, is a Galois group over \(\mathbb{Q}\).
+            It is titled <i>The Mathieu group \(M_{23}\) is a Galois group over \(\mathbb{Q}\)</i> and is freely available at <a href="https://arxiv.org/abs/2608.08538" target="_blank" rel="noopener" class="entry-title">arXiv 2608.08538</a>.
+            In my opinion, it is also a compelling example for how LLMs can assist researchers: the authors used AI tools for litterature research, code generation and testing hypotheses, while writing the paper themsevlves and verifying the final results without AI. 
         </p>
 
         <p class="blog-txt a">
-            However, some progress has been made. 
-            For example, we know that for <i>alternating groups</i>, <i>abelian groups</i> and <i>solvable groups</i>, it is always possible to find polynomials such that their Galois groups are one of these.
-            Another natural place to test the problem is for a special set of groups called <b>finite simple groups</b>. 
-            They have been extensively studied since you can be understand them as the <i>building blocks</i> from which all finite groups are assembled (they are quite important).
-            There is even a famous <b>classification of finite simple groups</b> (also the longest mathematical proof in history!), saying that each finite simple group belongs to a few infinite families: cyclic groups of prime order, alternating groups, groups of Lie type or sporadic groups.
+            A bit of context first. In Galois theory, we can attach to any polynomial with rational coefficients a finite group \(G\), its <b>Galois group</b>. 
+            If you don't know what Galois groups are, you can think of them as objects that record symmetries along a specific polynomial's roots (this is very informal, the subtelty here is that the Galois group should also preserve algebraic relations over the base field).<br>
+            
+        </p>
+        <p class="blog-txt a">
+            Now, the <b>Inverse Galois Problem</b> turns this arround and asks; given a finite group \(G\), is there a polynomial with rational coefficients whose Galois group is \(G\)? 
+            Comuting Galois groups of a given polynomial is a well-understood (if sometimes laborious) task, but the converse is very very very hard.
+            We don't even know whether every finite group can be realised thsi way, and the question remains very much open.
+        </p>
+
+        <p class="blog-txt a">
+            However, much progress has been made. 
+            We know, for instance, that every <i>symmetric</i>, <i>alternating groups</i> and <i>solvable groups</i> (so all abelian groups as well), occurs as Galois groups over \(\mathbb{Q}\).
+
+            Another natural place to test the problem is the <b>finite simple groups</b>. 
+            They can be though of as the building blocks from which all finite groups are assembled (they are really helpful for understanding the structures of certain finite groups).
+            They have been extensively studied since you can be understand them as  (they are quite important).
+            There famous classification, one of the longest proofs in mathematics, says that every finite simple group is either a cyclic group of prime order, an alternating group, a group of Lie type or one of the 26 exceptional <i>sporadic</i> groups.
         </p>
 
 
         <p class="blog-txt a">
             Today's paper focuses on one of those sporadic groups. 
-            They are a total of \(26\) sporadic groups, each of them being different in their own way and they usually have high order (one of them even has approximately \(8 \times 10^{53}\) elements).
-            The cool thing about these sporadic groups is that for \(25\) of them, mathematicians in the \(80\)'s have shown that they occur as Galois groups of certain polynomials.
-            They used a method called the <i>rigidity method</i> (and its variants) to prove this.
-            Surprisingly (or not), the method combines complexes geometric areas of mathematics such as Riemann surfaces, monodromy, fundamental groups, descent theory and modulli spaces.<br>
-            The trick is that over the field \( \mathbb{C}(t) \), every finite group DOES occur as the Galois group of a finite Galois extension of \(\mathbb{C}(t)\).
-            Now the whole idea of the rigidity method is to "descend" this kind of relation over to \(\mathbb{Q}\). <br>
+            Each of them is unusual in its own way, and some are enormous: the largest, caled the Monster, has about \(8 \times 10^{53}\) elements.
+            In the 1980's, mathematicians showed that 25 of them occur as Galois groups over \(\mathbb{Q}\), using what we call the <i>rigidity method</i> (and its variants).
+            Surprisingly (or not), the method builds on rich geometric mathematics: Riemann surfaces, monodromy, fundamental groups, descent theory and modulli spaces.
+        </p>            
+        <p class="blog-txt a">
+            The trick is that over the field \( \mathbb{C}(t) \), every finite group DOES occur as a Galois group, thanks to the topology of the punctured Riemann sphere.
+            The rigidity method gives a criterion under which such a realisation can be "descended" from \(\mathbb{C}(t)\) to \(\mathbb{Q}(t)\).
+            Then, by substituting suitable rational numbers for \(t\), one obtains polynomials over \(\mathbb{Q}\) with the desired Galois group.
+            \(M_{23}\) was the one sporadic group for which this approach kept failling.
         </p>
 
         For mathematicians reading this: 
 
         <p class="blog-txt a", style="color: SlateBlue; text-align: center">
-            First of all, the field of meromorphic functions of the Riemann sphere \(\mathcal{M}(\mathbb{P}^1(\mathbb{C})) \cong \mathbb{C}(t)\), and
+            First of all, the field of meromor phic functions of the Riemann sphere \(\mathcal{M}(\mathbb{P}^1(\mathbb{C})) \cong \mathbb{C}(t)\), and
             let \(S = \{ P_1, ..., P_r \}\) be a finite set of points on \(\mathbb{P}^1(\mathbb{C})\).
 
             The main results here is the equivalence of categories between <br> 
             \( \{ \) Compact connected Riemann surfaces \(X\) with a non-constant map \(X \rightarrow \mathbb{P}^1(\mathbb{C})\} \) and  <br>
-            \(\{\) Finite field extensions of \(\mathbb{C}(t) \} \). 
-            And the mathching, from covering-space theory between covers and subgroups up to conjugacy, and finite covers and finite-index subgroups. More precisely: <br>
+            \(\{\) Finite field extensions of \(\mathbb{C}(t) \} \). <br> 
+            And the mathching, from covering-space theory between covers and subgroups up to conjugacy, and finite covers and finite-index subgroups. More precisely:
             
             A finite connected covering \(X\) of \(\mathbb{P}^1(\mathbb{C}) - S\) corresponds to a subgroup \(H \le \pi_1(\mathbb{P}^1(\mathbb{C}) - S)\).
             A finite normal covering \(Z\) corresponds to a normal subgroup \(N \trianglelefteq \pi_1(\mathbb{P}^1(\mathbb{C}) - S)\).
@@ -90,13 +96,13 @@
         
             These two worlds are linked by filling in the punctures.
             Near each \(P_i\), a finite covering of \(\mathbb{P}^1(\mathbb{C}) - S\) is a disjoint union of punctured discs \(z \mapsto z^e\). 
-            Now, filling them in gives a compact Riemann surface \(X\) with a branched covering \(X \to \mathbb{P}^1(\mathbb{C}),\) and the deck transformations extend. 
+            Now, filling them in gives a compact Riemann surface \(X\) with a branched covering \(X \to \mathbb{P}^1(\mathbb{C}),\) and the deck transformations extend. <br>
             (Since \(\mathbb{P}^1(\mathbb{C})\) is simply connected, it is the branching over \(S\) that makes non-trivial covers possible.) <br>
 
             The last piece of information we need is that, the topology of Riemann surfaces lets any finite group \(G\) 
-            be realised as a quotient of the fundamental group of the Riemann sphere minus finitely many points, \(\pi_1(\mathbb{P}^1(\mathbb{C}) - S )/ N \), this may sound familiar!<br>
+            be realised as a quotient of the fundamental group of the Riemann sphere minus finitely many points, \(\pi_1(\mathbb{P}^1(\mathbb{C}) - S )/ N \).<br>
             
-            Finally, we have all the ingredients. 
+            <b>Finally, we have all the ingredients. </b>
             Take a finite group \(G\), it's isomorphic to a quotient \(\pi_1(\mathbb{P}^1(\mathbb{C})- S) / N\), for \(S\) a finite number of points and \(N\) the normal subgroup corresponding to the finite unramified Galois cover \(X^{\circ}\) over \(\mathbb{P}^1(\mathbb{C}) - S \) (it is a \(\sharp G\) sheeted cover).
             This Galois unramified cover \(X^{\circ}\) corresponds (by filling in) to a compact Riemann surface \(X\) with a branched \(\sharp G\)-sheeted Galois covering \(X \rightarrow \mathbb{P}^1(\mathbb{C})\), (the branching is what makes our cover non-trivial).
             And this branched cover corresponds to a finite Galois extension \(\mathcal{M}(X) | \mathbb{C}(t) \) of degree \(\sharp G\). 
