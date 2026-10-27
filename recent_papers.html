@@ -79,18 +79,19 @@
             \(M_{23}\) was the one sporadic group for which this approach kept failling.
         </p>
 
-        For mathematicians reading this: 
+        
+        And, for mathematicians reading this: 
 
         <p class="blog-txt a", style="color: SlateBlue">
             First of all, the field of meromorphic functions of the Riemann sphere is isomorphic to the function field \(\mathbb{C}(t) \cong \mathcal{M}(\mathbb{P}^1(\mathbb{C}))\), and
             let \(S = \{ P_1, ..., P_r \}\) be a finite set of points on \(\mathbb{P}^1(\mathbb{C})\).
             The two main results are the following equivalences of categories:
 
-            $$ \{ \text{Compact connected Riemann surfaces } X \text{ with a non-constant map} X \rightarrow \mathbb{P}^1(\mathbb{C}) \} $$
+            $$ \{ \text{Compact connected Riemann surfaces } X \text{ with a non-constant map } X \rightarrow \mathbb{P}^1(\mathbb{C}) \} $$
 
             being equivalent to
 
-            $$ \{ \text{Finite field extensions of} \mathbb{C}(t) \} $$
+            $$ \{ \text{Finite field extensions of } \mathbb{C}(t) \} $$
 
             And the mathching, from covering-space theory between covers and subgroups up to conjugacy, and finite covers with finite-index subgroups. 
             More precisely:
@@ -102,12 +103,12 @@
         <p class="blog-txt a", style="color: SlateBlue">
             These two worlds (equivalences) are linked by filling in the punctures.
             Near each point \(P_i\) in \(S\), a finite covering of \(\mathbb{P}^1(\mathbb{C}) - S\) is a disjoint union of punctured discs (represented by \(z \mapsto z^e\) in complex analysis). 
-            Now, filling them in gives a compact Riemann surface \(X = \bar{X^{circ}}\) with a branched covering \(X \to \mathbb{P}^1(\mathbb{C})\), and the deck transformations extend.
+            Now, filling them in gives a compact Riemann surface \(X = \bar{X^{\circ}}\) with a branched covering \(X \to \mathbb{P}^1(\mathbb{C})\), and the deck transformations extend.
             (Since \(\mathbb{P}^1(\mathbb{C})\) is simply connected, it is the branching over \(S\) that makes non-trivial covers possible.)
             The last piece of information we need is that, the topology of Riemann surfaces lets any finite group \(G\) 
             be realised as a quotient of the fundamental group of the Riemann sphere minus finitely many points \(\pi_1(\mathbb{P}^1(\mathbb{C}) - S )/ N \).
         </p>
-        <p class="blog-txt a", style="color: SlateBlue"></p>
+        <p class="blog-txt a", style="color: SlateBlue">
             Finally, we have all the ingredients.
             Take a finite group \(G\), it's isomorphic to a quotient \(\pi_1(\mathbb{P}^1(\mathbb{C})- S) / N\), for \(S\) a finite number of points and \(N\) the normal subgroup corresponding to the finite unramified Galois cover \(X^{\circ}\) over \(\mathbb{P}^1(\mathbb{C}) - S \) (it is a \(\sharp G\) sheeted cover).
             This Galois unramified cover \(X^{\circ}\) corresponds (by filling in) to a compact Riemann surface \(X\) with a branched \(\sharp G\)-sheeted Galois covering \(X \rightarrow \mathbb{P}^1(\mathbb{C})\), (the branching is what makes our cover non-trivial).
@@ -115,19 +116,36 @@
             And to tie everything together, the Galois group of this finite Galois extensions \(Gal(\mathcal{M}(X) | \mathbb{C}(t)) \cong Aut(X | \mathbb{P}^1(\mathbb{C})) \cong \pi_1(\mathbb{P}^1(\mathbb{C})- S) / N \) is exactly \(G\).
         </p>
 
-
+        <p class="blog-txt a">
+            This is the sort of result I love in mathematics! It is a problem of algebra and combinatorics (realising finite groups as Galois groups), 
+            and we end up using geometry, topology and complex analysis to say whehter this is possible or not!
+        </p>
 
         <p class="blog-txt a">
-            The only holdout was the Mathieu group \(M_{23}\). Well, we now have a proof \(4\) decades later!
-            The issue was that to use the rigidity method, one needs to find a specific rigid triple of conjugacy classes. 
-            And for \( M_{23} \) such conjugacy classes cannot be rigid.
-            
+            I will not attempt to explain how the rigidity method works in details.
+            Only, that the holdout for the Mathieu group \(M_{23}\) was that, one need to find a specific triple of conjugacy classes.
+        </p>
 
+        <p class="blog-txt a">
+            The only holdout was the Mathieu group \(M_{23}\).
+            The issue is that for every triple of conjugacy classes, 
+            that is stable under the action of the absolute Galois group of \(\mathbb{Q}\) (denoted \(G_{\mathbb{Q}}\)), 
+            the Nielsen class dos not have exactly one element.
+
+            What the authors did was use the triple of conjugacy classes, stable under the absolute Galois group's action with the smallest Nielsen class size, in this case 7.
+            By Riemann's existence theorem, these 7 elements in the Nielsen classe each correspond to a ramified cover of the Riemann sphere (and they are algebraic).
+            The group \(G_{\mathbb{Q}}\) also permutes those 7 algebraic covers, but what is important is how it permutes them! The "miracle" in this paper is that they found out; \(G_{\mathbb{Q}}\) has a fixed point!
+
+            
+        </p>
+
+        <p class="blog-txt a">
+            The argument here is very similar to the rigidity method, 
+            where the single cover obtains from the single Nielsen class automatically gives a fixed point.
         </p>
 
 
         <p class="blog-txt a">
-            On the use of AI in this paper:<br>
 
         </p>
     </section>
