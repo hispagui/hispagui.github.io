@@ -12,7 +12,7 @@
   </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Recent papers — Loris De Vos</title>
+  <title>Inverse Galois Problem</title>
   <meta name="description" content="on derivatives by Lolo" />
   <script src="script.js"></script>
   <script>applySavedTheme();</script>
@@ -83,7 +83,7 @@
         And, for mathematicians reading this: 
 
         <p class="blog-txt a", style="color: SlateBlue">
-            First of all, the field of meromorphic functions of the Riemann sphere is isomorphic to the function field \(\mathbb{C}(t) \cong \mathcal{M}(\mathbb{P}^1(\mathbb{C}))\), and
+            First of all, the field of meromorphic functions of the Riemann sphere is isomorphic to the function field \(\mathbb{C}(t) (\cong \mathcal{M}(\mathbb{P}^1(\mathbb{C}))\)), and
             let \(S = \{ P_1, ..., P_r \}\) be a finite set of points on \(\mathbb{P}^1(\mathbb{C})\).
             The two main results are the following equivalences of categories:
 
@@ -103,7 +103,7 @@
         <p class="blog-txt a", style="color: SlateBlue">
             These two worlds (equivalences) are linked by filling in the punctures.
             Near each point \(P_i\) in \(S\), a finite covering of \(\mathbb{P}^1(\mathbb{C}) - S\) is a disjoint union of punctured discs (represented by \(z \mapsto z^e\) in complex analysis). 
-            Now, filling them in gives a compact Riemann surface \(X = \bar{X^{\circ}}\) with a branched covering \(X \to \mathbb{P}^1(\mathbb{C})\), and the deck transformations extend.
+            Now, filling them in gives a compact Riemann surface \(X = \overline{X^{\circ}}\) with a branched covering \(X \to \mathbb{P}^1(\mathbb{C})\), and the deck transformations extend.
             (Since \(\mathbb{P}^1(\mathbb{C})\) is simply connected, it is the branching over \(S\) that makes non-trivial covers possible.)
             The last piece of information we need is that, the topology of Riemann surfaces lets any finite group \(G\) 
             be realised as a quotient of the fundamental group of the Riemann sphere minus finitely many points \(\pi_1(\mathbb{P}^1(\mathbb{C}) - S )/ N \).
@@ -123,25 +123,34 @@
         </p>
 
         <p class="blog-txt a">
-            I will not attempt to explain how the rigidity method works in details.
-            Only, that the holdout for the Mathieu group \(M_{23}\) was that, one need to find a specific triple of conjugacy classes.
+            I will not attempt to explain how the rigidity method works in detail.
+
+            The obstacle for the Mathieu group \(M_{23}\) was the following.
+            To apply the rigidity method, one needs to find a specific triple of conjugacy classes: stable under absolute Galois group \(G_{\mathbb{Q}}\) action and with Nielsen class of size one.
+            But for every triple of conjugacy classes of \(M_{23}\) that is stable under \(G_{\mathbb{Q}}\), the Nielsen class never has exactly one element.
+            
+            What the authors did was take the \(G_{\mathbb{Q}}\)-stable triple, with the smallest non-zero Nielsen class size, in this case 7.
+            By Riemann's existence theorem, each of these 7 elements correspond to an \(M_{23}\)-cover of the Riemann sphere (and they are algebraic).
+            
+            Since the triple is \(G_{\mathbb{Q}}\)-stable, \(G_{\mathbb{Q}}\) permutes the 7 covers. But the more important question is how it permutes them? 
+            This cannot be answered by simply looking at the group structure, the authors had to compute these covers explicitly, then verify how they were permutted.
+            
+            The "miracle" they found is that, \(G_{\mathbb{Q}}\) has a fixed point, one of the seven covers is send to itself (up to iso.)!  
+            From there, the argument follows the last steps of the rigidity method.
+            And they obtain a regular Galois extension of \(\mathbb{Q}(t)\) whose Galois group is \(M_{23}\).
+            Finally, choosing a suitable rational substitue for \(t\) and applying Hilbert's irreducibility theorem, they proved that the last Mathieu group, \(M_{23}\) was realisable as the Galois group of the field of rationals.
         </p>
+
+        
 
         <p class="blog-txt a">
-            The only holdout was the Mathieu group \(M_{23}\).
-            The issue is that for every triple of conjugacy classes, 
-            that is stable under the action of the absolute Galois group of \(\mathbb{Q}\) (denoted \(G_{\mathbb{Q}}\)), 
-            the Nielsen class dos not have exactly one element.
-
-            What the authors did was use the triple of conjugacy classes, stable under the absolute Galois group's action with the smallest Nielsen class size, in this case 7.
-            By Riemann's existence theorem, these 7 elements in the Nielsen classe each correspond to a ramified cover of the Riemann sphere (and they are algebraic).
-            The group \(G_{\mathbb{Q}}\) also permutes those 7 algebraic covers, but what is important is how it permutes them! The "miracle" in this paper is that they found out; \(G_{\mathbb{Q}}\) has a fixed point!  
+            In the end, the argument was quite similar to the rigidity method, only in the other cases, the single Nielsen class automatically gives a fixed point, to work with.
         </p>
-
+        <!--
         <p class="blog-txt a">
-            The argument here is very similar to the rigidity method, 
-            where the single cover obtains from the single Nielsen class automatically gives a fixed point.
+            Before wrapping this up, let's talk about the implications of this discovery.
         </p>
+        -->
 
 
     </section>
