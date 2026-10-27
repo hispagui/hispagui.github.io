@@ -39,7 +39,7 @@
 
         <p class="blog-txt a">
             The paper that I want to highlight today settles a question that had been open for almost four decades:
-            it shows that the Mathieu group \(M_{23}\), the last remaining sporadic group, is a Galois group over \(\mathbb{Q}\).
+            it shows that the Mathieu group \(M_{23}\), the last remaining sporadic group, is a Galois group over \(\mathbb{Q}\).<br>
             It is titled <i>The Mathieu group \(M_{23}\) is a Galois group over \(\mathbb{Q}\)</i> and is freely available at <a href="https://arxiv.org/abs/2608.08538" target="_blank" rel="noopener" class="entry-title">arXiv 2608.08538</a>.
             In my opinion, it is also a compelling example for how LLMs can assist researchers: the authors used AI tools for litterature research, code generation and testing hypotheses, while writing the paper themsevlves and verifying the final results without AI. 
         </p>
@@ -47,9 +47,6 @@
         <p class="blog-txt a">
             A bit of context first. In Galois theory, we can attach to any polynomial with rational coefficients a finite group \(G\), its <b>Galois group</b>. 
             If you don't know what Galois groups are, you can think of them as objects that record symmetries along a specific polynomial's roots (this is very informal, the subtelty here is that the Galois group should also preserve algebraic relations over the base field).<br>
-            
-        </p>
-        <p class="blog-txt a">
             Now, the <b>Inverse Galois Problem</b> turns this arround and asks; given a finite group \(G\), is there a polynomial with rational coefficients whose Galois group is \(G\)? 
             Comuting Galois groups of a given polynomial is a well-understood (if sometimes laborious) task, but the converse is very very very hard.
             We don't even know whether every finite group can be realised thsi way, and the question remains very much open.
@@ -57,21 +54,21 @@
 
         <p class="blog-txt a">
             However, much progress has been made. 
-            We know, for instance, that every <i>symmetric</i>, <i>alternating groups</i> and <i>solvable groups</i> (so all abelian groups as well), occurs as Galois groups over \(\mathbb{Q}\).
+            We know for instance, that every <i>symmetric</i>, <i>alternating groups</i> and <i>solvable groups</i> (so all abelian groups as well), occur as Galois groups over \(\mathbb{Q}\).
 
             Another natural place to test the problem is the <b>finite simple groups</b>. 
-            They can be though of as the building blocks from which all finite groups are assembled (they are really helpful for understanding the structures of certain finite groups).
-            They have been extensively studied since you can be understand them as  (they are quite important).
-            There famous classification, one of the longest proofs in mathematics, says that every finite simple group is either a cyclic group of prime order, an alternating group, a group of Lie type or one of the 26 exceptional <i>sporadic</i> groups.
+            They can be though of as the building blocks from which all finite groups are assembled (they are really helpful for understanding the structures of most finite groups).
+            Their famous classification, one of the longest proofs in mathematics, says that every finite simple group is either a cyclic group of prime order, an alternating group, a group of Lie type or one of the 26 exceptional <i>sporadic</i> groups.
         </p>
 
 
         <p class="blog-txt a">
             Today's paper focuses on one of those sporadic groups. 
-            Each of them is unusual in its own way, and some are enormous: the largest, caled the Monster, has about \(8 \times 10^{53}\) elements.
-            In the 1980's, mathematicians showed that 25 of them occur as Galois groups over \(\mathbb{Q}\), using what we call the <i>rigidity method</i> (and its variants).
+            Each of them is unusual in its own way, and some are enormous, the largest, caled the Monster, has about \(8 \times 10^{53}\) elements.
+            In the 1980's, mathematicians showed that 25 of them occur as Galois groups over \(\mathbb{Q}\), using what we call the <i>rigidity method</i> (and variations of it).
             Surprisingly (or not), the method builds on rich geometric mathematics: Riemann surfaces, monodromy, fundamental groups, descent theory and modulli spaces.
-        </p>            
+        </p>    
+
         <p class="blog-txt a">
             The trick is that over the field \( \mathbb{C}(t) \), every finite group DOES occur as a Galois group, thanks to the topology of the punctured Riemann sphere.
             The rigidity method gives a criterion under which such a realisation can be "descended" from \(\mathbb{C}(t)\) to \(\mathbb{Q}(t)\).
@@ -79,21 +76,33 @@
             \(M_{23}\) was the one sporadic group for which this approach kept failling.
         </p>
 
+        <p class="blog-txt a">
+            This is the sort of result I love in mathematics! It is a problem of algebra and combinatorics (realising finite groups as Galois groups), 
+            and we end up using geometry, topology and complex analysis to say whehter this is possible or not!
+        </p>
+
+
+
+
+        
+
         
         And, for mathematicians reading this: 
 
         <p class="blog-txt a", style="color: SlateBlue">
-            First of all, the field of meromorphic functions of the Riemann sphere is isomorphic to the function field \(\mathbb{C}(t) (\cong \mathcal{M}(\mathbb{P}^1(\mathbb{C}))\)), and
+
+            So, over \(\mathbb{C}(t)\), every finite group occurs as the Galois group of some polynomial.
+            The first reason for this is that the field of meromorphic functions of the Riemann sphere is isomorphic to the function field \(\mathbb{C}(t) (\cong \mathcal{M}(\mathbb{P}^1(\mathbb{C}))\)), and
             let \(S = \{ P_1, ..., P_r \}\) be a finite set of points on \(\mathbb{P}^1(\mathbb{C})\).
-            The two main results are the following equivalences of categories:
+            Next, the main reason for this are the following equivalences of categories:
 
             $$ \{ \text{Compact connected Riemann surfaces } X \text{ with a non-constant map } X \rightarrow \mathbb{P}^1(\mathbb{C}) \} $$
 
-            being equivalent to
+            is equivalent to
 
             $$ \{ \text{Finite field extensions of } \mathbb{C}(t) \} $$
 
-            And the mathching, from covering-space theory between covers and subgroups up to conjugacy, and finite covers with finite-index subgroups. 
+            And the mathching (actually an equivalenceslence of categories), from covering-space theory between covers and subgroups up to conjugacy, and finite covers with finite-index subgroups. 
             More precisely:
             A finite connected covering \(X^{\circ}\) of \(\mathbb{P}^1(\mathbb{C}) - S\) corresponds to a subgroup \(H \le \pi_1(\mathbb{P}^1(\mathbb{C}) - S)\).
             A finite normal covering \(Z^{\circ}\) corresponds to a normal subgroup \(N \trianglelefteq \pi_1(\mathbb{P}^1(\mathbb{C}) - S)\).
@@ -117,15 +126,10 @@
             And to tie everything together, the Galois group of this finite Galois extensions \(Gal(\mathcal{M}(X) | \mathbb{C}(t)) \cong Aut(X | \mathbb{P}^1(\mathbb{C})) \cong \pi_1(\mathbb{P}^1(\mathbb{C})- S) / N \) is exactly \(G\).
         </p>
 
-        <p class="blog-txt a">
-            This is the sort of result I love in mathematics! It is a problem of algebra and combinatorics (realising finite groups as Galois groups), 
-            and we end up using geometry, topology and complex analysis to say whehter this is possible or not!
-        </p>
+        <p class="blog-txt a", style="color: SlateBlue">
+            I will not attempt to explain how the rigidity method works in detail.<br>
 
-        <p class="blog-txt a">
-            I will not attempt to explain how the rigidity method works in detail.
-
-            The obstacle for the Mathieu group \(M_{23}\) was the following.
+            But the obstacle for the Mathieu group \(M_{23}\) was the following.
             To apply the rigidity method, one needs to find a specific triple of conjugacy classes: stable under absolute Galois group \(G_{\mathbb{Q}}\) action and with Nielsen class of size one.
             But for every triple of conjugacy classes of \(M_{23}\) that is stable under \(G_{\mathbb{Q}}\), the Nielsen class never has exactly one element.
             
@@ -144,7 +148,7 @@
         
 
         <p class="blog-txt a">
-            In the end, the argument was quite similar to the rigidity method, only in the other cases, the single Nielsen class automatically gives a fixed point, to work with.
+            In the end, the argument traced back to the rigidity method, only in the other cases, the single Nielsen class automatically gives a fixed point, to work with.
         </p>
         <!--
         <p class="blog-txt a">
