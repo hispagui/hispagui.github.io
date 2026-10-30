@@ -139,7 +139,27 @@ main,
 }
 
 .header-info{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   min-width: 0;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;  
+  flex-shrink: 0; 
+}
+@media (max-width: 600px) {
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.name span {
+  display: block;
 }
 
 .name {
