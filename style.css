@@ -12,7 +12,8 @@
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --font-quote: "Caveat", serif;
 
-  --max-width: 800px;
+  --width: min(90%, 1400px); 
+  --max-width: none;
 }
 
 * { box-sizing: border-box; }
