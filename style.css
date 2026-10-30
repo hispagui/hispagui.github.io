@@ -56,12 +56,13 @@ html {
 
 /* ---------- Pairing images ----------- */
 .pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 1.5rem;
+  align-items: flex-start;
 }
 .pair figure {
   margin: 0;
+  min-width: 0;
 }
 .pair img {
   width: 100%;   
@@ -70,7 +71,7 @@ html {
 }
 @media (max-width: 700px) {
   .pair {
-    grid-template-columns: 1fr; 
+    flex-direction: column; 
   }
 }
 
