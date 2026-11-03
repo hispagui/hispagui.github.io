@@ -124,7 +124,7 @@ a:focus-visible {
 .site-header,
 main,
 .site-footer {
-  width: 100%;
+  width: var(--width);
   max-width: var(--max-width);
   margin: 0 auto;
   padding-left: 24px;
