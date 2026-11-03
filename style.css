@@ -55,29 +55,6 @@ html {
 }
 
 
-/* ---------- Pairing images ----------- */
-.pair {
-  display: flex;
-  flex-wrap: wrap;  /* stacks images */
-  gap: 1.5rem;
-  max-width: 900px;           /* overall size of the pair */
-  margin: 2rem auto;          /* centered on the page */
-}
-.pair figure {
-  margin: 0;
-  min-width: 0;
-  flex: var(--w) 1 calc(var(--w) * 0.5px);
-}
-.pair img {
-  width: auto;   
-  height: 100%;  
-  display: block;
-}
-@media (max-width: 700px) {
-  .pair {
-    flex-direction: column; 
-  }
-}
 
 
 
