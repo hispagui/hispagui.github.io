@@ -4,6 +4,7 @@
 const quotes = [
   "The man who never alters his opinion is like standing water, and breeds reptiles of the mind - W.B.",
   "La seule chose inéluctable c'est la mort - B.G.",
+  "Happy families are all alike; every unhappy family is unhappy in its own way - R.Vakil on flatness"
 ];
 let currentQuote = -1;
 // Shows a random quote, never the same one twice in a row
